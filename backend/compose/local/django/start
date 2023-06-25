@@ -1,0 +1,23 @@
+#!/bin/bash
+
+set -o errexit
+set -o pipefail
+set -o nounset
+
+echo "Make migrations the Database at startup of project"
+python manage.py makemigrations
+
+echo "Migrating the Database at startup of project"
+python manage.py migrate
+python manage.py collectstatic --noinput
+
+
+# echo "Making tests ..."
+# python manage.py test -v2 --noinput
+
+echo "Django docker is fully configured successfully."
+### TEST LIKE PROD
+# /usr/local/bin/gunicorn config.wsgi --bind 0.0.0.0:8000 --chdir=/app --workers=5 --threads=2 --max-requests 50 --max-requests-jitter 5
+
+### LOCAL SETTINGS
+python manage.py runserver_plus 0.0.0.0:8000

@@ -1,0 +1,15 @@
+# PRECAUTION: avoid production dependencies that aren't in development
+
+-r base.txt
+
+gunicorn==20.1.0  # https://github.com/benoitc/gunicorn
+Collectfast==2.2.0  # https://github.com/antonagestam/collectfast
+
+# Django
+# ------------------------------------------------------------------------------
+
+django-anymail[amazon_ses]==10.0  # https://github.com/anymail/django-anymail
+django-storages[boto3]==1.13.2  # https://github.com/jschneier/django-storages
+django-debug-toolbar==4.1.0  # https://github.com/jazzband/django-debug-toolbar
+
+django-ebhealthcheck==2.0.2 # https://github.com/sjkingo/django-ebhealthcheck
