@@ -10,3 +10,5 @@ REDIS_URL="redis://redis:6379/0"
 # Django
 # ------------------------------------------------------------------------------
 SECRET_KEY=faNOpRrPjt59ZE7ZYTdLIYkaBG0YluPfzNFhtkuN1Bo
+DEBUG=True
+IS_LOCAL=True

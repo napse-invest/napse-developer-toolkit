@@ -17,8 +17,8 @@ def build_postgres_env(env_name: str) -> None:
     path: Path = Path(f"{ROOT_DIR}/.envs/.{env_name}/.postgres")
     if path.is_file():
         return
-    # PostgreSQL
-    # ------------------------------------------------------------------------------
+
+    # Data
     POSTGRES_HOST = "postgres"
     POSTGRES_PORT = 5432
     POSTGRES_DB = "napse_developer_toolkit"

@@ -9,9 +9,13 @@ ROOT_DIR = Path(__file__).resolve(strict=True).parent.parent.parent
 APPS_DIR = ROOT_DIR / "napse"
 
 # Setup env
-env = environ.Env()
+env = environ.Env(
+    DEBUG=(bool, False),
+)
+
 env.read_env(str(ROOT_DIR / ".env"))
 DEBUG = env.bool("DJANGO_DEBUG", False)
+SECRET_KEY = env("SECRET_KEY")
 
 
 # TIME ZONE
