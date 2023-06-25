@@ -1,4 +1,4 @@
-cryptography==41.0.0
-djangorestframework-simplejwt==5.2.2
+cryptography==41.0.0 # https://github.com/pyca/cryptography
+djangorestframework-simplejwt==5.2.2 # https://github.com/jazzband/djangorestframework-simplejwt
 django-health-check==3.17.0 # https://github.com/revsys/django-health-check
-django-environ==0.10.0
+django-environ==0.10.0 # https://github.com/joke2k/django-environ
