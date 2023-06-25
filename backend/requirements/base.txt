@@ -1,0 +1,4 @@
+cryptography==40.0.2
+djangorestframework-simplejwt==5.2.2
+django-health-check==3.17.0 # https://github.com/revsys/django-health-check
+django-environ==0.10.0
