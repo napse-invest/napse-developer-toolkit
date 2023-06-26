@@ -7,4 +7,4 @@ The first step is to set up the virtual environment with all its associated depe
 ```bash
 source setup.sh
 ```
-
+.
