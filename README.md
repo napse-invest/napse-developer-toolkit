@@ -1,5 +1,5 @@
 # Napse-Developer-Toolkit
-All you need to push the customisation of your Napse services.
+All you need to push the customisation of your Napse services to the next level.
 
 # Development environment
 
@@ -7,3 +7,4 @@ The first step is to set up the virtual environment with all its associated depe
 ```bash
 source setup.sh
 ```
+
