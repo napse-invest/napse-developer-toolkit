@@ -1,2 +1,2 @@
 # Napse-Developer-Toolkit
-All you need to push the customisation of your Napse services.
+All you need to push the customisation of your Napse services to the next level.
