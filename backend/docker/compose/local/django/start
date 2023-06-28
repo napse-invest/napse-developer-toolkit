@@ -4,6 +4,7 @@ set -o errexit
 set -o pipefail
 set -o nounset
 
+export DJANGO_SETTINGS_MODULE=config.settings.local
 echo "Make migrations the Database at startup of project"
 python manage.py makemigrations
 

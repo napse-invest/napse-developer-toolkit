@@ -8,7 +8,7 @@ services:
   django: &django
     build:
       context: ..
-      dockerfile: ./compose/server/django/Dockerfile
+      dockerfile: ./docker/compose/server/django/Dockerfile
     image: napse_dev_tk_server_django
     container_name: napse_dev_tk_server_django
     platform: linux/x86_64
@@ -29,7 +29,7 @@ services:
   postgres:
     build:
       context: ..
-      dockerfile: ./compose/server/postgres/Dockerfile
+      dockerfile: ./docker/compose/server/postgres/Dockerfile
     image: napse_dev_tk_server_postgres
     container_name: napse_dev_tk_server_postgres
     volumes:

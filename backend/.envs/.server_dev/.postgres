@@ -1,0 +1,7 @@
+# PostgreSQL
+# ------------------------------------------------------------------------------
+POSTGRES_HOST = "postgres"
+POSTGRES_PORT = 5432
+POSTGRES_DB = "napse_developer_toolkit"
+POSTGRES_USER = "pLq5el_-y_rI-t7R2pyh-XIaYSe1ROHmEPrJ_gcCEO8"
+POSTGRES_PASSWORD = "SOjRcyEJpUhO_XA59Dg0HqeQAvewOSA6UvtYcxj6i7AB_0WNuYD3Xg3KpA-aKtHuDhDtqPnM03r3JnYCkMTM7w" # noqa: S105
