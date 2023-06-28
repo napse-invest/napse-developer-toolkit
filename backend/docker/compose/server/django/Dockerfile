@@ -1,7 +1,5 @@
 ARG PYTHON_VERSION=3.11-slim-bullseye
 
-
-
 # define an alias for the specfic python version used in this file.
 FROM python:${PYTHON_VERSION} as python
 
@@ -16,9 +14,7 @@ RUN apt-get update && apt-get install --no-install-recommends -y \
   build-essential \
   # psycopg2 dependencies
   libpq-dev \
-  sqlcipher libsqlcipher0 libsqlcipher-dev \
-  # installing libs for bitcoinlib
-  libgmp3-dev sqlcipher libsqlcipher0 libsqlcipher-dev
+  sqlcipher libsqlcipher0 libsqlcipher-dev 
 
 # Requirements are installed here to ensure they will be cached.
 COPY ./requirements .
@@ -50,8 +46,6 @@ RUN apt-get update && apt-get install --no-install-recommends -y \
   libpq-dev \
   # Translations dependencies
   gettext \
-  # installing libs for bitcoinlib
-  libgmp3-dev sqlcipher libsqlcipher0 libsqlcipher-dev \
   # cleaning up unused files
   && apt-get purge -y --auto-remove -o APT::AutoRemove::RecommendsImportant=false \
   && rm -rf /var/lib/apt/lists/*

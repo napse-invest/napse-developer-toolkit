@@ -18,7 +18,7 @@ services:
     env_file:
       - ../.envs/.server/.django
       - ../.envs/.server/.postgres
-    command: /start
+    command: /start_prod
     labels:
       - "traefik.enable=true"
       - "traefik.http.routers.django.rule=Host(`localhost`)"
