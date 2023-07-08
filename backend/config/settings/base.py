@@ -13,8 +13,6 @@ env = environ.Env(
     DEBUG=(bool, False),
     IS_LOCAL=(bool, False),
 )
-
-env.read_env(str(ROOT_DIR / ".env"))
 DEBUG = env.bool("DEBUG", False)
 IS_LOCAL = env.bool("IS_LOCAL", False)
 SECRET_KEY = env("SECRET_KEY")

@@ -4,11 +4,13 @@ volumes:
   napse_dtk_dev_postgres_data: {}
   napse_dtk_dev_postgres_data_backups: {}
 
+name: napse-dtk
+
 services:
   django: &django
     build: 
       context: ..
-      dockerfile: ./docker/compose/django/Dockerfile
+      dockerfile: ./docker/compose/development/django/Dockerfile
     image: napse_dtk_django
     container_name: napse_dtk_django
     platform: linux/x86_64
@@ -31,7 +33,7 @@ services:
   postgres:
     build:
       context: ..
-      dockerfile: ./docker/compose/postgres/Dockerfile
+      dockerfile: ./docker/compose/development/postgres/Dockerfile
     image: napse_dtk_postgres
     container_name: napse_dtk_postgres
     volumes:
@@ -46,57 +48,48 @@ services:
     image: redis:6
     container_name: napsedjango_local_redis
 
+  celeryworker:
+    <<: *django
+    image: napse_dtk_celeryworker
+    container_name: napse_dtk_celeryworker
+    depends_on:
+      - redis
+      - postgres
+      - django
+    ports: []
+    command: /start-celeryworker
+    labels:
+      - "traefik.enable=false"
 
+  celerybeat:
+    <<: *django
+    image: napse_dtk_celerybeat
+    container_name: napse_dtk_celerybeat
+    depends_on:
+      - redis
+      - postgres
+      - django
+    ports: []
+    command: /start-celerybeat
+    labels:
+      - "traefik.enable=false"
 
-# ------------------------------------------------------
-
-
-#   traefik:
-#     image: "traefik:v2.9.5"
-#     container_name: traefik
-#     command:
-#       - "--log.level=DEBUG"
-#       - "--api.insecure=true"
-#       - "--providers.docker=true"
-#       - "--providers.docker.exposedbydefault=false"
-#       - "--entrypoints.web.address=:8000"
-#       - "--entrypoints.frontend.address=:3005"
-#       - "--entrypoints.flower.address=:5555"
-#     ports:
-#       - "5555:5555"
-#       - "8000:8000"
-#       - "8080:8080"
-#       - "3005:3005"
-#     volumes:
-#       - "/var/run/docker.sock:/var/run/docker.sock:ro"
-
-
-
-
-#   celeryworker:
-#     <<: *django
-#     image: napsedjango_local_celeryworker
-#     container_name: napsedjango_local_celeryworker
-#     depends_on:
-#       - redis
-#       - postgres
-#       - django
-#     ports: []
-#     command: /start-celeryworker
-#     labels:
-#       - "traefik.enable=false"
-
-#   celerybeat:
-#     <<: *django
-#     image: napsedjango_local_celerybeat
-#     container_name: napsedjango_local_celerybeat
-#     depends_on:
-#       - redis
-#       - postgres
-#       - django
-#     ports: []
-#     command: /start-celerybeat
-#     labels:
-#       - "traefik.enable=false"
-
+  traefik:
+    image: "traefik:v2.9.5"
+    container_name: traefik
+    command:
+      - "--log.level=DEBUG"
+      - "--api.insecure=true"
+      - "--providers.docker=true"
+      - "--providers.docker.exposedbydefault=false"
+      - "--entrypoints.web.address=:8000"
+      - "--entrypoints.frontend.address=:3005"
+      - "--entrypoints.flower.address=:5555"
+    ports:
+      - "5555:5555"
+      - "8000:8000"
+      - "8080:8080"
+      - "3005:3005"
+    volumes:
+      - "/var/run/docker.sock:/var/run/docker.sock:ro"
 
