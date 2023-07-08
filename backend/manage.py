@@ -6,8 +6,7 @@ import sys
 
 def main():
     """Run administrative tasks."""
-    print("DJANGO_SETTINGS_MODULE: ", os.environ.get("DJANGO_SETTINGS_MODULE"))
-
+    os.environ.setdefault("DJANGO_SETTINGS_MODULE", "config.settings.local")
     try:
         from django.core.management import execute_from_command_line
     except ImportError as exc:
@@ -18,7 +17,6 @@ def main():
         )
         raise ImportError("".join(error_msg)) from exc
     execute_from_command_line(sys.argv)
-    print("DJANGO_SETTINGS_MODULE: ", os.envirn.get("DJANGO_SETTINGS_MODULE"))
 
 
 if __name__ == "__main__":
