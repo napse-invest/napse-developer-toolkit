@@ -63,6 +63,18 @@ COPY ./docker/compose/django/entrypoint /entrypoint
 RUN sed -i 's/\r$//g' /entrypoint
 RUN chmod +x /entrypoint
 
+# COPY ./compose/wait-for-it.sh /wait-for-it.sh
+# RUN sed -i 's/\r$//g' /wait-for-it.sh
+# RUN chmod +x /wait-for-it.sh
+
+COPY ./compose/local/django/celery/worker/start /start-celeryworker
+RUN sed -i 's/\r$//g' /start-celeryworker
+RUN chmod +x /start-celeryworker
+
+COPY ./compose/local/django/celery/beat/start /start-celerybeat
+RUN sed -i 's/\r$//g' /start-celerybeat
+RUN chmod +x /start-celerybeat
+
 # Copy everything
 COPY . .
 

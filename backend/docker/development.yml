@@ -49,32 +49,7 @@ services:
 
 
 # ------------------------------------------------------
-# version: '3'
 
-# volumes:
-#   napsedjango_local_postgres_data: {}
-#   napsedjango_local_postgres_data_backups: {}
-
-# services:
-#   django: &django
-#     build:
-#       context: .
-#       dockerfile: ./compose/local/django/Dockerfile
-#     image: napsedjango_local_django
-#     container_name: napsedjango_local_django
-#     platform: linux/x86_64
-#     depends_on:
-#       - postgres
-#       - redis
-#     volumes:
-#       - .:/app:z
-#     env_file:
-#       - ./.envs/.local/.django
-#       - ./.envs/.local/.postgres
-#     command: /start
-
-#     expose:
-#       - "8000"
 
 #   traefik:
 #     image: "traefik:v2.9.5"
@@ -124,37 +99,4 @@ services:
 #     labels:
 #       - "traefik.enable=false"
 
-#   flower:
-#     <<: *django
-#     image: napsedjango_local_flower
-#     container_name: napsedjango_local_flower
-#     command: /start-flower
-#     labels:
-#       - "traefik.enable=true"
-#       - "traefik.http.routers.flower.rule=Host(`localhost`)"
-#       - "traefik.http.routers.flower.entrypoints=flower"
-#     expose:
-#       - "5555"
 
-#   frontend:
-#     build:
-#       context: .
-#       dockerfile: ./compose/local/frontend/Dockerfile
-#     platform: linux/x86_64
-#     image: frontend
-#     container_name: frontend
-#     depends_on:
-#       - postgres
-#       - redis
-#     env_file:
-#       - ./.envs/.local/.django
-#       - ./.envs/.local/.postgres
-#     command: /start
-#     labels:
-#       - "traefik.enable=true"
-#       - "traefik.http.routers.frontend.rule=Host(`localhost`)"
-#       - "traefik.http.routers.frontend.entrypoints=frontend"
-#     volumes:
-#       - ../client:/app
-#     expose:
-#       - "3005"
