@@ -6,7 +6,7 @@ from pathlib import Path
 import environ
 
 ROOT_DIR = Path(__file__).resolve(strict=True).parent.parent.parent
-APPS_DIR = ROOT_DIR / "napse_developer_toolkit"
+APPS_DIR = ROOT_DIR / "napse_dtk_development"
 
 # Setup env
 env = environ.Env(
@@ -16,7 +16,7 @@ env = environ.Env(
 
 env.read_env(str(ROOT_DIR / ".env"))
 DEBUG = env.bool("DEBUG", False)
-DEBUG = env.bool("IS_LOCAL", False)
+IS_LOCAL = env.bool("IS_LOCAL", False)
 SECRET_KEY = env("SECRET_KEY")
 
 

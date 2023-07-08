@@ -1,6 +1,10 @@
+import os
+
 from config.settings.base import *  # noqa: F403
 from config.settings.base import env
 from config.settings.modules import *  # noqa: F403
+
+ALLOWED_HOSTS = ["localhost", "0.0.0.0", "127.0.0.1", "django"]
 
 # DOCKER
 # ------------------------------------------------------------------------------
