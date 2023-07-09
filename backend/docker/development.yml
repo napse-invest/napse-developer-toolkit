@@ -1,18 +1,18 @@
 version: '3'
 
+name: napse-dtk-development
+
 volumes:
   napse_dtk_dev_postgres_data: {}
   napse_dtk_dev_postgres_data_backups: {}
-
-name: napse-dtk
 
 services:
   django: &django
     build: 
       context: ..
       dockerfile: ./docker/compose/development/django/Dockerfile
-    image: napse_dtk_django
-    container_name: napse_dtk_django
+    image: napse_dtk_dev_django
+    container_name: napse_dtk_dev_django
     platform: linux/x86_64
     depends_on:
       - postgres
@@ -34,8 +34,8 @@ services:
     build:
       context: ..
       dockerfile: ./docker/compose/development/postgres/Dockerfile
-    image: napse_dtk_postgres
-    container_name: napse_dtk_postgres
+    image: napse_dtk_dev_postgres
+    container_name: napse_dtk_dev_postgres
     volumes:
       - napse_dtk_dev_postgres_data:/var/lib/postgresql/data:Z
       - napse_dtk_dev_postgres_data_backups:/backups:z
@@ -50,8 +50,8 @@ services:
 
   celeryworker:
     <<: *django
-    image: napse_dtk_celeryworker
-    container_name: napse_dtk_celeryworker
+    image: napse_dtk_dev_celeryworker
+    container_name: napse_dtk_dev_celeryworker
     depends_on:
       - redis
       - postgres
@@ -63,8 +63,8 @@ services:
 
   celerybeat:
     <<: *django
-    image: napse_dtk_celerybeat
-    container_name: napse_dtk_celerybeat
+    image: napse_dtk_dev_celerybeat
+    container_name: napse_dtk_dev_celerybeat
     depends_on:
       - redis
       - postgres

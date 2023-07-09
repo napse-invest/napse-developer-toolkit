@@ -5,7 +5,7 @@ FROM python:${PYTHON_VERSION} as python
 # ----------------------------------------------------------------------------------------
 # Python build stage
 FROM python as python-build-stage
-ARG BUILD_ENVIRONMENT=development
+ARG BUILD_ENVIRONMENT=production
 
 # Update and install 
 RUN apt-get update && apt-get install --no-install-recommends -y \
@@ -29,7 +29,7 @@ FROM python as python-run-stage
 # set environment variables
 ENV PYTHONDONTWRITEBYTECODE 1
 ENV PYTHONUNBUFFERED 1
-ARG BUILD_ENVIRONMENT=development
+ARG BUILD_ENVIRONMENT=production
 ARG APP_HOME=/app
 
 # set work directory
@@ -59,10 +59,6 @@ COPY ./docker/compose/${BUILD_ENVIRONMENT}/django/start /start
 RUN sed -i 's/\r$//g' /start
 RUN chmod +x /start
 
-COPY ./docker/compose/${BUILD_ENVIRONMENT}/django/entrypoint /entrypoint
-RUN sed -i 's/\r$//g' /entrypoint
-RUN chmod +x /entrypoint
-
 COPY ./docker/wait-for-it.sh /wait-for-it.sh
 RUN sed -i 's/\r$//g' /wait-for-it.sh
 RUN chmod +x /wait-for-it.sh
@@ -77,5 +73,3 @@ RUN chmod +x /start-celerybeat
 
 # Copy everything
 COPY . .
-
-ENTRYPOINT ["/entrypoint"]
