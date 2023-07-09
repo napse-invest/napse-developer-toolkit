@@ -40,7 +40,7 @@ def build_postgres_env(env_name: str) -> None:
 
 def build_django_secrets(env_name: str) -> None:
     """Build secrets for .django file of .env."""
-    ROOT_DIR: str = Path(__file__).resolve(strict=True).parent.parent
+    ROOT_DIR: str = Path(__file__).resolve(strict=True).parent.parentxx
     django_env_pathfile: str = f"{ROOT_DIR}/.envs/.{env_name}/.django"
 
     with open(django_env_pathfile, "r+") as django_env_file:

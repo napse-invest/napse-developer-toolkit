@@ -1,23 +1,19 @@
 version: '3'
 
-volumes:
-  napse_dev_tk_local_postgres_data: {}
-  napse_dev_tk_local_postgres_data_backups: {}
+name: napse-dtk-dev-as-prod
 
 services:
   django: &django
     build:
       context: ..
-      dockerfile: ./compose/server/django/Dockerfile
-    image: napse_dev_tk_server_django
-    container_name: napse_dev_tk_server_django
+      dockerfile: ./docker/compose/production/django/Dockerfile
+    image: napse_dtk_prod_django
+    container_name: napse_dtk_prod_django
     platform: linux/x86_64
     depends_on:
-      - postgres
       - redis
     env_file:
-      - ../.envs/.server/.django
-      - ../.envs/.server/.postgres
+      - ../.envs/.dev_as_prod/.django
     command: /start
     labels:
       - "traefik.enable=true"
@@ -25,20 +21,6 @@ services:
       - "traefik.http.routers.django.entrypoints=web"
     expose:
       - "8000"
-
-  postgres:
-    build:
-      context: ..
-      dockerfile: ./compose/server/postgres/Dockerfile
-    image: napse_dev_tk_server_postgres
-    container_name: napse_dev_tk_server_postgres
-    volumes:
-      - napse_dev_tk_local_postgres_data:/var/lib/postgresql/data:Z
-      - napse_dev_tk_local_postgres_data_backups:/backups:z
-    env_file:
-      - ../.envs/.server/.postgres
-    ports:
-      - "5432:5432"
 
   traefik:
     image: "traefik:v2.9.5"
@@ -55,15 +37,14 @@ services:
 
   redis:
     image: redis:6
-    container_name: napse_dev_tk_server_redis
+    container_name: napse_dtk_prod_redis
 
   celeryworker:
     <<: *django
-    image: napse_dev_tk_server_celeryworker
-    container_name: napse_dev_tk_server_celeryworker
+    image: napse_dtk_prod_celeryworker
+    container_name: napse_dtk_prod_celeryworker
     depends_on:
       - redis
-      - postgres
       - django
     ports: []
     command: /start-celeryworker
@@ -72,11 +53,10 @@ services:
 
   celerybeat:
     <<: *django
-    image: napse_dev_tk_server_celerybeat
-    container_name: napse_dev_tk_server_celerybeat
+    image: napse_dtk_prod_celerybeat
+    container_name: napse_dtk_prod_celerybeat
     depends_on:
       - redis
-      - postgres
       - django
     ports: []
     command: /start-celerybeat

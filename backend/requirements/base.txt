@@ -1,5 +1,12 @@
 psycopg2-binary==2.9.6  # https://github.com/psycopg/psycopg2
 cryptography==41.0.0 # https://github.com/pyca/cryptography
+python-slugify==8.0.1  # https://github.com/un33k/python-slugify
+pytz==2023.3  # https://github.com/stub42/pytz
+Pillow==10.0.0  # https://github.com/python-pillow/Pillow
+argon2-cffi==21.3.0  # https://github.com/hynek/argon2_cffi
+hiredis==2.2.3  # https://github.com/redis/hiredis-py
+redis==4.6.0  # https://github.com/redis/redis-py
+celery==5.3.1  # pyup: < 6.0  # https://github.com/celery/celery
 
 # Django
 # ------------------------------------------------------------------------------
@@ -7,7 +14,5 @@ django==4.1.7 # https://www.djangoproject.com/
 djangorestframework-simplejwt==5.2.2 # https://github.com/jazzband/djangorestframework-simplejwt
 django-health-check==3.17.0 # https://github.com/revsys/django-health-check
 django-environ==0.10.0 # https://github.com/joke2k/django-environ
-hiredis==2.2.3  # https://github.com/redis/hiredis-py
-redis==4.5.5  # https://github.com/redis/redis-py
-celery==5.3.1  # pyup: < 6.0  # https://github.com/celery/celery
 django-celery-beat==2.5.0  # https://github.com/celery/django-celery-beat
+django-extensions==3.2.3  # https://github.com/django-extensions/django-extensions
