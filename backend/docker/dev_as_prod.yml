@@ -1,6 +1,6 @@
 version: '3'
 
-name: napse-dtk-production
+name: napse-dtk-dev-as-prod
 
 services:
   django: &django
@@ -13,7 +13,7 @@ services:
     depends_on:
       - redis
     env_file:
-      - ../.envs/.production/.django
+      - ../.envs/.dev_as_prod/.django
     command: /start
     labels:
       - "traefik.enable=true"

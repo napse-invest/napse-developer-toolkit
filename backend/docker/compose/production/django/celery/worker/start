@@ -4,8 +4,8 @@ set -o errexit
 set -o pipefail
 set -o nounset
 
-sleep 10
-/wait-for-it.sh $POSTGRES_HOST:$POSTGRES_PORT --timeout=10 --strict -- echo "postgres is up"
+# sleep 10
+# /wait-for-it.sh $POSTGRES_HOST:$POSTGRES_PORT --timeout=10 --strict -- echo "postgres is up"
 rm -f './celerybeat.pid'
 
 exec celery -A config.celery_app worker --concurrency 4 --max-tasks-per-child 10 -l INFO
