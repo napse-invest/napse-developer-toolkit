@@ -10,5 +10,7 @@ Create a new project
     source setup-unix.sh
     ```
     
-    Windows
-    Not implemented yet.
+    Windows (PowerShell terminal as administrator)
+    ```powershell
+    .\setup-windows.ps1
+    ```
