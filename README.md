@@ -5,12 +5,8 @@ All you need to push the customisation of your Napse services to the next level.
 
 Create a new project
 
-    Unix
-    ```bash	
-    source setup-unix.sh
-    ```
-    
-    Windows (PowerShell terminal as administrator)
-    ```powershell
-    .\setup-windows.ps1
-    ```
+- Unix \
+```source setup-unix.sh```
+
+- Windows (PowerShell terminal as administrator)\
+```.\setup-windows.ps1```
