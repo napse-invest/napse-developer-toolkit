@@ -6,14 +6,14 @@ from pathlib import Path
 import environ
 
 ROOT_DIR = Path(__file__).resolve(strict=True).parent.parent.parent
-APPS_DIR = ROOT_DIR / "napse_dtk_development"
+APPS_DIR = ROOT_DIR / "napse_dtk"
 
 # Setup env
 env = environ.Env(
     DEBUG=(bool, False),
     IS_LOCAL=(bool, False),
 )
-DEBUG = env.bool("DEBUG", False)
+DEBUG = env.bool("DJANGO_DEBUG", False)
 IS_LOCAL = env.bool("IS_LOCAL", False)
 SECRET_KEY = env("SECRET_KEY")
 

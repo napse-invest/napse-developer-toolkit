@@ -6,5 +6,6 @@ set -o nounset
 /wait-for-it.sh $POSTGRES_HOST:$POSTGRES_PORT --timeout=10 --strict -- echo "postgres is up"
 
 # local settings
-watchfiles celery.__main__.main --args '-A config.celery_app worker --max-memory-per-child 1000000 --max-tasks-per-child 10 -P prefork -l INFO'
+watchfiles celery.__main__.main --args '-A config.celery_app worker -P prefork -l INFO'
+
 

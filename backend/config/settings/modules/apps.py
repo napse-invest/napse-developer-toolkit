@@ -14,6 +14,8 @@ THIRD_PARTY_APPS = [
     "health_check",
 ]
 
-LOCAL_APPS = []
+LOCAL_APPS = [
+    "napse_dtk.custom",
+]
 
 INSTALLED_APPS = DJANGO_APPS + THIRD_PARTY_APPS + LOCAL_APPS
