@@ -74,6 +74,18 @@ services:
     labels:
       - "traefik.enable=false"
 
+  flower:
+    <<: *django
+    image: napse_dtk_dev_flower
+    container_name: napse_dtk_dev_flower
+    command: /start-flower
+    labels:
+      - "traefik.enable=true"
+      - "traefik.http.routers.flower.rule=Host(`localhost`)"
+      - "traefik.http.routers.flower.entrypoints=flower"
+    expose:
+      - "5555"
+
   traefik:
     image: "traefik:v2.9.5"
     container_name: traefik

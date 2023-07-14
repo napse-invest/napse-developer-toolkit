@@ -71,5 +71,9 @@ COPY ./docker/compose/${BUILD_ENVIRONMENT}/django/celery/beat/start /start-celer
 RUN sed -i 's/\r$//g' /start-celerybeat
 RUN chmod +x /start-celerybeat
 
+COPY ./docker/compose/${BUILD_ENVIRONMENT}/django/celery/flower/start /start-flower
+RUN sed -i 's/\r$//g' /start-flower
+RUN chmod +x /start-flower
+
 # Copy everything
 COPY . .

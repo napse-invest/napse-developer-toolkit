@@ -40,7 +40,7 @@ def build_postgres_env(env_name: str) -> None:
 
 def build_django_secrets(env_name: str) -> None:
     """Build secrets for .django file of .env."""
-    ROOT_DIR: str = Path(__file__).resolve(strict=True).parent.parentxx
+    ROOT_DIR: str = Path(__file__).resolve(strict=True).parent.parent
     django_env_pathfile: str = f"{ROOT_DIR}/.envs/.{env_name}/.django"
 
     with open(django_env_pathfile, "r+") as django_env_file:
@@ -58,7 +58,7 @@ def build_django_secrets(env_name: str) -> None:
 
         if not key_value[1]:
             # Empty
-            generated_secrets[key_value[0]] = Fernet.generate_key().decode()[:-1]
+            generated_secrets[key_value[0]] = f'"{Fernet.generate_key().decode()[:-1]}"'
 
     # Write new secrest
     if generated_secrets:
