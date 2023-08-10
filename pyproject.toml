@@ -3,7 +3,7 @@
 # Enable pycodestyle (`E`) and Pyflakes (`F`) codes by default.
 # https://beta.ruff.rs/docs/rules/
 select = ["A", "B", "C", "D", "E", "F", "DTZ", "RUF", "S", "COM", "C4", "DJ", "EM", "ISC", "ICN", "PIE", "RET", "SLF", "SIM", "TID", "PD", "NPY"]
-ignore = ["SLF001", "D10", "RUF104"]
+ignore = ["SLF001", "D10"]
 
 # Allow autofix for all enabled rules (when `--fix`) is provided.
 fixable = ["A", "B", "C", "D", "E", "F", "DTZ", "RUF", "S", "COM", "C4", "DJ", "EM", "ISC", "ICN", "PIE", "RET", "SLF", "SIM", "TID", "PD", "NPY"]

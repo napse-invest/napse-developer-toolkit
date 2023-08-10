@@ -8,7 +8,6 @@ class Command(BaseCommand):
 
     def _add_snapshot_folder(self):
         """Add a snapshot folder to the custom plugins."""
-
         path: str = f"{os.getcwd()}/napse_dtk/snapshots"
         if not os.path.isdir(path):
             os.mkdir(path)
