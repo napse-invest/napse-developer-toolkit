@@ -1,4 +1,5 @@
 import inspect
+import os
 
 from django.conf import settings
 
@@ -12,9 +13,15 @@ class CliBase:
         return content.replace("{title_name}", name.capitalize().replace("_", " "))
 
     def build_python_file(self, module_name: str, name: str, raw_content: str) -> None:
-        root_dir = settings.ROOT_DIR
-        directory = f"{root_dir}/custom/models/{inspect.getfile(self.__class__).split('/')[-1].split(('.'))[0]}s"
+        root_dir: str = settings.ROOT_DIR
+        directory: str = f"{root_dir}/custom/models/{inspect.getfile(self.__class__).split('/')[-1].split(('.'))[0]}s"
+        filepath: str = f"{directory}/{name}.py"
 
-        with open(f"{directory}/{name}.py", "w") as file:
+        if os.path.exists(filepath):
+            self.stdout.write(self.style.ERROR(f"{filepath} already exists"))
+            self.stdout.write("Exiting...")
+            raise SystemExit(1)
+
+        with open(filepath, "w") as file:
             file.write(self._create_file_content(name=name, raw_content=raw_content))
         file.close()
