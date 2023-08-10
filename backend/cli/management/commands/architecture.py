@@ -1,0 +1,32 @@
+from django.core.management.base import BaseCommand
+from utils.cli_base_command import CliBase
+
+base_architecture_file_content: str = """
+from django_napse.core import Architecture
+
+
+class {class_name}Architecture(Architecture):
+
+    def __str__(self) -> str:
+        return f"{upper_name} ARCHITECHTURE {self.pk}"
+
+    def info(self, verbose=True, beacon=""):
+        string = ""
+        string += f"{beacon}{title_name} Architecture {self.pk}:\\n"
+
+        if verbose:  # pragma: no cover
+            print(string)
+        return string
+"""
+
+
+class Command(BaseCommand, CliBase):
+    help = "Create a new architecture"  # noqa: A003
+
+    def add_arguments(self, parser):
+        parser.add_argument("name", type=str, help="Name of the new architecture file")
+
+    def handle(self, *args, **kwargs):
+        name = kwargs["name"]
+        self.build_python_file(name, name=name, raw_content=base_architecture_file_content)
+        self.stdout.write(self.style.SUCCESS(f"{name} python file created"))
