@@ -1,8 +1,8 @@
 from django.core.management.base import BaseCommand
 from utils.cli_base_command import CliBase
 
-base_architecture_file_content: str = """
-from django_napse.core import Architecture
+base_architecture_file_raw_content: str = """
+from django_napse.core.models import Architecture
 
 
 class {class_name}Architecture(Architecture):
@@ -28,5 +28,5 @@ class Command(BaseCommand, CliBase):
 
     def handle(self, *args, **kwargs):
         name = kwargs["name"]
-        self.build_python_file(name, name=name, raw_content=base_architecture_file_content)
+        self.build_python_file(name, name=name, raw_content=base_architecture_file_raw_content)
         self.stdout.write(self.style.SUCCESS(f"{name} python file created"))
