@@ -39,7 +39,7 @@ class {class_name}BotConfig(BotConfig):
 
 
 class Command(BaseCommand, CliBase):
-    help = "Create a new architecture"  # noqa: A003
+    help = "Create a new architecture"
 
     def add_arguments(self, parser):
         parser.add_argument("name", type=str, help="Name of the new architecture file")

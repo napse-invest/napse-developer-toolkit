@@ -4,7 +4,7 @@ from config.settings.base import *  # noqa: F403
 from config.settings.base import env
 from config.settings.modules import *  # noqa: F403
 
-ALLOWED_HOSTS = ["localhost", "0.0.0.0", "127.0.0.1", "django"]
+ALLOWED_HOSTS = ["localhost", "127.0.0.1", "django"]
 
 # DOCKER
 # ------------------------------------------------------------------------------
@@ -18,7 +18,7 @@ if env("USE_DOCKER") == "yes":
 # DJANGO
 # ------------------------------------------------------------------------------
 # https://django-extensions.readthedocs.io/en/latest/installation_instructions.html#configuration
-INSTALLED_APPS += ["django_extensions"]
+INSTALLED_APPS += ["django_extensions"]  # noqa: F405
 
 # DATABASES
 # ------------------------------------------------------------------------------
@@ -31,7 +31,7 @@ DATABASES = {
         "PASSWORD": os.environ.get("POSTGRES_PASSWORD"),
         "HOST": os.environ.get("POSTGRES_HOST"),
         "PORT": os.environ.get("POSTGRES_PORT"),
-    }
+    },
 }
 DATABASES["default"]["ATOMIC_REQUESTS"] = True
 
