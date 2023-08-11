@@ -2,4 +2,3 @@ db.sqlite3
 __pycache__/
 .venv
 staticfiles/
-napse_dtk/snapshots/

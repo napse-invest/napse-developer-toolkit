@@ -1,7 +1,7 @@
 import os
 
 from config.settings.base import *  # noqa
-from config.settings.base import env
+from config.settings.base import TIME_ZONE, USE_TZ, env
 
 # Celery
 # ------------------------------------------------------------------------------

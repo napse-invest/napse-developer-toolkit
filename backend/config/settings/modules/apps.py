@@ -15,7 +15,8 @@ THIRD_PARTY_APPS = [
 ]
 
 LOCAL_APPS = [
-    "napse_dtk.custom",
+    "custom",
+    "cli",
 ]
 
 INSTALLED_APPS = DJANGO_APPS + THIRD_PARTY_APPS + LOCAL_APPS
