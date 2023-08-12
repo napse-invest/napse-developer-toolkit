@@ -1,1 +1,1 @@
-SECRET_KEY = "secret-key"
+SECRET_KEY = "secret-key"  # noqa: S105

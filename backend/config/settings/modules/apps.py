@@ -14,6 +14,9 @@ THIRD_PARTY_APPS = [
     "health_check",
 ]
 
-LOCAL_APPS = []
+LOCAL_APPS = [
+    "custom",
+    "cli",
+]
 
 INSTALLED_APPS = DJANGO_APPS + THIRD_PARTY_APPS + LOCAL_APPS

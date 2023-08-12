@@ -58,7 +58,7 @@ def build_django_secrets(env_name: str) -> None:
 
         if not key_value[1]:
             # Empty
-            generated_secrets[key_value[0]] = Fernet.generate_key().decode()[:-1]
+            generated_secrets[key_value[0]] = f'"{Fernet.generate_key().decode()[:-1]}"'
 
     # Write new secrest
     if generated_secrets:

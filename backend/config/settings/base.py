@@ -6,17 +6,15 @@ from pathlib import Path
 import environ
 
 ROOT_DIR = Path(__file__).resolve(strict=True).parent.parent.parent
-APPS_DIR = ROOT_DIR / "napse_developer_toolkit"
+APPS_DIR = ROOT_DIR / "napse_dtk"
 
 # Setup env
 env = environ.Env(
     DEBUG=(bool, False),
     IS_LOCAL=(bool, False),
 )
-
-env.read_env(str(ROOT_DIR / ".env"))
-DEBUG = env.bool("DEBUG", False)
-DEBUG = env.bool("IS_LOCAL", False)
+DEBUG = env.bool("DJANGO_DEBUG", False)
+IS_LOCAL = env.bool("IS_LOCAL", False)
 SECRET_KEY = env("SECRET_KEY")
 
 
@@ -58,29 +56,5 @@ if len(sys.argv) > 1 and sys.argv[1] == "test":
 # Health check
 HEALTHCHECK_CELERY_TIMEOUT = 10
 
-
-# ------------------------------------------------------------------------------
-# ------------------------------------------------------------------------------
-# ------------------------------------------------------------------------------
-# ------------------------------------------------------------------------------
-# ------------------------------------------------------------------------------
-
-
+# Hosts
 ALLOWED_HOSTS = []
-
-
-# Database
-# https://docs.djangoproject.com/en/4.2/ref/settings/#databases
-
-DATABASES = {
-    "default": {
-        "ENGINE": "django.db.backends.sqlite3",
-        "NAME": ROOT_DIR / "db.sqlite3",
-    },
-}
-
-
-# Default primary key field type
-# https://docs.djangoproject.com/en/4.2/ref/settings/#default-auto-field
-
-DEFAULT_AUTO_FIELD = "django.db.models.BigAutoField"
