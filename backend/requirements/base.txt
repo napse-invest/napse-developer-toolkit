@@ -20,5 +20,4 @@ django-celery-beat==2.5.0  # https://github.com/celery/django-celery-beat
 django-extensions==3.2.3  # https://github.com/django-extensions/django-extensions
 
 # External tools
-ruff==0.0.283  # https://github.com/astral-sh/ruff
 coverage==7.2.7 # https://github.com/nedbat/coveragepy

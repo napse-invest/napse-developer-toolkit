@@ -13,6 +13,7 @@ jobs:
 
   build:
     name: Django build
+    needs: authorize
     timeout-minutes: 30
     runs-on: ubuntu-latest
     strategy:
@@ -33,7 +34,7 @@ jobs:
 
       - name: Tests and coverage
         run: |
-          docker exec napse_dtk_dev_django coverage run ./manage.py test -v2 --keepdb && coverage html
+          docker exec napse_dtk_dev_django coverage run ./manage.py test -v2 --keepdb && docker exec napse_dtk_dev_django coverage html
           # coverage run ./backend/manage.py test -v2 --keepdb && coverage html
       
       - name: Coverage value 
