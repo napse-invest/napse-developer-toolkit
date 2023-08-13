@@ -10,10 +10,9 @@ jobs:
     steps:
       - run: true
 
-
-
   build:
     name: Django build
+    timeout-minutes: 10
     runs-on: ubuntu-latest
     strategy:
       max-parallel: 4
@@ -22,6 +21,9 @@ jobs:
       - uses: actions/checkout@v3
         with:
           ref: ${{ github.event.pull_request.head.sha || github.ref }}
+      
+      - name: Start containers
+        run: docker compose -f ./backend/docker/development.yml up --build -d
 
       - name: Set up python
         uses: actions/setup-python@v4
@@ -61,5 +63,9 @@ jobs:
           label: Coverage
           message: ${{ env.COVERAGE }}% 
           valColorRange: ${{ env.COVERAGE }}
-          minColorRange: 50
-          maxColorRange: 95
+          minColorRange: 60
+          maxColorRange: 100
+
+      - name: Stop containers
+        if: always()
+        run: docker compose -f ./backend/docker/development.yml down
