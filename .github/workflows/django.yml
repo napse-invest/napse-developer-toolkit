@@ -44,6 +44,8 @@ jobs:
       - name: Coverage badge
         if: ${{ github.base_ref == 'main' }} 
         uses: Schneegans/dynamic-badges-action@v1.6.0
+        env:
+          COVERAGE: ${{ env.COVERAGE }}
         with:
           auth: ${{ secrets.NAPSE_SECRET_GIST }}
           gistID: 93ea40ff182ebdfede01e2e5f8c711f3
