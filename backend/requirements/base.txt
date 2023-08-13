@@ -9,6 +9,7 @@ redis==4.6.0  # https://github.com/redis/redis-py
 celery==5.3.1  # pyup: < 6.0  # https://github.com/celery/celery
 flower==2.0.0  # https://github.com/mher/flower
 
+
 # Django
 # ------------------------------------------------------------------------------
 django==4.1.7 # https://www.djangoproject.com/
@@ -17,3 +18,6 @@ django-health-check==3.17.0 # https://github.com/revsys/django-health-check
 django-environ==0.10.0 # https://github.com/joke2k/django-environ
 django-celery-beat==2.5.0  # https://github.com/celery/django-celery-beat
 django-extensions==3.2.3  # https://github.com/django-extensions/django-extensions
+
+# External tools
+coverage==7.2.7 # https://github.com/nedbat/coveragepy
