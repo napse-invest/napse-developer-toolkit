@@ -13,7 +13,7 @@ jobs:
 
   build:
     name: Django build
-    timeout-minutes: 10
+    timeout-minutes: 30
     runs-on: ubuntu-latest
     strategy:
       max-parallel: 4
@@ -27,7 +27,9 @@ jobs:
         run: docker compose -f ./backend/docker/development.yml up --build -d
 
       - name: Lint with ruff
-        run: ruff .
+        run: |
+          pip install ruff
+          ruff .
 
       - name: Tests and coverage
         run: |
