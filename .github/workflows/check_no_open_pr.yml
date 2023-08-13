@@ -26,7 +26,8 @@ jobs:
 
           # Get the list of open PRs from the same branch
           PR_LIST=$(gh pr list --repo $REPO_NAME --head $BRANCH_NAME)
-
+          PR_COUNT=$(echo "$PR_LIST" | wc -l)
+          echo "Number of open PRs: $PR_COUNT"
           echo "PR_LIST=$PR_LIST"
           # echo "PR_LIST=$(hub pr list -f %I -s open -b $BRANCH_NAME)" >> $GITHUB_ENV
 
