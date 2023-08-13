@@ -17,7 +17,7 @@ jobs:
       - name: List open PRs based on the same branch
         id: list_prs
         run: |
-          echo $(hub pr list --head $BRANCH_NAME) 
+          hub pr list --head $BRANCH_NAME 
           echo "PR_LIST=$(hub pr list -f %I -s open -b $BRANCH_NAME)" >> $GITHUB_ENV
 
       - name: Wait for other PRs to finish
