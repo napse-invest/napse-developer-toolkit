@@ -17,8 +17,16 @@ jobs:
       - name: List open PRs based on the same branch
         id: list_prs
         run: |
-          hub pr list --head $BRANCH_NAME 
-          echo "PR_LIST=$(hub pr list -f %I -s open -b $BRANCH_NAME)" >> $GITHUB_ENV
+          BRANCH_NAME=${{ github.head_ref }}
+
+          # Get the name of the repository from which the PR was opened
+          REPO_NAME=${{ github.repository }}
+
+          # Get the list of open PRs from the same branch
+          PR_LIST=$(gh pr list --repo $REPO_NAME --base $BRANCH_NAME)
+
+          echo "PR_LIST=$PR_LIST"
+          # echo "PR_LIST=$(hub pr list -f %I -s open -b $BRANCH_NAME)" >> $GITHUB_ENV
 
       - name: Wait for other PRs to finish
         id: wait_for_prs
