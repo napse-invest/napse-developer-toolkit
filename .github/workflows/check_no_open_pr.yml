@@ -1,0 +1,43 @@
+name: Cross-PR Checks
+on:
+  pull_request_target:
+
+jobs:
+  check_cross_prs:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v3
+
+      - name: Get current branch name
+        id: get_branch
+        run: echo "BRANCH_NAME=${GITHUB_REF#refs/heads/}" >> $GITHUB_ENV
+
+      - name: List open PRs based on the same branch
+        id: list_prs
+        run: |
+          echo "PR_LIST=$(hub pr list -f %I -s open -b $BRANCH_NAME)" >> $GITHUB_ENV
+
+      - name: Wait for other PRs to finish
+        id: wait_for_prs
+        run: |
+          PR_IDS=$PR_LIST
+          echo "PR_IDS=$PR_IDS" 
+          while [ ! -z "$PR_IDS" ]; do
+            PR_IDS_ARR=($PR_IDS)
+            echo "PR_IDS_ARR=${PR_IDS_ARR}"
+            for PR_ID in "${PR_IDS_ARR[@]}"; do
+              PR_STATUS=$(hub pr view $PR_ID -f %s)
+              echo "PR_STATUS=$PR_STATUS"
+              if [ "$PR_STATUS" == "closed" ]; then
+                PR_IDS=${PR_IDS/$PR_ID/}
+                echo "PR_IDS2=$PR_IDS"
+              fi
+            done
+            sleep 60 # Adjust the polling interval if needed
+          done
+
+      - name: Run your tests or checks
+        run: |
+          # Run your tests, checks, or build steps here
