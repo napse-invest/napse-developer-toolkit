@@ -1,6 +1,6 @@
 name: Cross-PR Checks
 on:
-  pull_request:
+  pull_request_target:
 
 jobs:
   check_cross_prs:
@@ -26,7 +26,6 @@ jobs:
 
       - name: Fail if there are more than one PRs open
         id: fail_multiple_prs
-
         run: |
           if [ $PR_COUNT -gt 1 ]; then
             echo "There are $PR_COUNT open PRs from the same branch. Please close them before merging this PR."
