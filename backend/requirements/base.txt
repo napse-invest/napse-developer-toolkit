@@ -8,6 +8,8 @@ hiredis==2.2.3  # https://github.com/redis/hiredis-py
 redis==4.6.0  # https://github.com/redis/redis-py
 celery==5.3.1  # pyup: < 6.0  # https://github.com/celery/celery
 flower==2.0.0  # https://github.com/mher/flower
+ruff==0.0.283  # https://github.com/astral-sh/ruff
+
 
 # Django
 # ------------------------------------------------------------------------------
