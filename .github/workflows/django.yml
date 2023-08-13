@@ -1,12 +1,11 @@
 name: Django CI
 
 on:
-  # pull_request_target:
   pull_request:
 
 jobs:
   authorize:
-    environment: ${{ github.event_name == 'pull_request_target' && github.event.pull_request.head.repo.full_name != github.repository && 'external' || 'internal' }}
+    environment: ${{ github.event.pull_request.head.repo.full_name != github.repository && 'external' || 'internal' }}
     runs-on: ubuntu-latest
     steps:
       - run: true
@@ -39,8 +38,8 @@ jobs:
       
       - name: Coverage value 
         run: |
-          docker exec napse_dtk_dev_django cvg_result=$(coverage report --skip-covered | head -n -2 | tail -n 1 | awk '{print $NF}' | sed 's/%//')
-          docker exec napse_dtk_dev_django echo "COVERAGE=$cvg_result" >> $GITHUB_ENV
+          cvg_result=$(docker exec napse_dtk_dev_django coverage report --skip-covered | head -n -2 | tail -n 1 | awk '{print $NF}' | sed 's/%//') 
+          echo "COVERAGE=$cvg_result" >> $GITHUB_ENV
 
       - name: Coverage badge
         if: ${{ github.base_ref == 'main' }} 
