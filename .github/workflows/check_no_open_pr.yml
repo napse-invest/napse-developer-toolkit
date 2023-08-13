@@ -22,7 +22,7 @@ jobs:
           PR_LIST=$(gh pr list --repo $REPO_NAME --head $BRANCH_NAME)
 
           PR_COUNT=$(echo "$PR_LIST" | wc -l)
-          echo $PR_COUNT >> $GITHUB_ENV
+          echo "PR_COUNT=$PR_COUNT" >> $GITHUB_ENV
 
       - name: Fail if there are more than one PRs open
         id: fail_multiple_prs
