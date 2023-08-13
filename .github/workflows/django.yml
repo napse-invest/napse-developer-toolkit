@@ -1,0 +1,59 @@
+name: Django CI
+
+on:
+  pull_request:
+
+jobs:
+  authorize:
+    environment: ${{ github.event.pull_request.head.repo.full_name != github.repository && 'external' || 'internal' }}
+    runs-on: ubuntu-latest
+    steps:
+      - run: true
+
+  build:
+    name: Django build
+    needs: authorize
+    timeout-minutes: 30
+    runs-on: ubuntu-latest
+    strategy:
+      max-parallel: 4
+
+    steps:
+      - uses: actions/checkout@v3
+        with:
+          ref: ${{ github.event.pull_request.head.sha || github.ref }}
+      
+      - name: Start containers
+        run: docker compose -f ./backend/docker/development.yml up --build -d
+
+      - name: Lint with ruff
+        run: |
+          pip install ruff
+          ruff .
+
+      - name: Tests and coverage
+        run: |
+          docker exec napse_dtk_dev_django coverage run ./manage.py test -v2 --keepdb && docker exec napse_dtk_dev_django coverage html
+          # coverage run ./backend/manage.py test -v2 --keepdb && coverage html
+      
+      - name: Coverage value 
+        run: |
+          cvg_result=$(docker exec napse_dtk_dev_django coverage report --skip-covered | head -n -2 | tail -n 1 | awk '{print $NF}' | sed 's/%//') 
+          echo "COVERAGE=$cvg_result" >> $GITHUB_ENV
+
+      - name: Coverage badge
+        if: ${{ github.base_ref == 'main' }} 
+        uses: Schneegans/dynamic-badges-action@v1.6.0
+        with:
+          auth: ${{ secrets.NAPSE_SECRET_GIST }}
+          gistID: 93ea40ff182ebdfede01e2e5f8c711f3
+          filename: napse-developer-toolkit-coverage.json
+          label: Coverage
+          message: ${{ env.COVERAGE }}% 
+          valColorRange: ${{ env.COVERAGE }}
+          minColorRange: 60
+          maxColorRange: 100
+
+      - name: Stop containers
+        if: always()
+        run: docker compose -f ./backend/docker/development.yml down
