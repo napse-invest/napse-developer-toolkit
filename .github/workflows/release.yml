@@ -26,4 +26,6 @@ jobs:
           npm install --save-dev semantic-release
 
       - name: Release
+        env:
+          GITHUB_TOKEN: ${{ secrets.NAPSE_GITHUB_TOKEN }}
         run: npx semantic-release
