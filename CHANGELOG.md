@@ -1,0 +1,38 @@
+# 1.0.0 (2023-08-23)
+
+
+### Bug Fixes
+
+* **celery:** mem leark ([a1d1a55](https://github.com/napse-invest/napse-developer-toolkit/commit/a1d1a55aedf1367524a235fc3822b111d595de0f))
+* **ci:** remove full-requirements & add it to gitignore ([536712b](https://github.com/napse-invest/napse-developer-toolkit/commit/536712b67b1fbdba42f65a0cf2c155005a4a52b7))
+* **release:** add missing .releaserc ([eecd963](https://github.com/napse-invest/napse-developer-toolkit/commit/eecd963e1bcf73157617d21d5f71231e00668386))
+* **release:** missing package.json ([9e3f0e3](https://github.com/napse-invest/napse-developer-toolkit/commit/9e3f0e377e668cd5e2ada317689f604954303056))
+* **ruff:** rmove overlaping rules and some explainations ([7479e51](https://github.com/napse-invest/napse-developer-toolkit/commit/7479e513b310a34ff123a8ef06838cc900cc2163))
+* **setup-windows:** add deactivate at the begining ([d3e51ed](https://github.com/napse-invest/napse-developer-toolkit/commit/d3e51ed430cfeae24c49c2074e26d30c236b4f5f))
+* **workflow:** add environment on django workflow ([1713ea0](https://github.com/napse-invest/napse-developer-toolkit/commit/1713ea063325c319319b0a4071427cda735a86b1))
+* **workflow:** docker interractions ([ee856ed](https://github.com/napse-invest/napse-developer-toolkit/commit/ee856ed2e3f31837b110f271a2c856de2145d3fa))
+* **workflow:** fix django workflow ([a4cebfa](https://github.com/napse-invest/napse-developer-toolkit/commit/a4cebfa736e2120490bc314e3c41943b09086295))
+* **workflow:** fix release workflow ([3a70bad](https://github.com/napse-invest/napse-developer-toolkit/commit/3a70bad672fdd395061d7ea6672b66a18b999845))
+
+
+### Features
+
+* **.env:** setup environement virtuel, et ajustement .envs & secrest ([fa3dc75](https://github.com/napse-invest/napse-developer-toolkit/commit/fa3dc75e1c00d801463e5b61e47c66aa4d859899))
+* **ci:** dependabot config ([ab764e2](https://github.com/napse-invest/napse-developer-toolkit/commit/ab764e260920a7bfa0eb0ad4b692211657cdcc4f))
+* **cli:** add implementation command ([420444c](https://github.com/napse-invest/napse-developer-toolkit/commit/420444cf3ea6805f12e212530a0b2f33a999b581))
+* **cli:** new architecture file command ([08e6b6b](https://github.com/napse-invest/napse-developer-toolkit/commit/08e6b6b0c83aad2dad9964dd5749b50a32995d86))
+* **cli:** remove possiblity of overwrite existing files ([d18719d](https://github.com/napse-invest/napse-developer-toolkit/commit/d18719df55350d25c8449524f8752b367f4cf679))
+* **config:** work on setup config on dockerfiles & compose command ([7046f65](https://github.com/napse-invest/napse-developer-toolkit/commit/7046f65caba0d0332f73c6ade99a4ff561cd1f76))
+* **custom:** base command for snapshot ([fda36b5](https://github.com/napse-invest/napse-developer-toolkit/commit/fda36b524635f922f7d0f7c63d979e1e7e3879ef))
+* **docker:** add production yml file ([fc62271](https://github.com/napse-invest/napse-developer-toolkit/commit/fc62271db60e0e617efbf9f92966cc5f98598ec3))
+* **docker:** file management & config.settings is now selected in start of docker.compose.{workenv}.django.start ([499121b](https://github.com/napse-invest/napse-developer-toolkit/commit/499121bb1ce2ff2204d485eafab61967cff04e5a))
+* **docker:** setup dev_as_prod docker environment ([245a6d3](https://github.com/napse-invest/napse-developer-toolkit/commit/245a6d329d3870faf1de774277d5561dc7e44c0d))
+* **docker:** setup docker ([ee56edd](https://github.com/napse-invest/napse-developer-toolkit/commit/ee56eddc93310812da69f2eab26ed45854d74b3c))
+* **multi:** setup flower, upgrade setup-unix.sh & some add to project structure ([77ceeca](https://github.com/napse-invest/napse-developer-toolkit/commit/77ceeca0de4baeb581f244fffda57bc384c9ff30))
+* **readme:** update readme ([56e9267](https://github.com/napse-invest/napse-developer-toolkit/commit/56e92672fc36df41821b77cdbe972f8fbd539fca))
+* **ruff:** add RUF104 rule to ignore ([2992e04](https://github.com/napse-invest/napse-developer-toolkit/commit/2992e04ff0730305fa8a6f34c156b3ad1d53e13a))
+* **settings:** update settings & envs ([420bb22](https://github.com/napse-invest/napse-developer-toolkit/commit/420bb22099e1636535d8263835ac37617aa8ff7a))
+* **setup:** add window setup ([f8d22a5](https://github.com/napse-invest/napse-developer-toolkit/commit/f8d22a5e8837adbe5a9b27e70c45c8e0688ff15a))
+* **workflow:** add check pr source branch workflow ([ef7a1df](https://github.com/napse-invest/napse-developer-toolkit/commit/ef7a1dfb89da036e5ac4a8eea6bad802ed5faf15))
+* **workflow:** add docker into django.yml workflow ([b49e460](https://github.com/napse-invest/napse-developer-toolkit/commit/b49e460f969af2881a911f548980f3afe449f56f))
+* **workflow:** finish all essentials workflows for github actions ([9a621fa](https://github.com/napse-invest/napse-developer-toolkit/commit/9a621fad509142e0063585750203be83acf9c514))
