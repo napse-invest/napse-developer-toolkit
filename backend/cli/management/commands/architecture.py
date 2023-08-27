@@ -28,5 +28,10 @@ class Command(BaseCommand, CliBase):
 
     def handle(self, *args, **kwargs):
         name = kwargs["name"]
-        self.build_python_file(name, name=name, raw_content=base_architecture_file_raw_content)
+        if not name:
+            self.stdout.write(self.style.ERROR("Name cannot be empty or null"))
+            self.stdout.write("Exiting...")
+            raise SystemExit(1)
+
+        self.build_python_file(name=name, raw_content=base_architecture_file_raw_content)
         self.stdout.write(self.style.SUCCESS(f"{name} python file created"))

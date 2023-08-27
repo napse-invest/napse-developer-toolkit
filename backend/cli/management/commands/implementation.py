@@ -46,6 +46,11 @@ class Command(BaseCommand, CliBase):
 
     def handle(self, *args, **kwargs):
         name = kwargs["name"]
+        if not name:
+            self.stdout.write(self.style.ERROR("Name cannot be empty or null"))
+            self.stdout.write("Exiting...")
+            raise SystemExit(1)
+
         root_dir: str = settings.ROOT_DIR
         directory: str = f"{root_dir}/custom/models/implementations/{name}"
         self.check_file_exists(directory)
