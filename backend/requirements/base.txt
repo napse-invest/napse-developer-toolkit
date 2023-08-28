@@ -9,7 +9,6 @@ redis==4.6.0  # https://github.com/redis/redis-py
 celery==5.3.1  # pyup: < 6.0  # https://github.com/celery/celery
 flower==2.0.1  # https://github.com/mher/flower
 
-
 # Django
 # ------------------------------------------------------------------------------
 django==4.2.4 # https://www.djangoproject.com/

@@ -1,37 +1,48 @@
-import contextlib
-import os
 import re
 from importlib import import_module
+from pathlib import Path
+from types import ModuleType
+from typing import List
 
 from rest_framework.routers import DefaultRouter
 from rest_framework.viewsets import GenericViewSet
 
 
+class ConflictingUrlNames(Exception):
+    pass
+
+
 def build_main_router() -> DefaultRouter:
+    """Create a main router object and register the appropriate viewsets to it based on the modules and classes found in the `api` directory.
+
+    Returns
+    -------
+        DefaultRouter: The main router object with registered URL patterns.
+    """
     main_router = DefaultRouter()
+    url_name_list: List[str] = []
 
-    api_modules_folders_names = [
-        elt
-        for elt in os.listdir(os.path.dirname(__file__))
-        if os.path.isdir(os.path.join(os.path.dirname(__file__), elt)) and not elt.startswith("_")
-    ]
+    api_dir = Path(__file__).parent
+    api_modules_folders_names = [folder.name for folder in api_dir.iterdir() if folder.is_dir() and not folder.name.startswith("_")]
 
-    for name in api_modules_folders_names:
-        module = import_module(f"api.{name}.views")
-        for elt in module.__dir__():
-            if elt.startswith("_"):
-                continue
+    for module_name in api_modules_folders_names:
+        try:
+            module: ModuleType = import_module(f"api.{module_name}.views")
+        except (ImportError, ModuleNotFoundError):
+            continue
 
-            instance = getattr(module, elt)
+        for obj in vars(module).values():
+            if isinstance(obj, type) and issubclass(obj, GenericViewSet):
+                # from CamelCase to snake_case & remove "_view" (ex: MyWalletView -> my_wallet)
+                url_name = re.sub(r"(?<!^)(?=[A-Z])", "_", obj.__name__).lower().replace("_view", "")
 
-            with contextlib.suppress(TypeError):
-                if issubclass(instance, GenericViewSet):
-                    # from CamelCase to snake_case & remove "_view" (ex: MyWalletView -> my_wallet)
-                    print(f"\n\nNAME: {instance.__name__}")
-                    url_name = "_".join(re.sub("([a-z0-9])([A-Z])", r"\1_\2", instance.__name__).lower().split("_")[:-1])
-                    print("main url", main_router.urls)
-                    main_router.register(url_name, instance, basename=url_name)
-                    print("main url", main_router.urls)
+                if url_name in url_name_list:
+                    error_msg: str = f"Url name {url_name} already exists"
+                    raise ConflictingUrlNames(error_msg)
+
+                main_router.register(url_name, obj, basename=url_name)
+                url_name_list.append(url_name)
+
     return main_router
 
 
