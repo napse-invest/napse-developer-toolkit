@@ -6,7 +6,7 @@ from pathlib import Path
 import environ
 
 ROOT_DIR = Path(__file__).resolve(strict=True).parent.parent.parent
-APPS_DIR = ROOT_DIR / "napse_dtk"
+APPS_DIR = ROOT_DIR / "custom"
 
 # Setup env
 env = environ.Env(
