@@ -77,3 +77,9 @@ class Command(BaseCommand, CliBase):
             filepath=config_filepath,
         )
         self.stdout.write(self.style.SUCCESS("/config python file created"))
+
+        # Adjust rights
+        os.chmod(directory, 0o777)  # noqa: S103
+        os.chmod(init_filepath, 0o777)  # noqa: S103
+        os.chmod(strategy_filepath, 0o777)  # noqa: S103
+        os.chmod(config_filepath, 0o777)  # noqa: S103
