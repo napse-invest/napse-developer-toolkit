@@ -2,6 +2,4 @@ db.sqlite3
 __pycache__/
 .venv
 staticfiles/
-custom/models/architectures
-custom/models/implementations
-custom/models/plugins
+custom/tests/*

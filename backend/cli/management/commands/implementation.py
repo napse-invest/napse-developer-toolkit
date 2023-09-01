@@ -1,8 +1,8 @@
 import os
 
+from cli.management.cli_base_command import CliBase
 from django.conf import settings
 from django.core.management.base import BaseCommand
-from utils.cli_base_command import CliBase
 
 base_stategy_file_raw_content: str = """
 from django.db import models
@@ -45,6 +45,8 @@ class Command(BaseCommand, CliBase):
         parser.add_argument("name", type=str, help="Name of the new architecture file")
 
     def handle(self, *args, **kwargs):
+        self.setup_folder()
+
         name = kwargs["name"]
         if not name:
             self.stdout.write(self.style.ERROR("Name cannot be empty or null"))
@@ -58,7 +60,7 @@ class Command(BaseCommand, CliBase):
 
         # Build __init__.py file
         init_filepath: str = directory + "/__init__.py"
-        self.build_python_file(name=name, raw_content="from . import *", filepath=init_filepath)
+        self.build_python_file(name=name, raw_content="\nfrom . import *", filepath=init_filepath)
 
         # Build strategy_file
         strategy_filepath: str = directory + "/strategy.py"

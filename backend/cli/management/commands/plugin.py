@@ -1,5 +1,5 @@
+from cli.management.cli_base_command import CliBase
 from django.core.management.base import BaseCommand
-from utils.cli_base_command import CliBase
 
 base_plugin_file_raw_content: str = """
 from django_napse.core.models import Plugin
@@ -33,6 +33,8 @@ class Command(BaseCommand, CliBase):
         parser.add_argument("name", type=str, help="Name of the new plugin")
 
     def handle(self, *args, **kwargs):
+        self.setup_folder()
+
         name = kwargs["name"]
         if not name:
             self.stdout.write(self.style.ERROR("Name cannot be empty or null"))

@@ -5,6 +5,14 @@ from django.conf import settings
 
 
 class CliBase:
+    def setup_folder(self):
+        """Build custom folder depend on the name of the subclass."""
+        root_dir: str = settings.ROOT_DIR
+        directory: str = f"{root_dir}/custom/models/{inspect.getfile(self.__class__).split('/')[-1].split(('.'))[0]}s"
+        if not os.path.exists(directory):
+            os.makedirs(directory)
+            self.build_python_file(name="__init__", raw_content="\nfrom . import *", filepath=f"{directory}/__init__.py")
+
     def _create_file_content(self, name: str, raw_content: str) -> str:
         content = "\n".join(raw_content.split("\n")[1:])
         content = content.replace("{class_name}", name.capitalize().replace("_", ""))
