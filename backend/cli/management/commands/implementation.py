@@ -56,6 +56,10 @@ class Command(BaseCommand, CliBase):
         self.check_file_exists(directory)
         os.mkdir(directory)
 
+        # Build __init__.py file
+        init_filepath: str = directory + "/__init__.py"
+        self.build_python_file(name=name, raw_content="from . import *", filepath=init_filepath)
+
         # Build strategy_file
         strategy_filepath: str = directory + "/strategy.py"
         self.build_python_file(
