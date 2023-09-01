@@ -45,8 +45,6 @@ class Command(BaseCommand, CliBase):
         parser.add_argument("name", type=str, help="Name of the new architecture file")
 
     def handle(self, *args, **kwargs):
-        self.setup_folder()
-
         name = kwargs["name"]
         if not name:
             self.stdout.write(self.style.ERROR("Name cannot be empty or null"))

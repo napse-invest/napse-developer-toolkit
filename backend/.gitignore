@@ -3,3 +3,6 @@ __pycache__/
 .venv
 staticfiles/
 custom/tests/*
+custom/models/architectures/*
+custom/models/plugins/*
+custom/models/implementations/*
