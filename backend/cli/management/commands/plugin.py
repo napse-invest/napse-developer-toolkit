@@ -1,5 +1,5 @@
+from cli.management.cli_base_command import CliBase
 from django.core.management.base import BaseCommand
-from utils.cli_base_command import CliBase
 
 base_plugin_file_raw_content: str = """
 from django_napse.core.models import Plugin

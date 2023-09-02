@@ -49,7 +49,7 @@ jobs:
           COVERAGE: ${{ env.COVERAGE }}
         with:
           auth: ${{ secrets.NAPSE_SECRET_GIST }}
-          gistID: 93ea40ff182ebdfede01e2e5f8c711f3
+          gistID: 40fac957532fe3b731c99067467de842
           filename: napse-developer-toolkit-coverage.json
           label: Coverage
           message: ${{ env.COVERAGE }}% 

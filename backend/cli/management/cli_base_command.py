@@ -22,6 +22,7 @@ class CliBase:
         with open(filepath, "w") as file:
             file.write(self._create_file_content(name=name, raw_content=raw_content))
         file.close()
+        os.chmod(filepath, 0o777)  # noqa: S103
 
     def check_file_exists(self, filepath: str) -> None:
         if os.path.exists(filepath):
