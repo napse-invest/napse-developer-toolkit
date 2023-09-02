@@ -20,7 +20,9 @@
 
 <p align="center">
   <a href="#napse-developer-toolkit"><strong>Napse Developer Toolkit</strong></a> ·
-  <a href="#development environment"><strong>Development environment</strong></a>
+  <a href="#development-environment"><strong>Development environment</strong></a> .
+  <a href="#cli"><strong>CLI</strong></a> .
+  <a href="#useful-commands"><strong>Useful commands</strong></a>
 </p>
 <br/>
 
@@ -47,6 +49,11 @@ Run the setup script to fully setup your local environment:
 
 - Start docker in development as production environment \
     ```docker-compose -f ./backend/docker/dev_as_prod.yml up --build -d```
+
+
+## CLI
+
+...
 
 
 ## Useful commands
