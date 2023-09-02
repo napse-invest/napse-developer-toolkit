@@ -12,6 +12,7 @@ DJANGO_APPS = [
 
 THIRD_PARTY_APPS = [
     "health_check",
+    "django_napse.core",
 ]
 
 LOCAL_APPS = [
