@@ -26,7 +26,7 @@ def build_main_router() -> DefaultRouter:
     api_modules_folders_names = [folder.name for folder in api_dir.iterdir() if folder.is_dir() and not folder.name.startswith("_")]
     for module_name in api_modules_folders_names:
         try:
-            module = import_module(f"api.{module_name}.views")
+            module: ModuleType = import_module(f"api.{module_name}.views")
         except (ImportError, ModuleNotFoundError) as error:
             print(f"Could not import module {module_name}")
             print(error)
