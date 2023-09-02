@@ -1,3 +1,4 @@
+from api.exchanges.serializers import ExchangeAccountSerializer
 from django_napse.core.models import BinanceAccount, Exchange, ExchangeAccount
 from rest_framework import status
 from rest_framework.response import Response
@@ -6,11 +7,13 @@ from rest_framework.viewsets import GenericViewSet
 # from rest_framework.decorators import action
 
 
-class ExchangeView(GenericViewSet):
+class ExchangeAccountView(GenericViewSet):
     permission_classes = []
+    serializer_class = ExchangeAccountSerializer
+
+    def get_queryset(self):
+        return ExchangeAccount.objects.all()
 
     def list(self, request):
-        print(Exchange.objects.all())
-        print(ExchangeAccount.objects.all())
-        print(BinanceAccount.objects.all())
-        return Response(status=status.HTTP_200_OK)
+        serializer = self.serializer_class(self.get_queryset(), many=True)
+        return Response(serializer.data, status=status.HTTP_200_OK)

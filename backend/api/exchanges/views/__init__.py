@@ -1,1 +1,1 @@
-from .exchange_view import ExchangeView
+from .exchange_view import ExchangeAccountView
