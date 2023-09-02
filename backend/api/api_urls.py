@@ -25,7 +25,6 @@ def build_main_router() -> DefaultRouter:
     api_dir = Path(__file__).parent
     api_modules_folders_names = [folder.name for folder in api_dir.iterdir() if folder.is_dir() and not folder.name.startswith("_")]
     for module_name in api_modules_folders_names:
-        print(f"module_name: {module_name}")
         try:
             module = import_module(f"api.{module_name}.views")
         except (ImportError, ModuleNotFoundError) as error:
@@ -33,13 +32,8 @@ def build_main_router() -> DefaultRouter:
             print(error)
             continue
 
-        if module_name == "exchanges":
-            for idx, elt in vars(module).items():
-                print(idx, elt)
-
         for obj in vars(module).values():
             if isinstance(obj, type) and issubclass(obj, GenericViewSet):
-                print("obj", obj)
                 # from CamelCase to snake_case & remove "_view" (ex: MyWalletView -> my_wallet)
                 url_name = re.sub(r"(?<!^)(?=[A-Z])", "_", obj.__name__).lower().replace("_view", "")
 
@@ -54,4 +48,10 @@ def build_main_router() -> DefaultRouter:
 
 
 main_api_router = build_main_router()
-print("\n\nurl", main_api_router.urls)
+
+if __debug__:
+    print("\n", "-" * 100)
+    print("API URLS:")
+    for url in main_api_router.urls:
+        print(url)
+    print("-" * 100, "\n")
