@@ -1,2 +1,2 @@
-from tests import *
-from views import *
+from .tests import *
+from .views import *
