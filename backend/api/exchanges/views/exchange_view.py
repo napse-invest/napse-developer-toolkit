@@ -1,5 +1,5 @@
 from api.exchanges.serializers import ExchangeAccountSerializer
-from django_napse.core.models import BinanceAccount, Exchange, ExchangeAccount
+from django_napse.core.models import ExchangeAccount
 from rest_framework import status
 from rest_framework.response import Response
 from rest_framework.viewsets import GenericViewSet
