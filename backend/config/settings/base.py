@@ -6,7 +6,7 @@ from pathlib import Path
 import environ
 
 ROOT_DIR = Path(__file__).resolve(strict=True).parent.parent.parent
-APPS_DIR = ROOT_DIR / "napse_dtk"
+APPS_DIR = ROOT_DIR / "custom"
 
 # Setup env
 env = environ.Env(
@@ -57,4 +57,11 @@ if len(sys.argv) > 1 and sys.argv[1] == "test":
 HEALTHCHECK_CELERY_TIMEOUT = 10
 
 # Hosts
-ALLOWED_HOSTS = []
+# ALLOWED_HOSTS = []
+
+NAPSE_SECRETS_FILE_PATH = ROOT_DIR / "secrets.json"
+NAPSE_EXCHANGE_CONFIGS = {
+    "BINANCE": {
+        "description": "Binance exchange. More info: https://www.binance.com/en",
+    },
+}

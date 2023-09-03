@@ -1,8 +1,8 @@
 import os
 
+from cli.management.cli_base_command import CliBase
 from django.conf import settings
 from django.core.management.base import BaseCommand
-from utils.cli_base_command import CliBase
 
 base_stategy_file_raw_content: str = """
 from django.db import models
@@ -46,10 +46,19 @@ class Command(BaseCommand, CliBase):
 
     def handle(self, *args, **kwargs):
         name = kwargs["name"]
+        if not name:
+            self.stdout.write(self.style.ERROR("Name cannot be empty or null"))
+            self.stdout.write("Exiting...")
+            raise SystemExit(1)
+
         root_dir: str = settings.ROOT_DIR
         directory: str = f"{root_dir}/custom/models/implementations/{name}"
         self.check_file_exists(directory)
         os.mkdir(directory)
+
+        # Build __init__.py file
+        init_filepath: str = directory + "/__init__.py"
+        self.build_python_file(name=name, raw_content="\nfrom . import *", filepath=init_filepath)
 
         # Build strategy_file
         strategy_filepath: str = directory + "/strategy.py"
@@ -68,3 +77,9 @@ class Command(BaseCommand, CliBase):
             filepath=config_filepath,
         )
         self.stdout.write(self.style.SUCCESS("/config python file created"))
+
+        # Adjust rights
+        os.chmod(directory, 0o777)  # noqa: S103
+        os.chmod(init_filepath, 0o777)  # noqa: S103
+        os.chmod(strategy_filepath, 0o777)  # noqa: S103
+        os.chmod(config_filepath, 0o777)  # noqa: S103

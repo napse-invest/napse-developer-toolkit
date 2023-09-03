@@ -7,11 +7,17 @@ DJANGO_APPS = [
     "django.contrib.sessions",
     "django.contrib.messages",
     "django.contrib.staticfiles",
+    "corsheaders",
 ]
 
 
 THIRD_PARTY_APPS = [
     "health_check",
+    # Napse
+    "django_napse.core",
+    "django_napse.simulations",
+    # Required
+    "django_celery_beat",
 ]
 
 LOCAL_APPS = [
