@@ -1,3 +1,25 @@
+# [1.1.0](https://github.com/napse-invest/napse-developer-toolkit/compare/v1.0.0...v1.1.0) (2023-09-03)
+
+
+### Bug Fixes
+
+* **api:** add test modules ([ce1a347](https://github.com/napse-invest/napse-developer-toolkit/commit/ce1a34785809544ebce412f48d38130bf5a3eccc))
+* **api:** base imports ([d43cf61](https://github.com/napse-invest/napse-developer-toolkit/commit/d43cf61f081b3e15bdc3d9b24f8f142a1952519e))
+* **api:** wrong import ([e324052](https://github.com/napse-invest/napse-developer-toolkit/commit/e324052adac05deeda5284de563b91f36ba4267b))
+* **ci:** coverage now works ([7aef17f](https://github.com/napse-invest/napse-developer-toolkit/commit/7aef17fbc343365030c80ae5d1c0a449cfc863ef))
+* **CLI:** gitinore & rights ([1e54666](https://github.com/napse-invest/napse-developer-toolkit/commit/1e54666334dc29fb31b76dcb9c3706fb56634187))
+* makefile implemented ([dcad105](https://github.com/napse-invest/napse-developer-toolkit/commit/dcad105bd64bea357e91c739ad4ff364007de566))
+* ruff ([6afe387](https://github.com/napse-invest/napse-developer-toolkit/commit/6afe38704a67ffedd8e29af05fcedbe1fd478e7f))
+* ruff fixed ([f01b080](https://github.com/napse-invest/napse-developer-toolkit/commit/f01b080e6c629ee434beebe856875f50c85529c2))
+
+
+### Features
+
+* **api:** auto view import in urls ([135e09c](https://github.com/napse-invest/napse-developer-toolkit/commit/135e09c309c7994a04968fa8b76ad8e036821815))
+* **api:** base structure for api ([addde81](https://github.com/napse-invest/napse-developer-toolkit/commit/addde81e2dc77f6e167ada19972ef5ad808ba766))
+* **celery:** pipelines now functional ([48196b3](https://github.com/napse-invest/napse-developer-toolkit/commit/48196b3ae6c112fa39fb4a0ae2c9fafa25b4e188))
+* **cli:** add plugin to cli ([3873971](https://github.com/napse-invest/napse-developer-toolkit/commit/38739716464b0c9048cd5614f3cc323638a41e0d))
+
 # 1.0.0 (2023-08-23)
 
 
