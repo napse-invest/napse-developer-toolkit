@@ -1,5 +1,5 @@
 from api.exchanges.serializers import ExchangeAccountSerializer
-from django_napse.core.models import ExchangeAccount
+from django_napse.core.models import Exchange, ExchangeAccount
 from rest_framework import status
 from rest_framework.response import Response
 from rest_framework.viewsets import GenericViewSet
@@ -12,6 +12,7 @@ class ExchangeAccountView(GenericViewSet):
     serializer_class = ExchangeAccountSerializer
 
     def get_queryset(self):
+        print(Exchange.objects.all(), len(Exchange.objects.all()))
         return ExchangeAccount.objects.all()
 
     def list(self, request):
