@@ -22,7 +22,7 @@ class ExchangeAccountView(GenericViewSet):
         return result if result else super().get_serializer_class()
 
     def list(self, request):
-        serializer = self.serializer_class(self.get_queryset(), many=True)
+        serializer = self.get_serializer(self.get_queryset(), many=True)
         return Response(serializer.data, status=status.HTTP_200_OK)
 
     def retrieve(self, request, pk=None):
