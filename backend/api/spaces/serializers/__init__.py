@@ -1,1 +1,1 @@
-from .space_serializers import SpaceDetailSerializer, SpaceSerializer
+from .space_serializers import *

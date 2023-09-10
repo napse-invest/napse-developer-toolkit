@@ -1,1 +1,1 @@
-from .exchange_account_serializers import ExchangeAccountDetailSerializer, ExchangeAccountSerializer
+from .exchange_account_serializers import *
