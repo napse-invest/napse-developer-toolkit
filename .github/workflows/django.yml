@@ -40,6 +40,8 @@ jobs:
         run: |
           cvg_result=$(docker exec napse_dtk_dev_django coverage report --skip-covered | head -n -2 | tail -n 1 | awk '{print $NF}' | sed 's/%//') 
           echo "COVERAGE=$cvg_result" >> $GITHUB_ENV
+          echo $cvg_result
+
 
       - name: Coverage badge
         if: ${{ github.base_ref == 'main' }}
