@@ -28,8 +28,9 @@ def build_main_router() -> DefaultRouter:
         try:
             module: ModuleType = import_module(f"api.{module_name}.views")
         except (ImportError, ModuleNotFoundError) as error:
-            print(f"Could not import module {module_name}")
-            print(error)
+            if module_name != "utils":
+                print(f"Could not import module {module_name}")
+                print(error)
             continue
 
         for obj in vars(module).values():
@@ -49,9 +50,8 @@ def build_main_router() -> DefaultRouter:
 
 main_api_router = build_main_router()
 
-if __debug__:
-    print("\n", "-" * 100)
-    print("API URLS:")
-    for url in main_api_router.urls:
-        print(url)
-    print("-" * 100, "\n")
+# print("\n", "-" * 100)
+# print("API URLS:")
+# for url in main_api_router.urls:
+#     print(url)
+# print("-" * 100, "\n")

@@ -8,6 +8,7 @@ pip install virtualenv
 
 rm -rf .venv
 python3 -m virtualenv .venv --python=python3.11
+echo "PYTHONPATH=${PYTHONPATH}:$(pwd)" >> .venv/bin/activate
 source .venv/bin/activate
 printf "Virtual python environment has been activated.\n"
 
