@@ -1,5 +1,5 @@
 build:
-	docker compose -f backend/docker/development.yml build --remove-orphans
+	docker compose -f backend/docker/development.yml build
 
 up:
 	docker compose -f backend/docker/development.yml up -d --build --remove-orphans
