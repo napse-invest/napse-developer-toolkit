@@ -3,7 +3,6 @@ name: Check Source Branch
 on:
   pull_request_target:
 
-
 jobs:
   check-branches:
     name: Check branches
@@ -15,6 +14,7 @@ jobs:
           BASE_REF: ${{ github.base_ref }}
           ENVIRONMENT: ${{ github.event.pull_request.head.repo.full_name != github.repository && 'external' || 'internal' }}
         run: |
+          exit 1
           if [[ "$ENVIRONMENT" == "internal" ]] && [[ "$HEAD_REF" != "dev" ]] && [[ "$BASE_REF" == "main" ]]; then
               echo "Merge requests to the main branch are only allowed from the dev branch."
               exit 1
