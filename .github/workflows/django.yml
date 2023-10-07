@@ -37,8 +37,7 @@ jobs:
           ruff .
 
       - name: Tests and coverage
-        run: |
-          make coverage
+        run: make coverage
 
       - name: Coverage value
         run: |
