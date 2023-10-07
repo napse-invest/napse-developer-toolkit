@@ -34,7 +34,6 @@ jobs:
 
       - name: Tests and coverage
         run: |
-          sleep 15
           make coverage
 
       - name: Coverage value
