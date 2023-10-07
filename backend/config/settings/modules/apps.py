@@ -16,8 +16,10 @@ THIRD_PARTY_APPS = [
     # Napse
     "django_napse.core",
     "django_napse.simulations",
+    "django_napse.auth",
     # Required
     "django_celery_beat",
+    "rest_framework_api_key",
 ]
 
 LOCAL_APPS = [

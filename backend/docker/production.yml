@@ -46,18 +46,6 @@ services:
     labels:
       - "traefik.enable=false"
 
-  flower:
-    <<: *django
-    image: napse_dtk_prod_flower
-    container_name: napse_dtk_prod_flower
-    command: /start-flower
-    labels:
-      - "traefik.enable=true"
-      - "traefik.http.routers.flower.rule=Host(`localhost`)"
-      - "traefik.http.routers.flower.entrypoints=flower"
-    expose:
-      - "5555"
-
   traefik:
     image: "traefik:v2.9.5"
     command:
@@ -74,3 +62,19 @@ services:
   redis:
     image: redis:6
     container_name: napse_dtk_prod_redis
+
+  litestream-replicate:
+    build:
+      context: ..
+      dockerfile: ./docker/compose/production/litestream/Dockerfile
+    image: napse_dtk_dev_litestream
+    container_name: napse_dtk_dev_litestream
+    volumes:
+      - ../db/:/db/:z
+      - ./compose/production/litestream/config.yml:/etc/litestream.yml:z
+    env_file:
+      - ../.envs/.production/.litestream
+    depends_on:
+      - django
+    command: replicate --config /etc/litestream.yml
+

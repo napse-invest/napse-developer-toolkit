@@ -1,10 +1,6 @@
 version: '3'
 
-name: napse-dtk-development
-
-volumes:
-  napse_dtk_dev_postgres_data: {}
-  napse_dtk_dev_postgres_data_backups: {}
+name: napse-dtk-development-litestream
 
 services:
   django: &django
@@ -15,13 +11,12 @@ services:
     container_name: napse_dtk_dev_django
     platform: linux/x86_64
     depends_on:
-      - postgres
       - redis
     volumes:
       - ../.:/app:z
     env_file:
       - ../.envs/.development/.django
-      - ../.envs/.development/.postgres
+      - ../.envs/.development/.litestream
     command: /start
     labels:
       - "traefik.enable=true"
@@ -30,23 +25,26 @@ services:
     expose:
       - "8000"
 
-  postgres:
-    build:
-      context: ..
-      dockerfile: ./docker/compose/development/postgres/Dockerfile
-    image: napse_dtk_dev_postgres
-    container_name: napse_dtk_dev_postgres
-    volumes:
-      - napse_dtk_dev_postgres_data:/var/lib/postgresql/data:Z
-      - napse_dtk_dev_postgres_data_backups:/backups:z
-    env_file:
-      - ../.envs/.development/.postgres
+  minio:
+    image: minio/minio
+    container_name: napse_dtk_dev_minio
+    command: server /data --console-address ":9001"
     ports:
-      - "5432:5432"
+      - "9000:9000" 
+      - "9001:9001"
 
-  redis:
-    image: redis:6
-    container_name: napsedjango_local_redis
+  createbuckets:
+    image: minio/mc
+    container_name: napse_dtk_dev_minio_createbuckets
+    depends_on:
+      - minio
+    entrypoint: >
+      /bin/sh -c "
+      mc alias set minio http://minio:9000 minioadmin minioadmin;
+      mc mb --ignore-existing minio/miniobkt;
+      mc anonymous set public minio/miniobkt;
+      exit 0;
+      "
 
   celeryworker:
     <<: *django
@@ -54,7 +52,6 @@ services:
     container_name: napse_dtk_dev_celeryworker
     depends_on:
       - redis
-      - postgres
       - django
     ports: []
     command: /start-celeryworker
@@ -67,7 +64,6 @@ services:
     container_name: napse_dtk_dev_celerybeat
     depends_on:
       - redis
-      - postgres
       - django
     ports: []
     command: /start-celerybeat
@@ -104,4 +100,6 @@ services:
       - "3005:3005"
     volumes:
       - "/var/run/docker.sock:/var/run/docker.sock:ro"
-
+  redis:
+    image: redis:6
+    container_name: napsedjango_local_redis
