@@ -1,8 +1,11 @@
 name: Django CI
 
 on:
-  pull_request_target:
-
+  # pull_request_target:
+  workflow_run:
+    workflows: [Check Workflow Files Changes, Cross-PR Checks, Check Source Branch]
+    types:
+      - completed
 jobs:
   authorize:
     environment: ${{ github.event.pull_request.head.repo.full_name != github.repository && 'external' || 'internal' }}
@@ -36,11 +39,11 @@ jobs:
         run: |
           make coverage
 
-      # - name: Coverage value
-      #   run: |
-      #     cvg_result=$(docker exec napse_dtk_dev_django coverage report --skip-covered | head -n -2 | tail -n 1 | awk '{print $NF}' | sed 's/%//')
-      #     echo "COVERAGE=$cvg_result" >> $GITHUB_ENV
-      #     echo $cvg_result
+      - name: Coverage value
+        run: |
+          cvg_result=$(docker exec napse_dtk_dev_django coverage report --skip-covered | head -n -2 | tail -n 1 | awk '{print $NF}' | sed 's/%//')
+          echo "COVERAGE=$cvg_result" >> $GITHUB_ENV
+          echo $cvg_result
 
       - name: Coverage badge
         if: ${{ github.base_ref == 'main' }}
