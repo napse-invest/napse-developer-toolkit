@@ -36,15 +36,10 @@ jobs:
           pip install ruff
           ruff .
 
-      - name: Tests and coverage 1
+      - name: Tests and coverage
         run: |
-          docker exec napse_dtk_dev_django coverage run manage.py test -v2 --keepdb
-      - name: Tests and coverage 2
-        run: |
-          docker exec napse_dtk_dev_django coverage html
-      - name: Tests and coverage 3
-        run: |
-          docker exec napse_dtk_dev_django coverage report
+          sleep 15
+          make coverage
 
       - name: Coverage value
         run: |
