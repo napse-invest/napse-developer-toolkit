@@ -57,11 +57,11 @@ jobs:
           minColorRange: 60
           maxColorRange: 100
 
-      - name: Litestream
-        run: |
-          make down
-          make up IMAGE=litestream
-          make down IMAGE=litestream
+      # - name: Litestream
+      #   run: |
+      #     make down
+      #     make up IMAGE=litestream
+      #     make down IMAGE=litestream
 
       - name: Stop containers
         if: always()
