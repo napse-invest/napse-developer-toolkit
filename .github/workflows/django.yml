@@ -37,7 +37,11 @@ jobs:
           ruff .
 
       - name: Tests and coverage
-        run: make coverage
+        run: |
+          # make coverage
+          docker exec napse_dtk_dev_django coverage run manage.py test -v2 --keepdb 
+          docker exec napse_dtk_dev_django coverage html
+          docker exec napse_dtk_dev_django coverage report
 
       - name: Coverage value
         run: |
