@@ -3,7 +3,7 @@ name: Django CI
 on:
   # pull_request_target:
   workflow_run:
-    workflows: [Check Workflow Files Changes, Check Source Branch, Cross-PR Checks]
+    workflows: [Check Source Branch]
     types:
       - completed
 jobs:
