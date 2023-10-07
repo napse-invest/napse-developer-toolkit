@@ -5,7 +5,7 @@ on:
 jobs:
   check_cross_prs:
     runs-on: ubuntu-latest
-
+    name: Check Cross PRs
     steps:
       - name: Checkout repository
         uses: actions/checkout@v4
