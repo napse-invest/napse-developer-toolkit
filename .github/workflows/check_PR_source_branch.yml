@@ -3,7 +3,6 @@ name: Check Source Branch
 on:
   pull_request_target:
 
-
 jobs:
   check-branches:
     name: Check branches
