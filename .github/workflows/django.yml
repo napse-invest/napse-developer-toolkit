@@ -1,10 +1,7 @@
 name: Django CI
 
 on:
-  workflow_run:
-    workflows: ["Check Source Branch", "Check Workflow Files Changes", "Cross-PR Checks"]
-    types:
-      - completed
+  pull_request_target:
 
 jobs:
   authorize:
