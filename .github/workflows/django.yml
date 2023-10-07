@@ -1,7 +1,10 @@
 name: Django CI
 
 on:
-  pull_request:
+  workflow_run:
+    workflows: ["check_no_changes_workflows", "check_no_open_pr", "check_PR_source_branch"]
+    types:
+      - completed
 
 jobs:
   authorize:
