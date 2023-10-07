@@ -1,0 +1,5 @@
+
+dbs:
+  - path: backend/db/db.sqlite3
+    replicas:
+      - url: "${S3_BUCKET_PATH}"

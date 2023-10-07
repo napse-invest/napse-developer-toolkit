@@ -1,7 +1,4 @@
-import os
-
-from config.settings.base import *  # noqa: F403
-from config.settings.base import env
+from config.settings.base import ROOT_DIR, env
 from config.settings.modules import *  # noqa: F403
 
 ALLOWED_HOSTS = ["localhost", "127.0.0.1", "django"]
@@ -24,13 +21,17 @@ INSTALLED_APPS += ["django_extensions"]  # noqa: F405
 # ------------------------------------------------------------------------------
 # https://docs.djangoproject.com/en/dev/ref/settings/#databases
 DATABASES = {
+    # "default": {
+    #     "ENGINE": "django.db.backends.postgresql",
+    #     "NAME": os.environ.get("POSTGRES_DB"),
+    #     "USER": os.environ.get("POSTGRES_USER"),
+    #     "PASSWORD": os.environ.get("POSTGRES_PASSWORD"),
+    #     "HOST": os.environ.get("POSTGRES_HOST"),
+    #     "PORT": os.environ.get("POSTGRES_PORT"),
+    # },
     "default": {
-        "ENGINE": "django.db.backends.postgresql",
-        "NAME": os.environ.get("POSTGRES_DB"),
-        "USER": os.environ.get("POSTGRES_USER"),
-        "PASSWORD": os.environ.get("POSTGRES_PASSWORD"),
-        "HOST": os.environ.get("POSTGRES_HOST"),
-        "PORT": os.environ.get("POSTGRES_PORT"),
+        "ENGINE": "django.db.backends.sqlite3",
+        "NAME": ROOT_DIR / "db" / "db.sqlite3",
     },
 }
 DATABASES["default"]["ATOMIC_REQUESTS"] = True
