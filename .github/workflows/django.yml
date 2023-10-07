@@ -59,6 +59,7 @@ jobs:
 
       - name: Litestream
         run: |
+          make down
           make up IMAGE=litestream
           make down IMAGE=litestream
 
