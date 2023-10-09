@@ -24,4 +24,4 @@ django-napse==1.9.0 # https://github.com/napse-invest/django-napse
 djangorestframework-api-key==2.3.0
 
 # External tools
-coverage==7.3.1 # https://github.com/nedbat/coveragepy
+coverage==7.3.2 # https://github.com/nedbat/coveragepy
