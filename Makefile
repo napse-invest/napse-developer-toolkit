@@ -22,10 +22,13 @@ up:
 down:
 	docker compose -f backend/docker/development-${IMAGE}.yml down
 
+clean:
+	docker compose -f backend/docker/development-${IMAGE}.yml down -v --remove-orphans && rm backend/db/db.sqlite3
+
 in:
 	docker exec -it napse_dtk_dev_django bash
 
-test-napse:
+test:
 	docker exec napse_dtk_dev_django python manage.py test -v2
 
 coverage:

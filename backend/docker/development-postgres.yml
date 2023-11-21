@@ -13,7 +13,7 @@ services:
       dockerfile: ./docker/compose/development/django/Dockerfile
     image: napse_dtk_dev_django
     container_name: napse_dtk_dev_django
-    platform: linux/x86_64
+    # platform: linux/x86_64
     depends_on:
       - postgres
       - redis

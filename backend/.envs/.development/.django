@@ -17,3 +17,4 @@ IS_LOCAL=True
 # ------------------------------------------------------------------------------
 CELERY_FLOWER_USER="wRSdgTpIDD8ySZFL14bA6rPPQzMJ0pjXL620YIPUhXk"
 CELERY_FLOWER_PASSWORD="ikQMfq0t0XClQ3MaKaip8ogum0itD0KOMCuX9H-tX60"
+DB_ENGINE="POSTGRES"
