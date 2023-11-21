@@ -27,14 +27,13 @@ jobs:
       - name: Start containers
         run: make up
 
+      - name: Tests and coverage
+        run: make coverage
+
       - name: Lint with ruff
         run: |
           pip install ruff
           ruff .
-
-      - name: Tests and coverage
-        run: |
-          make coverage
 
       - name: Coverage value
         run: |
@@ -44,7 +43,7 @@ jobs:
 
       - name: Coverage badge
         if: ${{ github.base_ref == 'main' }}
-        uses: Schneegans/dynamic-badges-action@v1.6.0
+        uses: Schneegans/dynamic-badges-action@v1.7.0
         env:
           COVERAGE: ${{ env.COVERAGE }}
         with:
