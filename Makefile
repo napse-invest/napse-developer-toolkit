@@ -1,3 +1,5 @@
+SHELL := /bin/bash
+IMAGE ?= postgres
 OS := $(shell uname)
 
 all: up
@@ -12,13 +14,13 @@ else
 endif
 
 build:
-	docker compose -f backend/docker/development.yml build --remove-orphans
+	docker compose -f backend/docker/development-${IMAGE}.yml build 
 
 up:
-	docker compose -f backend/docker/development.yml up -d --build --remove-orphans
+	docker compose -f backend/docker/development-${IMAGE}.yml up -d --build --remove-orphans
 
 down:
-	docker compose -f backend/docker/development.yml down
+	docker compose -f backend/docker/development-${IMAGE}.yml down
 
 in:
 	docker exec -it napse_dtk_dev_django bash
@@ -31,3 +33,7 @@ coverage:
 
 coverage-open:
 	docker exec napse_dtk_dev_django coverage run manage.py test -v2 --keepdb && docker exec napse_dtk_dev_django coverage html && docker exec napse_dtk_dev_django coverage report && open htmlcov/index.html
+
+litestream:
+	set -a && . ./backend/.envs/.development/.litestream && set +a && litestream replicate --config backend/docker/compose/production/litestream/config.yml
+

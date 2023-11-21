@@ -20,18 +20,6 @@ from django.conf.urls import include
 from django.urls import path
 from django_napse.api.api_urls import main_api_router
 
-# from rest_framework.decorators import api_view, permission_classes
-# from rest_framework.response import Response
-
-
-# @api_view(["GET"])
-# @permission_classes([])
-# def health(request):
-#     """Health check."""
-#     return Response(status=200, data={"status": "ok"})
-
-
 urlpatterns = [
-    # path("health/", health, name="health"),
     path("api/", include(main_api_router.urls), name="api"),
 ]

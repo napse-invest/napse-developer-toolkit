@@ -5,10 +5,10 @@ on:
 jobs:
   check_cross_prs:
     runs-on: ubuntu-latest
-
+    name: Check Cross PRs
     steps:
       - name: Checkout repository
-        uses: actions/checkout@v3
+        uses: actions/checkout@v4
 
       - name: List open PRs based on the same branch
         id: list_prs

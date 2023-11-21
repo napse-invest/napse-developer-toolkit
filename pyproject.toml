@@ -24,7 +24,7 @@ fixable = ["A", "B", "C", "D", "E", "F", "DTZ", "RUF", "S", "COM", "C4", "DJ", "
 unfixable = []
 
 # Exclude a variety of commonly ignored directories.
-exclude = [
+exclude = [ 
     ".bzr",
     ".direnv",
     ".eggs",

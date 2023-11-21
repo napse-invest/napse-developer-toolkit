@@ -13,7 +13,7 @@ env.read_env(str(ROOT_DIR / ".env"))
 DATABASES = {
     "default": {
         "ENGINE": "django.db.backends.sqlite3",
-        "NAME": ROOT_DIR / "db.sqlite3",
+        "NAME": ROOT_DIR / "db" / "db.sqlite3",
     },
 }
 

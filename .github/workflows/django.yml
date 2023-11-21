@@ -1,7 +1,7 @@
 name: Django CI
 
 on:
-  pull_request:
+  pull_request_target:
 
 jobs:
   authorize:
@@ -20,12 +20,12 @@ jobs:
       max-parallel: 4
 
     steps:
-      - uses: actions/checkout@v3
+      - uses: actions/checkout@v4
         with:
           ref: ${{ github.event.pull_request.head.sha || github.ref }}
 
       - name: Start containers
-        run: docker compose -f ./backend/docker/development.yml up --build -d
+        run: make up
 
       - name: Lint with ruff
         run: |
@@ -38,10 +38,9 @@ jobs:
 
       - name: Coverage value
         run: |
-          cvg_result=$(docker exec napse_dtk_dev_django coverage report --skip-covered | head -n -2 | tail -n 1 | awk '{print $NF}' | sed 's/%//') 
+          cvg_result=$(docker exec napse_dtk_dev_django coverage report --skip-covered | head -n -2 | tail -n 1 | awk '{print $NF}' | sed 's/%//')
           echo "COVERAGE=$cvg_result" >> $GITHUB_ENV
           echo $cvg_result
-
 
       - name: Coverage badge
         if: ${{ github.base_ref == 'main' }}
@@ -60,4 +59,4 @@ jobs:
 
       - name: Stop containers
         if: always()
-        run: docker compose -f ./backend/docker/development.yml down
+        run: make down
