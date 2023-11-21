@@ -13,6 +13,7 @@ DJANGO_SETTINGS_MODULE="config.settings.production"
 SECRET_KEY="faNOpRrPjt59ZE7ZYTdLIYkaBG0YluPfzNFhtkuN1Bo"
 DJANGO_DEBUG=True
 IS_LOCAL=True
+DB_ENGINE="POSTGRES"
 
 # Flower
 # ------------------------------------------------------------------------------
