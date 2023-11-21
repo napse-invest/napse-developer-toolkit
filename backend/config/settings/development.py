@@ -40,9 +40,9 @@ elif os.environ.get("DB_ENGINE") == "MYSQL":
     }
 else:
     if os.environ.get("DB_ENGINE"):
-        error_msg = f"DB_ENGINE={os.environ.get('DB_ENGINE')} is not supported"
+        error_msg = f"DB_ENGINE={os.environ.get('DB_ENGINE')} is not supported."
     else:
-        error_msg = "DB_ENGINE environment variable is not set"
+        error_msg = "DB_ENGINE environment variable is not set."
     raise ValueError(error_msg)
 
 DATABASES["default"]["ATOMIC_REQUESTS"] = True
