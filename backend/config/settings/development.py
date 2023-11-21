@@ -31,7 +31,7 @@ if os.environ.get("DB_ENGINE") == "POSTGRES":
             "PORT": os.environ.get("POSTGRES_PORT"),
         },
     }
-elif os.environ.get("DB_ENGINE") == "MYSQL":
+elif os.environ.get("DB_ENGINE") == "SQLITE":
     DATABASES = {
         "default": {
             "ENGINE": "django.db.backends.sqlite3",
