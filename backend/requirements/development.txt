@@ -2,7 +2,7 @@
 
 Werkzeug==3.0.0 # https://github.com/pallets/werkzeug
 ipdb==0.13.13  # https://github.com/gotcha/ipdb
-watchfiles==0.20.0  # https://github.com/samuelcolvin/watchfiles
+watchfiles==0.21.0  # https://github.com/samuelcolvin/watchfiles
 
 # Testing
 # ------------------------------------------------------------------------------
