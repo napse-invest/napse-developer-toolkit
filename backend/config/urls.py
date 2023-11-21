@@ -16,9 +16,9 @@ Including another URLconf
     2. Add a URL to urlpatterns:  path('blog/', include('blog.urls'))
 
 """
-from api.api_urls import main_api_router
 from django.conf.urls import include
 from django.urls import path
+from django_napse.api.api_urls import main_api_router
 
 # from rest_framework.decorators import api_view, permission_classes
 # from rest_framework.response import Response
