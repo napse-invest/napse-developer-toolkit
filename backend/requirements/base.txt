@@ -20,7 +20,7 @@ django-extensions==3.2.3  # https://github.com/django-extensions/django-extensio
 drf-spectacular==0.26.5 # https://github.com/tfranzel/drf-spectacular
 django-cors-headers==4.3.1 # https://github.com/adamchainz/django-cors-headers
 
-django-napse==1.10.0 # https://github.com/napse-invest/django-napse
+django-napse==1.10.2 # https://github.com/napse-invest/django-napse
 djangorestframework-api-key==2.3.0
 
 # External tools
