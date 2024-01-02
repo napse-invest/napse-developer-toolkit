@@ -29,18 +29,22 @@ jobs:
 
       - name: Tag Docker image
         run: |
-          docker image ls
           TAG_NAME=$(grep -oP '(?<=## \[)[^\]]+' CHANGELOG.md | head -n 1)
           echo "Tagging with $TAG_NAME"
           VERSION=v$TAG_NAME
+          echo "VERSION=$VERSION" >> $GITHUB_ENV
 
           docker tag napse_dtk_prod_litestream ghcr.io/${{ github.repository }}/napse_dtk_prod_litestream:$VERSION
           docker tag napse_dtk_prod_django ghcr.io/${{ github.repository }}/napse_dtk_prod_django:$VERSION
       
       - name: Push Litestream Docker image
+        env:
+          VERSION: ${{ env.VERSION }}
         run: |
-          docker push ghcr.io/${{ github.repository }}/napse_dtk_prod_litestream:$VERSION
+          docker push ghcr.io/${{ github.repository }}/napse_dtk_prod_litestream:${{ env.VERSION }}
       
       - name: Push Django Docker image
+        env:
+          VERSION: ${{ env.VERSION }}
         run: |
-          docker push ghcr.io/${{ github.repository }}/napse_dtk_prod_django:$VERSION
+          docker push ghcr.io/${{ github.repository }}/napse_dtk_prod_django:${{ env.VERSION }}
