@@ -40,6 +40,8 @@ jobs:
 
       - name: Push LiteStream image
         uses: docker/build-push-action@v2
+        env:
+          VERSION: ${{ env.VERSION }}
         with:
           context: .
           push: true
@@ -47,6 +49,8 @@ jobs:
         
       - name: Push Django image
         uses: docker/build-push-action@v2
+        env:
+          VERSION: ${{ env.VERSION }}
         with:
           context: .
           push: true
