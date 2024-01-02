@@ -40,3 +40,8 @@ coverage-open:
 litestream:
 	set -a && . ./backend/.envs/.development/.litestream && set +a && litestream replicate --config backend/docker/compose/production/litestream/config.yml
 
+setup-prod:
+	./backend/docker/setup-prod.sh
+
+build-prod: setup-prod
+	docker compose -f backend/docker/production.yml build

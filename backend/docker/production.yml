@@ -24,7 +24,6 @@ services:
 
   celeryworker:
     <<: *django
-    image: napse_dtk_prod_celeryworker
     container_name: napse_dtk_prod_celeryworker
     depends_on:
       - redis
@@ -36,7 +35,6 @@ services:
 
   celerybeat:
     <<: *django
-    image: napse_dtk_prod_celerybeat
     container_name: napse_dtk_prod_celerybeat
     depends_on:
       - redis
