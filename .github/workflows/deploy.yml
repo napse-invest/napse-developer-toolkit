@@ -35,6 +35,11 @@ jobs:
 
           docker tag napse_dtk_prod_litestream ghcr.io/${{ github.repository }}/napse_dtk_prod_litestream:$VERSION
           docker tag napse_dtk_prod_django ghcr.io/${{ github.repository }}/napse_dtk_prod_django:$VERSION
-
+      
+      - name: Push Litestream Docker image
+        run: |
           docker push ghcr.io/${{ github.repository }}/napse_dtk_prod_litestream:$VERSION
+      
+      - name: Push Django Docker image
+        run: |
           docker push ghcr.io/${{ github.repository }}/napse_dtk_prod_django:$VERSION
