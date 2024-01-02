@@ -1,8 +1,10 @@
 name: Deploy
 
 on:
-  push:
-    branches: ["main"]
+  workflow_run:
+    workflows: ["Release"]
+    types: 
+      - completed
 
 jobs:
   release:
