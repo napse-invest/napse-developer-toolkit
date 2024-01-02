@@ -29,7 +29,7 @@ jobs:
 
       - name: Tag Docker image
         run: |
-          TAG_NAME=$(grep -oP '(?<=## \[)[^\]]+' CHANGELOG.md | head -n 1)
+          TAG_NAME=$(grep -oP '(?<=# \[)[^\]]+' CHANGELOG.md | head -n 1)
           echo "Tagging with $TAG_NAME"
           VERSION=v$TAG_NAME
           echo "VERSION=$VERSION" >> $GITHUB_ENV
