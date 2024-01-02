@@ -15,7 +15,9 @@ jobs:
           persist-credentials: false
 
       - name: build
-        run: make build
+        run: | 
+          make build
+          docker ps -a
 
       - name: Login to GitHub Container Registry
         uses: docker/login-action@v1
