@@ -1,3 +1,22 @@
+# [1.2.0](https://github.com/napse-invest/napse-developer-toolkit/compare/v1.1.0...v1.2.0) (2023-11-22)
+
+
+### Bug Fixes
+
+* **api:** adjust exchange account view ([ab328d4](https://github.com/napse-invest/napse-developer-toolkit/commit/ab328d4d77f71d1bbab4402b36c578b5a8185094))
+* **ci:** workflow ([93355a5](https://github.com/napse-invest/napse-developer-toolkit/commit/93355a5479598298ae78cc3cb4ca51b55dc7803f))
+* **ci:** workflow ([e8bc5c8](https://github.com/napse-invest/napse-developer-toolkit/commit/e8bc5c850230aaf82f825c8f5e8bdc14f5c78e95))
+* **ci:** workoflows fixed ([ddba1a3](https://github.com/napse-invest/napse-developer-toolkit/commit/ddba1a3967e098c53638ccff64dcb0605e268966))
+* **devops:** docker && ci ([34ae0c1](https://github.com/napse-invest/napse-developer-toolkit/commit/34ae0c1414f0bf5f8d2d87769c5cf50ea1e98436))
+* **makefile:** build fixed ([1e3c0b4](https://github.com/napse-invest/napse-developer-toolkit/commit/1e3c0b460cac69479388e65209a9d3918ba398b1))
+* **merge-conflicts:** fixed ([0097123](https://github.com/napse-invest/napse-developer-toolkit/commit/0097123bb8b58eb67f082d00bfed65da01ab2cc7))
+
+
+### Features
+
+* **api:** get endoints for EA, Space & Fleet ([b2adc3b](https://github.com/napse-invest/napse-developer-toolkit/commit/b2adc3bbf787fd058b88b71fb0d6bce86f916ee3))
+* **litestream:** added support for local use of litestream ([68f7b1f](https://github.com/napse-invest/napse-developer-toolkit/commit/68f7b1f86b0e9ebc7130aa627ae32b21d0332a45))
+
 # [1.1.0](https://github.com/napse-invest/napse-developer-toolkit/compare/v1.0.0...v1.1.0) (2023-09-03)
 
 
