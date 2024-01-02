@@ -54,7 +54,7 @@ cat << EOF > backend/.envs/.production/.litestream
 DB_SETUP=litestream
 LITESTREAM_ACCESS_KEY_ID="" # TODO : Generate random password
 LITESTREAM_SECRET_ACCESS_KEY="" # TODO : Generate random password
-S3_BUCKET_PATH="" # TODO : Create s3 bucket
+S3_BUCKET_PATH="${S3_BUCKET_PATH}" # TODO : Create s3 bucket
 EOF
 
 mkdir -p provisionEB/.env

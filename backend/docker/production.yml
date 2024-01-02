@@ -65,8 +65,8 @@ services:
     build:
       context: ..
       dockerfile: ./docker/compose/production/litestream/Dockerfile
-    image: napse_dtk_dev_litestream
-    container_name: napse_dtk_dev_litestream
+    image: napse_dtk_prod_litestream
+    container_name: napse_dtk_prod_litestream
     volumes:
       - ../db/:/db/:z
       - ./compose/production/litestream/config.yml:/etc/litestream.yml:z

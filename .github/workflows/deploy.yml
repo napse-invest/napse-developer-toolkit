@@ -16,9 +16,9 @@ jobs:
         with:
           persist-credentials: false
 
-      - name: build
+      - name: Build
         run: | 
-          make build
+          make build-prod
 
       - name: Login to GitHub Container Registry
         uses: docker/login-action@v1
@@ -30,8 +30,13 @@ jobs:
       - name: Tag Docker image
         run: |
           docker image ls
-          echo "$(echo ${{ github.sha }})" > version.txt
-          docker tag local-image:tag ghcr.io/${{ github.repository }}/local-image:$(cat version.txt)
+          TAG_NAME=$(grep -oP '(?<=## \[)[^\]]+' CHANGELOG.md | head -n 1)
+          VERSION=v$TAG_NAME
+          echo "${VERSION}$(echo ${{ github.sha }})" > version.txt
+
+          docker tag napse_dtk_prod_litestream ghcr.io/${{ github.repository }}/napse_dtk_prod_litestream:$(cat version.txt)
+          docker tag napse_dtk_prod_django ghcr.io/${{ github.repository }}/napse_dtk_prod_django:$(cat version.txt)
+
 
       - name: Push Docker image
         uses: docker/build-push-action@v2
