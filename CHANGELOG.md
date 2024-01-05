@@ -1,3 +1,10 @@
+## [1.3.5](https://github.com/napse-invest/napse-developer-toolkit/compare/v1.3.4...v1.3.5) (2024-01-05)
+
+
+### Bug Fixes
+
+* workflow artifact tag ([256cf3f](https://github.com/napse-invest/napse-developer-toolkit/commit/256cf3f4feeee71f5d763448c24c0249f3d12274))
+
 ## [1.3.4](https://github.com/napse-invest/napse-developer-toolkit/compare/v1.3.3...v1.3.4) (2024-01-05)
 
 
