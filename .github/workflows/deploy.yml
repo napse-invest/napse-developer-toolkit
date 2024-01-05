@@ -35,6 +35,7 @@ jobs:
           echo "VERSION=$VERSION" >> $GITHUB_ENV
 
           docker tag napse_dtk_prod_django ghcr.io/${{ github.repository }}/napse_dtk_prod_django:$VERSION
+          docker tag napse_dtk_prod_django ghcr.io/${{ github.repository }}/napse_dtk_prod_django:latest
             
       - name: Push Django Docker image
         env:

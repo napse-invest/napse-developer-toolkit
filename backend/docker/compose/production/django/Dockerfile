@@ -1,12 +1,13 @@
 # pull official base image
 ARG PYTHON_VERSION=3.11-slim-bullseye
+FROM python:${PYTHON_VERSION} as python
 
-FROM ubuntu:22.04 as ubuntu-build-stage
+# ----------------------------------------------------------------------------------------
+# Python build stage
+FROM python as python-build-stage
 ARG BUILD_ENVIRONMENT=production
-ARG APP_HOME=/app
 
-# set work directory
-WORKDIR ${APP_HOME}
+# Update and install 
 RUN apt-get update && apt-get install --no-install-recommends -y \
   # psycopg2 dependencies
   libpq-dev \
@@ -17,29 +18,10 @@ RUN apt-get update && apt-get install --no-install-recommends -y \
   # cleaning up unused files
   && apt-get purge -y --auto-remove -o APT::AutoRemove::RecommendsImportant=false \
   && rm -rf /var/lib/apt/lists/*
+
 RUN apt-get update && apt-get install -y ca-certificates && update-ca-certificates
 RUN wget https://github.com/benbjohnson/litestream/releases/download/v0.3.13/litestream-v0.3.13-linux-amd64.deb
 RUN dpkg -i litestream-v0.3.13-linux-amd64.deb
-
-
-FROM python:${PYTHON_VERSION} as python
-COPY --from=ubuntu-build-stage /usr/bin/litestream /usr/bin/litestream
-
-# ----------------------------------------------------------------------------------------
-# Python build stage
-FROM python as python-build-stage
-ARG BUILD_ENVIRONMENT=production
-RUN /usr/bin/litestream version
-# Update and install 
-RUN apt-get update && apt-get install --no-install-recommends -y \
-  # psycopg2 dependencies
-  libpq-dev \
-  # Translations dependencies
-  gettext \
-  # cleaning up unused files
-  && apt-get purge -y --auto-remove -o APT::AutoRemove::RecommendsImportant=false \
-  && rm -rf /var/lib/apt/lists/*
-
 # Create Python Dependency and Sub-Dependency Wheels.
 COPY ./requirements .
 RUN pip wheel --wheel-dir /usr/src/app/wheels \
@@ -49,6 +31,8 @@ RUN pip wheel --wheel-dir /usr/src/app/wheels \
 # ----------------------------------------------------------------------------------------
 # Python 'run' stage
 FROM python as python-run-stage
+COPY --from=python-build-stage /usr/bin/litestream /usr/bin/litestream
+RUN /usr/bin/litestream version
 
 # set environment variables
 ENV PYTHONDONTWRITEBYTECODE 1
