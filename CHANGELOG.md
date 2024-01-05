@@ -1,3 +1,10 @@
+# [1.3.0](https://github.com/napse-invest/napse-developer-toolkit/compare/v1.2.0...v1.3.0) (2024-01-05)
+
+
+### Features
+
+* **deploy:** prod deployment and devops setup ([5b3d52d](https://github.com/napse-invest/napse-developer-toolkit/commit/5b3d52d98fad67823e6c4128e3ca12d9768b9d42))
+
 # [1.2.0](https://github.com/napse-invest/napse-developer-toolkit/compare/v1.1.0...v1.2.0) (2023-11-22)
 
 
