@@ -1,3 +1,10 @@
+## [1.3.10](https://github.com/napse-invest/napse-developer-toolkit/compare/v1.3.9...v1.3.10) (2024-01-05)
+
+
+### Bug Fixes
+
+* **deploy:** version in docker file ([1817916](https://github.com/napse-invest/napse-developer-toolkit/commit/18179166e653a949acabe99e69678ead23de86bc))
+
 ## [1.3.9](https://github.com/napse-invest/napse-developer-toolkit/compare/v1.3.8...v1.3.9) (2024-01-05)
 
 
