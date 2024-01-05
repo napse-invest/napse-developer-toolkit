@@ -51,7 +51,7 @@ jobs:
           VERSION: ${{ env.VERSION }}
         run: |
           make setup-prod
-          zip -r deploy-$VERSION.zip provisionEB/* provisionEB/.ebextensions provisionEB/.env
+          zip -r deploy-aws-$VERSION.zip provisionEB/* provisionEB/.ebextensions provisionEB/.env
           ls
       
       - name: Push .zip file
@@ -60,7 +60,7 @@ jobs:
           VERSION: ${{ env.VERSION }}
         with:
           name: deploy-package-aws-eb-${{ env.VERSION }}
-          path: deploy-${{ env.VERSION }}.zip 
+          path: deploy-aws-${{ env.VERSION }}.zip 
       
       - name: Upload Release Asset
         id: upload-release-asset
@@ -70,6 +70,6 @@ jobs:
           VERSION: ${{ env.VERSION }}
         with:
           upload_url: ${{ github.event.release.upload_url }}
-          asset_path: deploy-${{ env.VERSION }}.zip
-          asset_name: deploy-${{ env.VERSION }}.zip
+          asset_path: deploy-aws-${{ env.VERSION }}.zip
+          asset_name: deploy-aws-${{ env.VERSION }}.zip
           asset_content_type: application/zip
