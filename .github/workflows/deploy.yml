@@ -54,14 +54,6 @@ jobs:
           make setup-prod
           zip -r deploy-aws-$VERSION.zip provisionEB/* provisionEB/.ebextensions provisionEB/.env
       
-      - name: Push .zip file
-        uses: actions/upload-artifact@v2
-        env:
-          VERSION: ${{ env.VERSION }}
-        with:
-          name: deploy-package-aws-eb-${{ env.VERSION }}
-          path: deploy-aws-${{ env.VERSION }}.zip 
-      
       - name: Upload Release Asset
         id: upload-release-asset
         uses: actions/upload-release-asset@v1
