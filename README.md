@@ -1,9 +1,13 @@
-<h1 align="center">
-<img src="https://github.com/napse-invest/Napse/blob/main/desktop-app/renderer/public/images/napse_white.svg" width=500/>
-</h1><br>
+<div align="center">
+<picture>
+  <source media="(prefers-color-scheme: dark)" srcset="docs/theme/assets/napse_invest_logo_white.svg">
+  <source media="(prefers-color-scheme: light)" srcset="docs/theme/assets/napse_invest_logo_black.svg">
+  <img alt="Napse's logo" src="" width=500>
+</picture>
+</div>
 
+<br>
 <p align="center">
-
   <a>
     <img src="https://img.shields.io/endpoint?url=https://gist.githubusercontent.com/napse-investment/40fac957532fe3b731c99067467de842/raw/napse-developer-toolkit-coverage.json" alt="Coverage" />
   </a>
@@ -20,49 +24,57 @@
 
 <p align="center">
   <a href="#napse-developer-toolkit"><strong>Napse Developer Toolkit</strong></a> ·
-  <a href="#development-environment"><strong>Development environment</strong></a> .
-  <a href="#cli"><strong>CLI</strong></a> .
+  <a href="#setup-local-environment"><strong>Setup local environment</strong></a> .
+  <a href="#run-project-with-docker"><strong>Docker</strong></a> .
   <a href="#useful-commands"><strong>Useful commands</strong></a>
 </p>
 <br/>
 
-## Napse Developer Toolkit
+# Napse Developer Toolkit
 All you need to push the customisation of your Napse services to the next level.
 
-## Development environment
 
-### Setup local environment
+## Setup local environment
 
 Local environment is use for your IDE, but it's not use to run napse-dtk. See [Run project with docker](#run-project-with-docker) for more information.
 
-Run the setup script to fully setup your local environment:
-- Unix \
-```source setup-unix.sh```
+To setup your local environment:
+```bash
+make setup
+```
 
-- Windows (PowerShell terminal as administrator)\
-```.\setup-windows.ps1```
+## Run project with docker
 
-### Run project with docker
-
-- Start docker in development environment \
-    ```docker-compose -f ./backend/docker/development.yml up --build -d```
-
-- Start docker in development as production environment \
-    ```docker-compose -f ./backend/docker/dev_as_prod.yml up --build -d```
-
-
-## CLI
-
-...
-
+- Start:
+```bash
+make up
+```
 
 ## Useful commands
 
-- Start docker \
-    ```docker-compose -f ./backend/docker/<yml file> up --build -d```
+- Build:
+```bash
+make build
+```
 
-- Stop docker \
-    ```docker-compose -f ./backend/docker/<yml file> down```
+- Stop:
+```bash
+make down
+```
 
--  Enter in the django container \
-    ```docker exec -it napse_dtk_dev_django /bin/bash```
+- Run tests:
+```bash
+make test
+```
+
+- Run tests with coverage:
+```bash
+make coverage
+# or
+make coverage-open
+```
+
+- lightstream:
+```bash
+make litestream
+```
