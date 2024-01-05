@@ -46,14 +46,15 @@ jobs:
       - name: Push Django Docker image latest
         run: |
           docker push ghcr.io/${{ github.repository }}/napse_dtk_prod_django:latest
-          
+
 
       - name: Create .zip file
         env:
           VERSION: ${{ env.VERSION }}
         run: |
           make setup-prod
-          zip -r deploy-$VERSION.zip provisionEB/*
+          zip -r deploy-$VERSION.zip provisionEB/**/*
+          ls
       
       - name: Push .zip file
         uses: actions/upload-artifact@v2
