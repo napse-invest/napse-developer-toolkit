@@ -2,13 +2,13 @@ mkdir -p provisionEB
 touch provisionEB/Dockerrun.aws.json
 touch provisionEB/config.json
 
-cp backend/docker/production.yml provisionEB/docker-compose.yml
+cp backend/docker/docker-compose.yml provisionEB/docker-compose.yml
 
 cat << EOF > provisionEB/Dockerrun.aws.json
 {
     "AWSEBDockerrunVersion": "3",
     "Authentication": {
-      "bucket": napse-eb-bucket,
+      "bucket": "napse-eb-bucket",
       "key": "config.json"
     }
 }

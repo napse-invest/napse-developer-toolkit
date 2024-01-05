@@ -1,0 +1,65 @@
+version: '3'
+
+name: napse-dtk-production
+
+services:
+  django: &django
+    build:
+      context: ..
+      dockerfile: ./docker/compose/production/django/Dockerfile
+    image: napse_dtk_prod_django
+    container_name: napse_dtk_prod_django
+    platform: linux/x86_64
+    depends_on:
+      - redis
+    env_file:
+      - ../.envs/.production/.django
+      - ../.envs/.production/.litestream
+    command: /start
+    labels:
+      - "traefik.enable=true"
+      - "traefik.http.routers.django.rule=Host(`localhost`)"
+      - "traefik.http.routers.django.entrypoints=web"
+    expose:
+      - "8000"
+
+  celeryworker:
+    <<: *django
+    container_name: napse_dtk_prod_celeryworker
+    depends_on:
+      - redis
+      - django
+    ports: []
+    command: /start-celeryworker
+    labels:
+      - "traefik.enable=false"
+
+  celerybeat:
+    <<: *django
+    container_name: napse_dtk_prod_celerybeat
+    depends_on:
+      - redis
+      - django
+    ports: []
+    command: /start-celerybeat
+    labels:
+      - "traefik.enable=false"
+
+  traefik:
+    image: "traefik:v2.9.5"
+    container_name: napse_dtk_prod_traefik
+    command:
+      - "--log.level=INFO"
+      - "--api.insecure=true"
+      - "--providers.docker=true"
+      - "--providers.docker.exposedbydefault=false"
+      - "--entrypoints.web.address=:80"
+    ports:
+      - "80:80"
+    volumes:
+      - "/var/run/docker.sock:/var/run/docker.sock:ro"
+
+  redis:
+    image: redis:6
+    container_name: napse_dtk_prod_redis
+

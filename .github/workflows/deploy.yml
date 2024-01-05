@@ -49,10 +49,10 @@ jobs:
       - name: Create .zip file
         env:
           VERSION: ${{ env.VERSION }}
+          NAPSE_SECRET_DEPLOYMENT_TOKEN_AWS: ${{ secrets.NAPSE_SECRET_DEPLOYMENT_TOKEN_AWS }}
         run: |
           make setup-prod
           zip -r deploy-aws-$VERSION.zip provisionEB/* provisionEB/.ebextensions provisionEB/.env
-          ls
       
       - name: Push .zip file
         uses: actions/upload-artifact@v2
