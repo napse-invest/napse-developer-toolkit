@@ -50,6 +50,7 @@ jobs:
         env:
           VERSION: ${{ env.VERSION }}
           NAPSE_SECRET_DEPLOYMENT_TOKEN_AWS: ${{ secrets.NAPSE_SECRET_DEPLOYMENT_TOKEN_AWS }}
+          NAPSE_VERSION: ${{ env.VERSION }}
         run: |
           make setup-prod
           zip -r deploy-aws-$VERSION.zip provisionEB/* provisionEB/.ebextensions provisionEB/.env
