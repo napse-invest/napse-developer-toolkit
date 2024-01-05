@@ -1,3 +1,10 @@
+## [1.3.1](https://github.com/napse-invest/napse-developer-toolkit/compare/v1.3.0...v1.3.1) (2024-01-05)
+
+
+### Bug Fixes
+
+* **tag:** added latest tag ([a397937](https://github.com/napse-invest/napse-developer-toolkit/commit/a3979376ceb8ed83d788e18bd79d418aae36a7b3))
+
 # [1.3.0](https://github.com/napse-invest/napse-developer-toolkit/compare/v1.2.0...v1.3.0) (2024-01-05)
 
 
