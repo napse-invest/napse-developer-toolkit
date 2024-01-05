@@ -61,5 +61,5 @@ jobs:
         env:
           VERSION: ${{ env.VERSION }}
         with:
-          name: deploy-package-aws-eb:${{ env.VERSION }}
+          name: deploy-package-aws-eb-${{ env.VERSION }}
           path: deploy-${{ env.VERSION }}.zip 
