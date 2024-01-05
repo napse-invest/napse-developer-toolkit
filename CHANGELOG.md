@@ -1,3 +1,10 @@
+## [1.3.9](https://github.com/napse-invest/napse-developer-toolkit/compare/v1.3.8...v1.3.9) (2024-01-05)
+
+
+### Bug Fixes
+
+* **deploy:** secrets not found ([d07506e](https://github.com/napse-invest/napse-developer-toolkit/commit/d07506edfa5ee8bfe1837c7dbd1dc7435320b469))
+
 ## [1.3.8](https://github.com/napse-invest/napse-developer-toolkit/compare/v1.3.7...v1.3.8) (2024-01-05)
 
 
