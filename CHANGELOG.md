@@ -1,3 +1,10 @@
+## [1.3.12](https://github.com/napse-invest/napse-developer-toolkit/compare/v1.3.11...v1.3.12) (2024-01-05)
+
+
+### Bug Fixes
+
+* **error:** added extra files ([7ab183c](https://github.com/napse-invest/napse-developer-toolkit/commit/7ab183c741c0692d73ea4e04f30ca3dedf234a31))
+
 ## [1.3.11](https://github.com/napse-invest/napse-developer-toolkit/compare/v1.3.10...v1.3.11) (2024-01-05)
 
 
