@@ -2,7 +2,72 @@ mkdir -p provisionEB
 touch provisionEB/Dockerrun.aws.json
 touch provisionEB/config.json
 
-cp backend/docker/docker-compose.yml provisionEB/docker-compose.yml
+cat << EOF > provisionEB/docker-compose.yml
+version: '3'
+
+name: napse-dtk-production
+
+services:
+  django: &django
+    image: ghcr.io/napse-invest/napse-developer-toolkit/napse_dtk_prod_django:$NAPSE_VERSION
+    container_name: django
+    env_file:
+      - ./.env/.django
+      - ./.env/.litestream
+    platform: linux/x86_64
+    depends_on:
+      - redis
+    command: /start
+    labels:
+      - "traefik.enable=true"
+      - "traefik.http.routers.django.rule=Host(\`localhost\`)"
+      - "traefik.http.routers.django.entrypoints=web"
+    expose:
+      - "8000"
+    ulimits:
+      core: 
+        soft: 0
+        hard: 0
+
+  celeryworker:
+    <<: *django
+    container_name: celeryworker
+    depends_on:
+      - redis
+      - django
+    ports: []
+    command: /start-celeryworker
+    labels:
+      - "traefik.enable=false"
+
+  celerybeat:
+    <<: *django
+    container_name: celerybeat
+    depends_on:
+      - redis
+      - django
+    ports: []
+    command: /start-celerybeat
+    labels:
+      - "traefik.enable=false"
+
+  traefik:
+    image: "traefik:v2.9.5"
+    command:
+      - "--log.level=INFO"
+      - "--api.insecure=false"
+      - "--providers.docker=true"
+      - "--providers.docker.exposedbydefault=false"
+      - "--entrypoints.web.address=:80"
+    ports:
+      - "80:80"
+    volumes:
+      - "/var/run/docker.sock:/var/run/docker.sock:ro"
+
+  redis:
+    image: redis:6
+    container_name: redis
+EOF
 
 cat << EOF > provisionEB/Dockerrun.aws.json
 {
