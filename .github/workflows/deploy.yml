@@ -46,6 +46,7 @@ jobs:
       - name: Push Django Docker image latest
         run: |
           docker push ghcr.io/${{ github.repository }}/napse_dtk_prod_django:latest
+          
 
       - name: Create .zip file
         env:
