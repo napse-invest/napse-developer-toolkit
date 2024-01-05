@@ -53,7 +53,7 @@ jobs:
           VERSION: ${{ env.VERSION }}
         run: |
           make setup-prod
-          zip -r deploy-$VERSION.zip provisionEB/**/*
+          zip -r deploy-$VERSION.zip provisionEB/* provisionEB/.ebextensions provisionEB/.env
           ls
       
       - name: Push .zip file
