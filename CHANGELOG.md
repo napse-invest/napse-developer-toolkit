@@ -1,3 +1,10 @@
+## [1.3.8](https://github.com/napse-invest/napse-developer-toolkit/compare/v1.3.7...v1.3.8) (2024-01-05)
+
+
+### Bug Fixes
+
+* **publish-asset:** deployment .zip file for aws ([950e02f](https://github.com/napse-invest/napse-developer-toolkit/commit/950e02f4352e43cf0c2412fe37dbd9848e8b648f))
+
 ## [1.3.7](https://github.com/napse-invest/napse-developer-toolkit/compare/v1.3.6...v1.3.7) (2024-01-05)
 
 
