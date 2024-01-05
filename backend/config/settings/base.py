@@ -15,7 +15,7 @@ env = environ.Env(
 )
 DEBUG = env.bool("DJANGO_DEBUG", False)
 IS_LOCAL = env.bool("IS_LOCAL", False)
-SECRET_KEY = env("SECRET_KEY")
+SECRET_KEY = env("DJANGO_SECRET_KEY")
 
 
 # TIME ZONE

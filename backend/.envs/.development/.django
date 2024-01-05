@@ -9,7 +9,7 @@ REDIS_URL="redis://redis:6379/0"
 
 # Django
 # ------------------------------------------------------------------------------
-SECRET_KEY="faNOpRrPjt59ZE7ZYTdLIYkaBG0YluPfzNFhtkuN1Bo"
+DJANGO_SECRET_KEY="faNOpRrPjt59ZE7ZYTdLIYkaBG0YluPfzNFhtkuN1Bo"
 DJANGO_DEBUG=True
 IS_LOCAL=True
 
@@ -17,4 +17,3 @@ IS_LOCAL=True
 # ------------------------------------------------------------------------------
 CELERY_FLOWER_USER="wRSdgTpIDD8ySZFL14bA6rPPQzMJ0pjXL620YIPUhXk"
 CELERY_FLOWER_PASSWORD="ikQMfq0t0XClQ3MaKaip8ogum0itD0KOMCuX9H-tX60"
-DB_ENGINE="POSTGRES"

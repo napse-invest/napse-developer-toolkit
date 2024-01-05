@@ -4,17 +4,14 @@ name: napse-dtk-production
 
 services:
   django: &django
-    build:
-      context: ..
-      dockerfile: ./docker/compose/production/django/Dockerfile
-    image: napse_dtk_prod_django
-    container_name: napse_dtk_prod_django
+    image: ghcr.io/napse-invest/napse-developer-toolkit/napse_dtk_prod_django:$NAPSE_VERSION
+    container_name: django
+    env_file:
+      - ./.env/.django
+      - ./.env/.litestream
     platform: linux/x86_64
     depends_on:
       - redis
-    env_file:
-      - ../.envs/.production/.django
-      - ../.envs/.production/.litestream
     command: /start
     labels:
       - "traefik.enable=true"
@@ -22,10 +19,14 @@ services:
       - "traefik.http.routers.django.entrypoints=web"
     expose:
       - "8000"
+    ulimits:
+      core: 
+        soft: 0
+        hard: 0
 
   celeryworker:
     <<: *django
-    container_name: napse_dtk_prod_celeryworker
+    container_name: celeryworker
     depends_on:
       - redis
       - django
@@ -36,7 +37,7 @@ services:
 
   celerybeat:
     <<: *django
-    container_name: napse_dtk_prod_celerybeat
+    container_name: celerybeat
     depends_on:
       - redis
       - django
@@ -47,10 +48,9 @@ services:
 
   traefik:
     image: "traefik:v2.9.5"
-    container_name: napse_dtk_prod_traefik
     command:
       - "--log.level=INFO"
-      - "--api.insecure=true"
+      - "--api.insecure=false"
       - "--providers.docker=true"
       - "--providers.docker.exposedbydefault=false"
       - "--entrypoints.web.address=:80"
@@ -61,5 +61,5 @@ services:
 
   redis:
     image: redis:6
-    container_name: napse_dtk_prod_redis
+    container_name: redis
 

@@ -8,7 +8,7 @@ cat << EOF > provisionEB/Dockerrun.aws.json
 {
     "AWSEBDockerrunVersion": "3",
     "Authentication": {
-      "bucket": "$AWS_BUCKET_NAME_BACKEND",
+      "bucket": napse-eb-bucket,
       "key": "config.json"
     }
 }
@@ -39,26 +39,30 @@ REDIS_URL="redis://redis:6379/0"
 
 # Django
 # ------------------------------------------------------------------------------
-SECRET_KEY="" # TODO : Generate random password
 DJANGO_DEBUG=False
 IS_LOCAL=False
 
-# Flower
+# To fill in in JS
 # ------------------------------------------------------------------------------
-CELERY_FLOWER_USER="" # TODO : Generate random password
-CELERY_FLOWER_PASSWORD="" # TODO : Generate random password
-DB_ENGINE="POSTGRES"
+# DJANGO_SECRET_KEY="" # TODO : Generate random password
 EOF
 
 cat << EOF > backend/.envs/.production/.litestream
-DB_SETUP=litestream
-LITESTREAM_ACCESS_KEY_ID="" # TODO : Generate random password
-LITESTREAM_SECRET_ACCESS_KEY="" # TODO : Generate random password
-S3_BUCKET_PATH="${S3_BUCKET_PATH}" # TODO : Create s3 bucket
+# General secrets
+# ------------------------------------------------------------------------------
+DB_SETUP="litestream"
+DB_ENGINE="SQLITE"
+
+# To fill in in JS
+# ------------------------------------------------------------------------------
+# AWS_ACCESS_KEY_ID="" # TODO : Get IAM credentials
+# AWS_SECRET_ACCESS_KEY="" # TODO : Get IAM credentials
+# AWS_S3_BUCKET_URI="" # TODO : Get s3 bucket path
+
 EOF
 
 mkdir -p provisionEB/.env
 mkdir -p provisionEB/.ebextensions
 cp backend/.envs/.production/.django provisionEB/.env/.django
 cp backend/.envs/.production/.litestream provisionEB/.env/.litestream
-# cp backend/.ebextensions/* provisionEB/.ebextensions/ # TODO : Add ebextensions
+cp backend/deploy/aws/.ebextensions/* provisionEB/.ebextensions/ 

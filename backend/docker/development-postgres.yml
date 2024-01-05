@@ -31,10 +31,7 @@ services:
       - "8000"
 
   postgres:
-    build:
-      context: ..
-      dockerfile: ./docker/compose/development/postgres/Dockerfile
-    image: napse_dtk_dev_postgres
+    image: postgres:14
     container_name: napse_dtk_dev_postgres
     volumes:
       - napse_dtk_dev_postgres_data:/var/lib/postgresql/data:Z
@@ -85,7 +82,7 @@ services:
 
   traefik:
     image: "traefik:v2.9.5"
-    container_name: traefik
+    container_name: napse_dtk_dev_traefik
     command:
       - "--log.level=DEBUG"
       - "--api.insecure=true"

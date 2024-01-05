@@ -9,4 +9,5 @@ python /app/manage.py makemigrations
 python /app/manage.py migrate
 python /app/manage.py collectstatic --noinput
 
-/usr/local/bin/gunicorn config.wsgi --bind 0.0.0.0:8000 --chdir=/app --workers=5 --threads=2 --max-requests 50 --max-requests-jitter 5
+
+/usr/bin/litestream replicate

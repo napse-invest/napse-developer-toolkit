@@ -9,12 +9,9 @@ REDIS_URL="redis://redis:6379/0"
 
 # Django
 # ------------------------------------------------------------------------------
-SECRET_KEY="" # TODO : Generate random password
 DJANGO_DEBUG=False
 IS_LOCAL=False
 
-# Flower
+# To fill in in JS
 # ------------------------------------------------------------------------------
-CELERY_FLOWER_USER="" # TODO : Generate random password
-CELERY_FLOWER_PASSWORD="" # TODO : Generate random password
-DB_ENGINE="POSTGRES"
+# DJANGO_SECRET_KEY="" # TODO : Generate random password

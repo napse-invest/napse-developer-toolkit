@@ -34,17 +34,29 @@ jobs:
           VERSION=v$TAG_NAME
           echo "VERSION=$VERSION" >> $GITHUB_ENV
 
-          docker tag napse_dtk_prod_litestream ghcr.io/${{ github.repository }}/napse_dtk_prod_litestream:$VERSION
           docker tag napse_dtk_prod_django ghcr.io/${{ github.repository }}/napse_dtk_prod_django:$VERSION
-      
-      - name: Push Litestream Docker image
-        env:
-          VERSION: ${{ env.VERSION }}
-        run: |
-          docker push ghcr.io/${{ github.repository }}/napse_dtk_prod_litestream:${{ env.VERSION }}
-      
+            
       - name: Push Django Docker image
         env:
           VERSION: ${{ env.VERSION }}
         run: |
           docker push ghcr.io/${{ github.repository }}/napse_dtk_prod_django:${{ env.VERSION }}
+
+      - name: Push Django Docker image latest
+        run: |
+          docker push ghcr.io/${{ github.repository }}/napse_dtk_prod_django:latest
+
+      - name: Create .zip file
+        env:
+          VERSION: ${{ env.VERSION }}
+        run: |
+          make setup-prod
+          zip -r deploy-$VERSION.zip provisionEB/*
+      
+      - name: Push .zip file
+        uses: actions/upload-artifact@v2
+        env:
+          VERSION: ${{ env.VERSION }}
+        with:
+          name: deploy-package-aws-eb:$VERSION
+          path: deploy-$VERSION.zip 

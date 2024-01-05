@@ -4,8 +4,10 @@ set -o errexit
 set -o pipefail
 set -o nounset
 
-# sleep 10
-# /wait-for-it.sh $POSTGRES_HOST:$POSTGRES_PORT --timeout=10 --strict -- echo "postgres is up"
+sleep 10
+if [[ ${DB_SETUP} == "postgres" ]]; then 
+    /wait-for-it.sh $POSTGRES_HOST:$POSTGRES_PORT --timeout=10 --strict -- echo "postgres is up"
+fi
 rm -f './celerybeat.pid'
 
 # exec celery -A config.celery_app beat -l INFO
