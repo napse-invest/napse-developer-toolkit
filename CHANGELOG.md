@@ -1,3 +1,95 @@
+## [1.3.12](https://github.com/napse-invest/napse-developer-toolkit/compare/v1.3.11...v1.3.12) (2024-01-05)
+
+
+### Bug Fixes
+
+* **error:** added extra files ([7ab183c](https://github.com/napse-invest/napse-developer-toolkit/commit/7ab183c741c0692d73ea4e04f30ca3dedf234a31))
+
+## [1.3.11](https://github.com/napse-invest/napse-developer-toolkit/compare/v1.3.10...v1.3.11) (2024-01-05)
+
+
+### Bug Fixes
+
+* tmp ([b6938f6](https://github.com/napse-invest/napse-developer-toolkit/commit/b6938f6384bc187ac43b168ef77280c20a237d77))
+* **version-error:** deployment ([ea159cf](https://github.com/napse-invest/napse-developer-toolkit/commit/ea159cf2b92688f5e1da4a5a6c18ae59037f660c))
+
+## [1.3.10](https://github.com/napse-invest/napse-developer-toolkit/compare/v1.3.9...v1.3.10) (2024-01-05)
+
+
+### Bug Fixes
+
+* **deploy:** version in docker file ([1817916](https://github.com/napse-invest/napse-developer-toolkit/commit/18179166e653a949acabe99e69678ead23de86bc))
+
+## [1.3.9](https://github.com/napse-invest/napse-developer-toolkit/compare/v1.3.8...v1.3.9) (2024-01-05)
+
+
+### Bug Fixes
+
+* **deploy:** secrets not found ([d07506e](https://github.com/napse-invest/napse-developer-toolkit/commit/d07506edfa5ee8bfe1837c7dbd1dc7435320b469))
+
+## [1.3.8](https://github.com/napse-invest/napse-developer-toolkit/compare/v1.3.7...v1.3.8) (2024-01-05)
+
+
+### Bug Fixes
+
+* **publish-asset:** deployment .zip file for aws ([950e02f](https://github.com/napse-invest/napse-developer-toolkit/commit/950e02f4352e43cf0c2412fe37dbd9848e8b648f))
+
+## [1.3.7](https://github.com/napse-invest/napse-developer-toolkit/compare/v1.3.6...v1.3.7) (2024-01-05)
+
+
+### Bug Fixes
+
+* tmp ([911c9d3](https://github.com/napse-invest/napse-developer-toolkit/commit/911c9d3da6d25a509679a150354220c92e09250b))
+
+## [1.3.6](https://github.com/napse-invest/napse-developer-toolkit/compare/v1.3.5...v1.3.6) (2024-01-05)
+
+
+### Bug Fixes
+
+* tmp ([e35f4c8](https://github.com/napse-invest/napse-developer-toolkit/commit/e35f4c8d54621b0db133ce5a452a444840cbe148))
+
+## [1.3.5](https://github.com/napse-invest/napse-developer-toolkit/compare/v1.3.4...v1.3.5) (2024-01-05)
+
+
+### Bug Fixes
+
+* workflow artifact tag ([256cf3f](https://github.com/napse-invest/napse-developer-toolkit/commit/256cf3f4feeee71f5d763448c24c0249f3d12274))
+
+## [1.3.4](https://github.com/napse-invest/napse-developer-toolkit/compare/v1.3.3...v1.3.4) (2024-01-05)
+
+
+### Bug Fixes
+
+* tmp ([3ed7305](https://github.com/napse-invest/napse-developer-toolkit/commit/3ed730570bf7c0a0c37e20d98675d15aecbab7c7))
+
+## [1.3.3](https://github.com/napse-invest/napse-developer-toolkit/compare/v1.3.2...v1.3.3) (2024-01-05)
+
+
+### Bug Fixes
+
+* tmp ([fc27939](https://github.com/napse-invest/napse-developer-toolkit/commit/fc27939c13fc64423107c9e9f7f3e851c37e4f69))
+
+## [1.3.2](https://github.com/napse-invest/napse-developer-toolkit/compare/v1.3.1...v1.3.2) (2024-01-05)
+
+
+### Bug Fixes
+
+* **tmp:** tmp ([9145935](https://github.com/napse-invest/napse-developer-toolkit/commit/9145935c06e4259c57e724ed871467ad3fe7541f))
+
+## [1.3.1](https://github.com/napse-invest/napse-developer-toolkit/compare/v1.3.0...v1.3.1) (2024-01-05)
+
+
+### Bug Fixes
+
+* **tag:** added latest tag ([a397937](https://github.com/napse-invest/napse-developer-toolkit/commit/a3979376ceb8ed83d788e18bd79d418aae36a7b3))
+
+# [1.3.0](https://github.com/napse-invest/napse-developer-toolkit/compare/v1.2.0...v1.3.0) (2024-01-05)
+
+
+### Features
+
+* **deploy:** prod deployment and devops setup ([5b3d52d](https://github.com/napse-invest/napse-developer-toolkit/commit/5b3d52d98fad67823e6c4128e3ca12d9768b9d42))
+
 # [1.2.0](https://github.com/napse-invest/napse-developer-toolkit/compare/v1.1.0...v1.2.0) (2023-11-22)
 
 

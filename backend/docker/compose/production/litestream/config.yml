@@ -1,5 +1,8 @@
+access-key-id: $AWS_ACCESS_KEY_ID
+secret-access-key: $AWS_SECRET_ACCESS_KEY
 
+exec: /usr/local/bin/gunicorn config.wsgi --bind 0.0.0.0:8000 --chdir=/app --workers=5 --threads=2 --max-requests 50 --max-requests-jitter 5
 dbs:
-  - path: backend/db/db.sqlite3
+  - path: ./db/db.sqlite3
     replicas:
-      - url: "${S3_BUCKET_PATH}"
+      - url: $AWS_S3_BUCKET_URI

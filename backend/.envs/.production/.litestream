@@ -1,0 +1,11 @@
+# General secrets
+# ------------------------------------------------------------------------------
+DB_SETUP="litestream"
+DB_ENGINE="SQLITE"
+
+# To fill in in JS
+# ------------------------------------------------------------------------------
+# AWS_ACCESS_KEY_ID="" # TODO : Get IAM credentials
+# AWS_SECRET_ACCESS_KEY="" # TODO : Get IAM credentials
+# AWS_S3_BUCKET_URI="" # TODO : Get s3 bucket path
+

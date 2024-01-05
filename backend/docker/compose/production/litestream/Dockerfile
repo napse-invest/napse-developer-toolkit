@@ -1,1 +1,0 @@
-FROM litestream/litestream:latest

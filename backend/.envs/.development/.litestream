@@ -1,4 +1,5 @@
-DB_SETUP=litestream
 LITESTREAM_ACCESS_KEY_ID=minioadmin
 LITESTREAM_SECRET_ACCESS_KEY=minioadmin
 S3_BUCKET_PATH=s3://miniobkt.localhost:9000/db.sqlite3
+DB_SETUP="litestream"
+DB_ENGINE="SQLITE"
