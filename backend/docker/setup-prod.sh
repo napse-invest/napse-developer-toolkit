@@ -1,5 +1,4 @@
 export GITHUB_AUTH_TOKEN=$(echo "$NAPSE_DEPLOY_USERNAME:$NAPSE_SECRET_DEPLOYMENT_TOKEN_AWS"| tr -d "\n" | base64)
-
 mkdir -p provisionEB
 touch provisionEB/Dockerrun.aws.json
 touch provisionEB/config.json
