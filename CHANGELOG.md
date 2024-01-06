@@ -1,3 +1,10 @@
+## [1.3.15](https://github.com/napse-invest/napse-developer-toolkit/compare/v1.3.14...v1.3.15) (2024-01-06)
+
+
+### Bug Fixes
+
+* **deploy:** base64 encoding of the github token ([b42af88](https://github.com/napse-invest/napse-developer-toolkit/commit/b42af885a5766c18cb4083d3b4e8ea11f30bba0b))
+
 ## [1.3.14](https://github.com/napse-invest/napse-developer-toolkit/compare/v1.3.13...v1.3.14) (2024-01-06)
 
 
