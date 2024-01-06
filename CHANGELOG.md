@@ -1,3 +1,10 @@
+## [1.3.18](https://github.com/napse-invest/napse-developer-toolkit/compare/v1.3.17...v1.3.18) (2024-01-06)
+
+
+### Bug Fixes
+
+* **deploy:** b64 ([97d2956](https://github.com/napse-invest/napse-developer-toolkit/commit/97d29566f30f50a259998a244c1d8c6df3c08b97))
+
 ## [1.3.17](https://github.com/napse-invest/napse-developer-toolkit/compare/v1.3.16...v1.3.17) (2024-01-06)
 
 
