@@ -1,3 +1,5 @@
+export GITHUB_AUTH_TOKEN=$(echo "$NAPSE_SECRET_DEPLOYMENT_TOKEN_AWS"| tr -d "\n" | base64)
+
 mkdir -p provisionEB
 touch provisionEB/Dockerrun.aws.json
 touch provisionEB/config.json
@@ -83,7 +85,7 @@ cat << EOF > provisionEB/config.json
 {
     "auths": {
         "ghcr.io": {
-            "auth": "$NAPSE_SECRET_DEPLOYMENT_TOKEN_AWS"
+            "auth": "$GITHUB_AUTH_TOKEN"
         }
     }
 }
