@@ -1,0 +1,7 @@
+{
+    "AWSEBDockerrunVersion": "3",
+    "Authentication": {
+      "bucket": "napse-eb-bucket",
+      "key": "config.json"
+    }
+}
