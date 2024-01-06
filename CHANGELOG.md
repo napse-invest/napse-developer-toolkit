@@ -1,3 +1,10 @@
+## [1.3.16](https://github.com/napse-invest/napse-developer-toolkit/compare/v1.3.15...v1.3.16) (2024-01-06)
+
+
+### Bug Fixes
+
+* **deploy:** added username to b64 encoding ([559cc23](https://github.com/napse-invest/napse-developer-toolkit/commit/559cc23e3bfc09f33a0b62fbb2fa4819e7c6cab1))
+
 ## [1.3.15](https://github.com/napse-invest/napse-developer-toolkit/compare/v1.3.14...v1.3.15) (2024-01-06)
 
 
