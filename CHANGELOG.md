@@ -1,3 +1,10 @@
+## [1.3.14](https://github.com/napse-invest/napse-developer-toolkit/compare/v1.3.13...v1.3.14) (2024-01-06)
+
+
+### Bug Fixes
+
+* **deploy-aws:** forgot the -r flag for zipping ([11d9f33](https://github.com/napse-invest/napse-developer-toolkit/commit/11d9f337ea0316b2ae8357cdf76cca4573af176f))
+
 ## [1.3.13](https://github.com/napse-invest/napse-developer-toolkit/compare/v1.3.12...v1.3.13) (2024-01-06)
 
 
