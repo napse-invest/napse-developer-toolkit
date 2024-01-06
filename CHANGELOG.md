@@ -1,3 +1,10 @@
+## [1.3.17](https://github.com/napse-invest/napse-developer-toolkit/compare/v1.3.16...v1.3.17) (2024-01-06)
+
+
+### Bug Fixes
+
+* **deploy:** wrong username ([319cad8](https://github.com/napse-invest/napse-developer-toolkit/commit/319cad8d6b89182addc2f7a897d6e637c9b7f0fb))
+
 ## [1.3.16](https://github.com/napse-invest/napse-developer-toolkit/compare/v1.3.15...v1.3.16) (2024-01-06)
 
 
