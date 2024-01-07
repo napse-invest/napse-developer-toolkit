@@ -9,5 +9,10 @@ python /app/manage.py makemigrations
 python /app/manage.py migrate
 python /app/manage.py collectstatic --noinput
 
-
+cat << EOF > /app/secrets.json 
+{
+    "Exchange Accounts": {
+    }
+}
+EOF
 /usr/bin/litestream replicate

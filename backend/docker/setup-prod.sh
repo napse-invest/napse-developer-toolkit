@@ -138,3 +138,10 @@ cp backend/.envs/.production/.django provisionEB/.envs/.django
 cp backend/.envs/.production/.litestream provisionEB/.envs/.litestream
 cp -r backend/deploy/aws/.ebextensions/ provisionEB/.ebextensions/ 
 cp -r backend/deploy/aws/.platform/ provisionEB/.platform/ 
+
+
+export AWS_ACCESS_KEY_ID=AKIARCHIHSHVQ4WEY55R
+export AWS_S3_BUCKET_URI=s3://napse-eb-bucket/litestream
+export AWS_SECRET_ACCESS_KEY=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
+export DJANGO_SECRET_KEY=django-secret-key
+docker compose -f provisionEB/docker-compose.yml up --build 
