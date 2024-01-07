@@ -5,14 +5,14 @@ set -o pipefail
 set -o nounset
 
 
-python /app/manage.py makemigrations
-python /app/manage.py migrate
-python /app/manage.py collectstatic --noinput
-
 cat << EOF > /app/secrets.json 
 {
     "Exchange Accounts": {
     }
 }
 EOF
+python /app/manage.py makemigrations
+python /app/manage.py migrate
+python /app/manage.py collectstatic --noinput
+
 /usr/bin/litestream replicate
