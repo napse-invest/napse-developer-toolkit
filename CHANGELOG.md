@@ -1,3 +1,10 @@
+## [1.3.19](https://github.com/napse-invest/napse-developer-toolkit/compare/v1.3.18...v1.3.19) (2024-01-07)
+
+
+### Bug Fixes
+
+* **token:** permissions ([967a276](https://github.com/napse-invest/napse-developer-toolkit/commit/967a276577ce53290dd9b9df6ead0b5431754843))
+
 ## [1.3.18](https://github.com/napse-invest/napse-developer-toolkit/compare/v1.3.17...v1.3.18) (2024-01-06)
 
 
