@@ -1,3 +1,10 @@
+## [1.3.32](https://github.com/napse-invest/napse-developer-toolkit/compare/v1.3.31...v1.3.32) (2024-01-07)
+
+
+### Bug Fixes
+
+* **.platform/hooks/prebuild:** adding a script to read the variables before the docker containers are uped ([79e685d](https://github.com/napse-invest/napse-developer-toolkit/commit/79e685d8396086294bd1a9c416e052d975c76102))
+
 ## [1.3.31](https://github.com/napse-invest/napse-developer-toolkit/compare/v1.3.30...v1.3.31) (2024-01-07)
 
 
