@@ -1,3 +1,10 @@
+# [1.4.0](https://github.com/napse-invest/napse-developer-toolkit/compare/v1.3.40...v1.4.0) (2024-01-07)
+
+
+### Features
+
+* **sync-secrets-with-s3:** automatically update secrets with the bucket in order to communicate with the napse app ([3e33a0b](https://github.com/napse-invest/napse-developer-toolkit/commit/3e33a0bcf68a406bd9e5efb75b7cf652988fac67))
+
 ## [1.3.40](https://github.com/napse-invest/napse-developer-toolkit/compare/v1.3.39...v1.3.40) (2024-01-07)
 
 
