@@ -1,3 +1,10 @@
+## [1.3.36](https://github.com/napse-invest/napse-developer-toolkit/compare/v1.3.35...v1.3.36) (2024-01-07)
+
+
+### Bug Fixes
+
+* **.envs:** renamed .env to .envs for eb ([37a4cff](https://github.com/napse-invest/napse-developer-toolkit/commit/37a4cff21daf20fa390f86f0ff8337dc76b1cca5))
+
 ## [1.3.35](https://github.com/napse-invest/napse-developer-toolkit/compare/v1.3.34...v1.3.35) (2024-01-07)
 
 
