@@ -1,3 +1,10 @@
+## [1.3.30](https://github.com/napse-invest/napse-developer-toolkit/compare/v1.3.29...v1.3.30) (2024-01-07)
+
+
+### Bug Fixes
+
+* **ebextensions:** automatically export env variables ([f8582ab](https://github.com/napse-invest/napse-developer-toolkit/commit/f8582abf843bd29231c028bfe6c6122e9e0aacc8))
+
 ## [1.3.29](https://github.com/napse-invest/napse-developer-toolkit/compare/v1.3.28...v1.3.29) (2024-01-07)
 
 
