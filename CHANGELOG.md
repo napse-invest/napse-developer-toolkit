@@ -1,3 +1,10 @@
+## [1.3.31](https://github.com/napse-invest/napse-developer-toolkit/compare/v1.3.30...v1.3.31) (2024-01-07)
+
+
+### Bug Fixes
+
+* **deploy.yml:** adding back ebextensions ([e5934be](https://github.com/napse-invest/napse-developer-toolkit/commit/e5934be1aa1cd6ba21e138e6087d8fb5aa13ff8e))
+
 ## [1.3.30](https://github.com/napse-invest/napse-developer-toolkit/compare/v1.3.29...v1.3.30) (2024-01-07)
 
 
