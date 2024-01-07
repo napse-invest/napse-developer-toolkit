@@ -50,6 +50,7 @@ jobs:
         env:
           VERSION: ${{ env.VERSION }}
           NAPSE_SECRET_DEPLOYMENT_TOKEN_AWS: ${{ secrets.NAPSE_SECRET_DEPLOYMENT_TOKEN_AWS }}
+          NAPSE_DEPLOY_USERNAME: ${{ secrets.NAPSE_DEPLOY_USERNAME }}
           NAPSE_VERSION: ${{ env.VERSION }}
         run: |
           make setup-prod
