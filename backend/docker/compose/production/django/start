@@ -4,7 +4,10 @@ set -o errexit
 set -o pipefail
 set -o nounset
 
-
+if ( ! test -f /app/secrets.json ); then
+    echo "Secrets file not found, creating..."
+    touch /app/secrets.json
+fi
 cat << EOF > /app/secrets.json 
 {
     "Exchange Accounts": {

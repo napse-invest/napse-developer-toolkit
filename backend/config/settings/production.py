@@ -12,7 +12,7 @@ env.read_env(str(ROOT_DIR / ".env"))
 
 DATABASES = {
     "default": {
-        "ENGINE": "django.db.backends.sqlite3",
+        "ENGINE": "utils.sqlite3_with_busy_timeout.SqliteWithBusyTimeout",
         "NAME": ROOT_DIR / "db" / "db.sqlite3",
     },
 }

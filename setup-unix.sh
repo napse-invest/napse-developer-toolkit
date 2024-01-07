@@ -3,6 +3,7 @@ sudo apt update
 sudo apt install git-flow
 sudo apt install python3
 sudo apt install python3.11-dev
+python3.11 -m pip install --upgrade pip
 pip3 install --upgrade pip
 pip install virtualenv
 

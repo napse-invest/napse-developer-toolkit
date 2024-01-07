@@ -19,12 +19,12 @@ ignore = [
     "RUF012", # Mutable class attributes should be annotated with `typing.ClassVar`
     ]
 
-# Allow autofix for all enabled rules (when `--fix`) is provided.
+# Allow autofix for all enabled rules (when `--fix`) is provided
 fixable = ["A", "B", "C", "D", "E", "F", "DTZ", "RUF", "S", "COM", "C4", "DJ", "EM", "ISC", "ICN", "PIE", "RET", "SLF", "SIM", "TID", "PD", "NPY"]
 unfixable = []
 
 # Exclude a variety of commonly ignored directories.
-exclude = [ 
+exclude = [
     ".bzr",
     ".direnv",
     ".eggs",
@@ -49,6 +49,7 @@ exclude = [
     "migrations",
 ]
 
+pydocstyle.convention ="google"
 # Same as Black.
 line-length = 150
 
@@ -64,3 +65,7 @@ target-version = "py311"
 [tool.ruff.mccabe]
 # Unlike Flake8, default to a complexity level of 10.
 max-complexity = 10
+
+[tool.ruff.format]
+docstring-code-format = true
+docstring-code-line-length = 60
