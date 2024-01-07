@@ -1,3 +1,10 @@
+## [1.3.38](https://github.com/napse-invest/napse-developer-toolkit/compare/v1.3.37...v1.3.38) (2024-01-07)
+
+
+### Bug Fixes
+
+* tmp ([39e0ccc](https://github.com/napse-invest/napse-developer-toolkit/commit/39e0ccc1bedbef5a5a3e8745364d5d91281eddc7))
+
 ## [1.3.37](https://github.com/napse-invest/napse-developer-toolkit/compare/v1.3.36...v1.3.37) (2024-01-07)
 
 
