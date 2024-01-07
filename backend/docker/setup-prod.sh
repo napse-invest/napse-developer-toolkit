@@ -13,8 +13,8 @@ services:
     image: ghcr.io/napse-invest/napse-developer-toolkit/napse_dtk_prod_django:$NAPSE_VERSION
     container_name: django
     env_file:
-      - ./.env/.django
-      - ./.env/.litestream
+      - ./.envs/.django
+      - ./.envs/.litestream
     environment:
       - DJANGO_SECRET_KEY
       - AWS_ACCESS_KEY_ID
@@ -132,9 +132,9 @@ DB_ENGINE="SQLITE"
 
 EOF
 
-mkdir -p provisionEB/.env
+mkdir -p provisionEB/.envs
 mkdir -p provisionEB/.ebextensions
-cp backend/.envs/.production/.django provisionEB/.env/.django
-cp backend/.envs/.production/.litestream provisionEB/.env/.litestream
+cp backend/.envs/.production/.django provisionEB/.envs/.django
+cp backend/.envs/.production/.litestream provisionEB/.envs/.litestream
 cp -r backend/deploy/aws/.ebextensions/ provisionEB/.ebextensions/ 
 cp -r backend/deploy/aws/.platform/ provisionEB/.platform/ 
