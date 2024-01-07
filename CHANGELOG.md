@@ -1,3 +1,10 @@
+## [1.3.20](https://github.com/napse-invest/napse-developer-toolkit/compare/v1.3.19...v1.3.20) (2024-01-07)
+
+
+### Bug Fixes
+
+* docker login ([95ecc0a](https://github.com/napse-invest/napse-developer-toolkit/commit/95ecc0adca89dc4ae18dc4d58d8cc997e35ce0f9))
+
 ## [1.3.19](https://github.com/napse-invest/napse-developer-toolkit/compare/v1.3.18...v1.3.19) (2024-01-07)
 
 
