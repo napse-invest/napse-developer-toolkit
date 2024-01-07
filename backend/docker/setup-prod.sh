@@ -136,4 +136,4 @@ mkdir -p provisionEB/.env
 mkdir -p provisionEB/.ebextensions
 cp backend/.envs/.production/.django provisionEB/.env/.django
 cp backend/.envs/.production/.litestream provisionEB/.env/.litestream
-# cp backend/deploy/aws/.ebextensions/* provisionEB/.ebextensions/ # TODO : Add ebextensions
+cp backend/deploy/aws/.ebextensions/* provisionEB/.ebextensions/ 

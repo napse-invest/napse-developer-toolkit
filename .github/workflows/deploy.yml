@@ -55,7 +55,7 @@ jobs:
         run: |
           make setup-prod
           cd provisionEB
-          zip -r deploy-$VERSION.zip docker-compose.yml Dockerrun.aws.json .env # TODO: add back .ebextensions
+          zip -r deploy-$VERSION.zip docker-compose.yml Dockerrun.aws.json .env .ebextensions
           zip deploy-aws-$VERSION.zip deploy-$VERSION.zip config.json
           mv deploy-aws-$VERSION.zip ../deploy-aws-$VERSION.zip
       
