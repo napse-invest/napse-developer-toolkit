@@ -1,3 +1,10 @@
+## [1.3.37](https://github.com/napse-invest/napse-developer-toolkit/compare/v1.3.36...v1.3.37) (2024-01-07)
+
+
+### Bug Fixes
+
+* **/app/secrets.json:** file missing ([9caa5e4](https://github.com/napse-invest/napse-developer-toolkit/commit/9caa5e453d005f3ace54afe7ef646220bfd2dfe4))
+
 ## [1.3.36](https://github.com/napse-invest/napse-developer-toolkit/compare/v1.3.35...v1.3.36) (2024-01-07)
 
 
