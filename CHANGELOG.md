@@ -1,3 +1,10 @@
+## [1.3.34](https://github.com/napse-invest/napse-developer-toolkit/compare/v1.3.33...v1.3.34) (2024-01-07)
+
+
+### Bug Fixes
+
+* **deploy.yml:** forgot to add the .platfrom scripts to the zip file ([fe83988](https://github.com/napse-invest/napse-developer-toolkit/commit/fe83988f64b6e52e71d0da4c954fd88d7e4827f1))
+
 ## [1.3.33](https://github.com/napse-invest/napse-developer-toolkit/compare/v1.3.32...v1.3.33) (2024-01-07)
 
 
