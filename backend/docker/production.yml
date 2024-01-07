@@ -2,6 +2,9 @@ version: '3'
 
 name: napse-dtk-production
 
+volumes:
+  db_volume: {}
+
 services:
   django: &django
     build:
@@ -27,6 +30,9 @@ services:
       - AWS_ACCESS_KEY_ID
       - AWS_SECRET_ACCESS_KEY
       - AWS_S3_BUCKET_URI
+    volumes:
+      - db_volume:/app/db
+
   celeryworker:
     <<: *django
     container_name: napse_dtk_prod_celeryworker

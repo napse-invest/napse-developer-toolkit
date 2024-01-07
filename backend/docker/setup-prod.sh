@@ -8,6 +8,9 @@ version: '3'
 
 name: napse-dtk-production
 
+volumes:
+  db_volume: {}
+
 services:
   django: &django
     image: ghcr.io/napse-invest/napse-developer-toolkit/napse_dtk_prod_django:$NAPSE_VERSION
@@ -30,6 +33,8 @@ services:
       - "traefik.http.routers.django.entrypoints=web"
     expose:
       - "8000"
+    volumes:
+      - db_volume:/app/db
     ulimits:
       core: 
         soft: 0
