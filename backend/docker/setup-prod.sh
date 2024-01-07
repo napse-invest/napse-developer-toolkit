@@ -1,4 +1,4 @@
-export GITHUB_AUTH_TOKEN=$(echo "tomjeannesson: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" | base64)
+export GITHUB_AUTH_TOKEN=$(echo "tomjeannesson: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" | base64)
 mkdir -p provisionEB
 touch provisionEB/Dockerrun.aws.json
 touch provisionEB/config.json
