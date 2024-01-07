@@ -15,6 +15,11 @@ services:
     env_file:
       - ./.env/.django
       - ./.env/.litestream
+    environment:
+      - DJANGO_SECRET_KEY
+      - AWS_ACCESS_KEY_ID
+      - AWS_SECRET_ACCESS_KEY
+      - AWS_S3_BUCKET_URI
     platform: linux/x86_64
     depends_on:
       - redis

@@ -22,7 +22,11 @@ services:
       - "traefik.http.routers.django.entrypoints=web"
     expose:
       - "8000"
-
+    environment:
+      - DJANGO_SECRET_KEY
+      - AWS_ACCESS_KEY_ID
+      - AWS_SECRET_ACCESS_KEY
+      - AWS_S3_BUCKET_URI
   celeryworker:
     <<: *django
     container_name: napse_dtk_prod_celeryworker
