@@ -1,3 +1,10 @@
+## [1.3.40](https://github.com/napse-invest/napse-developer-toolkit/compare/v1.3.39...v1.3.40) (2024-01-07)
+
+
+### Bug Fixes
+
+* **db-volume:** synced between containers ([61d1cda](https://github.com/napse-invest/napse-developer-toolkit/commit/61d1cdab540ed05240c4c0aefdf919960b1769c1))
+
 ## [1.3.39](https://github.com/napse-invest/napse-developer-toolkit/compare/v1.3.38...v1.3.39) (2024-01-07)
 
 
