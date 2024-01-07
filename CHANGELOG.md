@@ -1,3 +1,10 @@
+## [1.3.29](https://github.com/napse-invest/napse-developer-toolkit/compare/v1.3.28...v1.3.29) (2024-01-07)
+
+
+### Bug Fixes
+
+* **delpoy-aws:** environnment variables not passed correctly ([c41c00c](https://github.com/napse-invest/napse-developer-toolkit/commit/c41c00cc8ad365688526e19f9bc4e1a9fb216786))
+
 ## [1.3.28](https://github.com/napse-invest/napse-developer-toolkit/compare/v1.3.27...v1.3.28) (2024-01-07)
 
 
