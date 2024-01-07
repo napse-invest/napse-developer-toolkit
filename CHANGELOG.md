@@ -1,3 +1,10 @@
+## [1.3.35](https://github.com/napse-invest/napse-developer-toolkit/compare/v1.3.34...v1.3.35) (2024-01-07)
+
+
+### Bug Fixes
+
+* **prebuild-scripts:** trying to debug why it doesn't work ([e626e22](https://github.com/napse-invest/napse-developer-toolkit/commit/e626e22302d87b7bc0797485c02e1f767bb2e79f))
+
 ## [1.3.34](https://github.com/napse-invest/napse-developer-toolkit/compare/v1.3.33...v1.3.34) (2024-01-07)
 
 
