@@ -167,3 +167,4 @@ requirements.txt
 full-requirements.txt
 .vscode
 provisionEB
+.DS_Store
