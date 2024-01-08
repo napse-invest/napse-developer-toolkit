@@ -1,3 +1,10 @@
+## [1.4.5](https://github.com/napse-invest/napse-developer-toolkit/compare/v1.4.4...v1.4.5) (2024-01-08)
+
+
+### Bug Fixes
+
+* **deploy-aws:** no more secrets ([fbb37bc](https://github.com/napse-invest/napse-developer-toolkit/commit/fbb37bc20fedef13458f8fb66e5166eb4a703e90))
+
 ## [1.4.4](https://github.com/napse-invest/napse-developer-toolkit/compare/v1.4.3...v1.4.4) (2024-01-08)
 
 
