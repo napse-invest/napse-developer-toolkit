@@ -1,3 +1,10 @@
+## [1.4.2](https://github.com/napse-invest/napse-developer-toolkit/compare/v1.4.1...v1.4.2) (2024-01-08)
+
+
+### Bug Fixes
+
+* **deploy:** extra .ebextensions folder ([d016d2d](https://github.com/napse-invest/napse-developer-toolkit/commit/d016d2d198811ef0a5c2fb16d5ef1e940a23e005))
+
 ## [1.4.1](https://github.com/napse-invest/napse-developer-toolkit/compare/v1.4.0...v1.4.1) (2024-01-08)
 
 
