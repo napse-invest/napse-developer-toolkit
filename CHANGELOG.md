@@ -1,3 +1,10 @@
+## [1.4.1](https://github.com/napse-invest/napse-developer-toolkit/compare/v1.4.0...v1.4.1) (2024-01-08)
+
+
+### Bug Fixes
+
+* **deploy-aws:** ebextensions env.config ([b34a15f](https://github.com/napse-invest/napse-developer-toolkit/commit/b34a15fb8ff39fc529c4a35f89011af2435f3246))
+
 # [1.4.0](https://github.com/napse-invest/napse-developer-toolkit/compare/v1.3.40...v1.4.0) (2024-01-07)
 
 
