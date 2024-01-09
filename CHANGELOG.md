@@ -1,3 +1,10 @@
+## [1.4.6](https://github.com/napse-invest/napse-developer-toolkit/compare/v1.4.5...v1.4.6) (2024-01-09)
+
+
+### Bug Fixes
+
+* **traefik.yml:** accept all hosts ([73884c0](https://github.com/napse-invest/napse-developer-toolkit/commit/73884c00d9f3fbd3c07f39da84e95ebce654856f))
+
 ## [1.4.5](https://github.com/napse-invest/napse-developer-toolkit/compare/v1.4.4...v1.4.5) (2024-01-08)
 
 
