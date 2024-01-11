@@ -1,3 +1,10 @@
+## [1.4.7](https://github.com/napse-invest/napse-developer-toolkit/compare/v1.4.6...v1.4.7) (2024-01-11)
+
+
+### Bug Fixes
+
+* **networking:** connectable to localhost ([3e54fe6](https://github.com/napse-invest/napse-developer-toolkit/commit/3e54fe6515b987cba473f1acf736e730fde0dce7))
+
 ## [1.4.6](https://github.com/napse-invest/napse-developer-toolkit/compare/v1.4.5...v1.4.6) (2024-01-09)
 
 
