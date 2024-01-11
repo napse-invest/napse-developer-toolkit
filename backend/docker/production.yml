@@ -36,6 +36,7 @@ services:
   celeryworker:
     <<: *django
     container_name: napse_dtk_prod_celeryworker
+    restart: always
     depends_on:
       - redis
       - django
@@ -47,6 +48,7 @@ services:
   celerybeat:
     <<: *django
     container_name: napse_dtk_prod_celerybeat
+    restart: always
     depends_on:
       - redis
       - django
@@ -66,10 +68,10 @@ services:
       - "--entrypoints.web.address=:80"
     ports:
       - "80:80"
+      - "8000:8000"
     volumes:
       - "/var/run/docker.sock:/var/run/docker.sock:ro"
 
   redis:
     image: redis:6
     container_name: napse_dtk_prod_redis
-

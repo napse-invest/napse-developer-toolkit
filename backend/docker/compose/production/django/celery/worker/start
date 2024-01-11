@@ -4,10 +4,42 @@ set -o errexit
 set -o pipefail
 set -o nounset
 
-sleep 10
-if [[ ${DB_SETUP} == "postgres" ]]; then 
+sleep 5
+if [[ ${DB_SETUP} == "postgres" ]]; then
     /wait-for-it.sh $POSTGRES_HOST:$POSTGRES_PORT --timeout=10 --strict -- echo "postgres is up"
 fi
+if [[ ${DB_SETUP} == "litestream" ]]; then
+    python <<END
+import sys
+import time
+
+import sqlite3
+import requests
+from time import sleep
+
+suggest_unrecoverable_after = 30
+start = time.time()
+
+while True:
+    try:
+        response = requests.get('http://django:8000/health-check/')
+        if response.status_code != 200:
+            print(response.text)
+            print("Django server is not running correctly.")
+        else:
+            print("Django server is up.")
+            break
+    except requests.ConnectionError:
+        print("Django server is not running.")
+    sleep(1)
+    if time.time() - start > suggest_unrecoverable_after:
+        sys.stderr.write(f"This is taking longer than expected.\n")
+        exit(1)
+END
+fi
+
 rm -f './celerybeat.pid'
+
+sleep 5
 
 exec celery -A config.celery_app worker -P prefork -l INFO

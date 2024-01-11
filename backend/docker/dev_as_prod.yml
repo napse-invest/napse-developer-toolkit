@@ -58,7 +58,7 @@ services:
     expose:
       - "5555"
 
-   traefik:
+  traefik:
     image: "traefik:v2.9.5"
     command:
       - "--log.level=INFO"

@@ -57,7 +57,7 @@ if len(sys.argv) > 1 and sys.argv[1] == "test":
 HEALTHCHECK_CELERY_TIMEOUT = 10
 
 # Hosts
-# ALLOWED_HOSTS = []
+# ALLOWED_HOSTS = ["django"]
 
 NAPSE_SECRETS_FILE_PATH = ROOT_DIR / "secrets.json"
 NAPSE_EXCHANGE_CONFIGS = {

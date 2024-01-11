@@ -14,8 +14,12 @@ cat << EOF > /app/secrets.json
     }
 }
 EOF
+rm ./db/db.sqlite3 || true
+/usr/bin/litestream restore -o ./db/db.sqlite3 $AWS_S3_BUCKET_URI || true
+
 python /app/manage.py makemigrations
 python /app/manage.py migrate
 python /app/manage.py collectstatic --noinput
 
+# python /app/manage.py runserver_plus 0.0.0.0:8000
 /usr/bin/litestream replicate
