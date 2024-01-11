@@ -40,5 +40,5 @@ fi
 rm -f './celerybeat.pid'
 
 sleep 5
-# exec celery -A config.celery_app beat -l INFO
+
 celery -A config.celery_app beat --max-interval=3600 -l INFO

@@ -3,7 +3,7 @@ mkdir -p provisionEB
 touch provisionEB/Dockerrun.aws.json
 touch provisionEB/config.json
 
-cat << EOF > provisionEB/docker-compose.yml
+cat <<EOF >provisionEB/docker-compose.yml
 version: '3'
 
 name: napse-dtk-production
@@ -66,12 +66,13 @@ services:
     image: "traefik:v2.9.5"
     command:
       - "--log.level=INFO"
-      - "--api.insecure=false"
+      - "--api.insecure=true"
       - "--providers.docker=true"
       - "--providers.docker.exposedbydefault=false"
       - "--entrypoints.web.address=:80"
     ports:
       - "80:80"
+      - "8000:8000"
     volumes:
       - "/var/run/docker.sock:/var/run/docker.sock:ro"
 
@@ -80,7 +81,7 @@ services:
     container_name: redis
 EOF
 
-cat << EOF > provisionEB/Dockerrun.aws.json
+cat <<EOF >provisionEB/Dockerrun.aws.json
 {
     "AWSEBDockerrunVersion": "3",
     "Authentication": {
@@ -90,7 +91,7 @@ cat << EOF > provisionEB/Dockerrun.aws.json
 }
 EOF
 
-cat << EOF > provisionEB/config.json
+cat <<EOF >provisionEB/config.json
 {
     "auths": {
         "ghcr.io": {
@@ -102,8 +103,7 @@ EOF
 mkdir -p backend/.envs
 mkdir -p backend/.envs/.production
 
-
-cat << EOF > backend/.envs/.production/.django
+cat <<EOF >backend/.envs/.production/.django
 # General secrets
 # ------------------------------------------------------------------------------
 USE_DOCKER="yes"
@@ -123,7 +123,7 @@ IS_LOCAL=False
 # DJANGO_SECRET_KEY="" # TODO : Generate random password
 EOF
 
-cat << EOF > backend/.envs/.production/.litestream
+cat <<EOF >backend/.envs/.production/.litestream
 # General secrets
 # ------------------------------------------------------------------------------
 DB_SETUP="litestream"
@@ -142,4 +142,4 @@ mkdir -p provisionEB/.ebextensions
 cp backend/.envs/.production/.django provisionEB/.envs/.django
 cp backend/.envs/.production/.litestream provisionEB/.envs/.litestream
 cp -r backend/deploy/aws/.ebextensions/* provisionEB/.ebextensions/
-cp -r backend/deploy/aws/.platform/ provisionEB/.platform/ 
+cp -r backend/deploy/aws/.platform/ provisionEB/.platform/

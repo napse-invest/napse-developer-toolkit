@@ -37,7 +37,6 @@ while True:
         exit(1)
 END
 fi
-
 rm -f './celerybeat.pid'
 
 sleep 5

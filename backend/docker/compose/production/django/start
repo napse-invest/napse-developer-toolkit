@@ -4,11 +4,11 @@ set -o errexit
 set -o pipefail
 set -o nounset
 
-if ( ! test -f /app/secrets.json ); then
+if (! test -f /app/secrets.json); then
     echo "Secrets file not found, creating..."
     touch /app/secrets.json
 fi
-cat << EOF > /app/secrets.json 
+cat <<EOF >/app/secrets.json
 {
     "Exchange Accounts": {
     }
@@ -21,5 +21,4 @@ python /app/manage.py makemigrations
 python /app/manage.py migrate
 python /app/manage.py collectstatic --noinput
 
-# python /app/manage.py runserver_plus 0.0.0.0:8000
 /usr/bin/litestream replicate
