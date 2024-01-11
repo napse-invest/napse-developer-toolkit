@@ -1,3 +1,10 @@
+## [1.4.9](https://github.com/napse-invest/napse-developer-toolkit/compare/v1.4.8...v1.4.9) (2024-01-11)
+
+
+### Bug Fixes
+
+* **fix-setup-prod:** file had missing lines ([15cd4c9](https://github.com/napse-invest/napse-developer-toolkit/commit/15cd4c90062676ee000c8c2326b754477fd374fb))
+
 ## [1.4.8](https://github.com/napse-invest/napse-developer-toolkit/compare/v1.4.7...v1.4.8) (2024-01-11)
 
 
