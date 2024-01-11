@@ -29,7 +29,7 @@ services:
     command: /start
     labels:
       - "traefik.enable=true"
-      - "traefik.http.routers.django.rule=Host(\`*\`)"
+      - "traefik.http.routers.django.rule=Host(\`napse-env.eba-jzjxxzqx.eu-west-3.elasticbeanstalk.com\`)"
       - "traefik.http.routers.django.entrypoints=web"
     expose:
       - "8000"
