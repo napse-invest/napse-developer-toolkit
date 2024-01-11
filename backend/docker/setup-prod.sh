@@ -68,7 +68,7 @@ services:
     image: "traefik:v2.9.5"
     container_name: traefik
     command:
-      - "--log.level=INFO"
+      - "--log.level=DEBUG"
       - "--api.insecure=true"
       - "--providers.docker=true"
       - "--providers.docker.exposedbydefault=false"
