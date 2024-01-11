@@ -23,7 +23,8 @@ DATABASES = {
 # https://docs.djangoproject.com/en/4.2/ref/settings/#default-auto-field
 
 DEFAULT_AUTO_FIELD = "django.db.models.BigAutoField"
-ALLOWED_HOSTS = ["django", "localhost", "0.0.0.0", "127.0.0.1", "*"]  # noqa: S104
+ALLOWED_HOSTS = ["django", env("NAPSE_API_DOMAIN")]
+print(ALLOWED_HOSTS)
 
 
 @receiver(connection_created)
@@ -35,5 +36,5 @@ def set_busy_timeout(sender, connection, **kwargs):
 
 connection_created.connect(set_busy_timeout)
 
-CORS_ALLOWED_ORIGINS = [f"http://{host}:8888" for host in ALLOWED_HOSTS]
-CSRF_TRUSTED_ORIGINS = [f"http://{host}:8888" for host in ALLOWED_HOSTS]
+CORS_ALLOWED_ORIGINS = ["http://django", f"http://{env('NAPSE_API_DOMAIN')}"]
+CSRF_TRUSTED_ORIGINS = [f"http://{host}" for host in ALLOWED_HOSTS]

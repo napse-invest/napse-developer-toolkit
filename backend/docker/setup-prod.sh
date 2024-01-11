@@ -5,7 +5,6 @@ touch provisionEB/config.json
 
 cat <<EOF >provisionEB/docker-compose.yml
 version: '3'
-
 name: napse-dtk-production
 
 volumes:
@@ -23,13 +22,14 @@ services:
       - AWS_ACCESS_KEY_ID
       - AWS_SECRET_ACCESS_KEY
       - AWS_S3_BUCKET_URI
+      - NAPSE_API_DOMAIN
     platform: linux/x86_64
     depends_on:
       - redis
     command: /start
     labels:
       - "traefik.enable=true"
-      - "traefik.http.routers.django.rule=Host($(napse-env.eba-jzjxxzqx.eu-west-3.elasticbeanstalk.com))"
+      - "traefik.http.routers.django.rule=Host(\`\$NAPSE_API_DOMAIN\`)"
       - "traefik.http.routers.django.entrypoints=web"
     expose:
       - "8000"
@@ -68,7 +68,7 @@ services:
     image: "traefik:v2.9.5"
     container_name: traefik
     command:
-      - "--log.level=DEBUG"
+      - "--log.level=INFO"
       - "--api.insecure=true"
       - "--providers.docker=true"
       - "--providers.docker.exposedbydefault=false"
