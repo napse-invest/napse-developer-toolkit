@@ -36,7 +36,7 @@ services:
   celeryworker:
     <<: *django
     container_name: napse_dtk_prod_celeryworker
-    restart: always
+    restart: on-failure
     depends_on:
       - redis
       - django
@@ -48,7 +48,7 @@ services:
   celerybeat:
     <<: *django
     container_name: napse_dtk_prod_celerybeat
-    restart: always
+    restart: on-failure
     depends_on:
       - redis
       - django

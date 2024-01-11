@@ -9,7 +9,7 @@ REDIS_URL="redis://redis:6379/0"
 
 # Django
 # ------------------------------------------------------------------------------
-DJANGO_DEBUG=True
+DJANGO_DEBUG=False
 IS_LOCAL=False
 DJANGO_SETTINGS_MODULE="config.settings.production"
 

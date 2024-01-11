@@ -43,6 +43,7 @@ services:
   celeryworker:
     <<: *django
     container_name: celeryworker
+    restart: on-failure
     depends_on:
       - redis
       - django
@@ -54,6 +55,7 @@ services:
   celerybeat:
     <<: *django
     container_name: celerybeat
+    restart: on-failure
     depends_on:
       - redis
       - django
@@ -117,6 +119,7 @@ REDIS_URL="redis://redis:6379/0"
 # ------------------------------------------------------------------------------
 DJANGO_DEBUG=False
 IS_LOCAL=False
+DJANGO_SETTINGS_MODULE="config.settings.production"
 
 # To fill in in JS
 # ------------------------------------------------------------------------------
