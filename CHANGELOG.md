@@ -1,3 +1,10 @@
+## [1.4.8](https://github.com/napse-invest/napse-developer-toolkit/compare/v1.4.7...v1.4.8) (2024-01-11)
+
+
+### Bug Fixes
+
+* **docker-compose:** setup prod file not up to date ([caa8841](https://github.com/napse-invest/napse-developer-toolkit/commit/caa884119907386ae99970784b942049d9e099d6))
+
 ## [1.4.7](https://github.com/napse-invest/napse-developer-toolkit/compare/v1.4.6...v1.4.7) (2024-01-11)
 
 
