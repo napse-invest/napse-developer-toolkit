@@ -30,6 +30,7 @@ services:
       - AWS_ACCESS_KEY_ID
       - AWS_SECRET_ACCESS_KEY
       - AWS_S3_BUCKET_URI
+      - NAPSE_API_DOMAIN
     volumes:
       - db_volume:/app/db
 
@@ -61,7 +62,7 @@ services:
     image: "traefik:v2.9.5"
     container_name: napse_dtk_prod_traefik
     command:
-      - "--log.level=DEBUG"
+      - "--log.level=INFO"
       - "--api.insecure=true"
       - "--providers.docker=true"
       - "--providers.docker.exposedbydefault=false"
