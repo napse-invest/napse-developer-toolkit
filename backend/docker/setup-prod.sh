@@ -29,7 +29,7 @@ services:
     command: /start
     labels:
       - "traefik.enable=true"
-      - "traefik.http.routers.django.rule=Host(`napse-env.eba-jzjxxzqx.eu-west-3.elasticbeanstalk.com`)"
+      - "traefik.http.routers.django.rule=Host($(napse-env.eba-jzjxxzqx.eu-west-3.elasticbeanstalk.com))"
       - "traefik.http.routers.django.entrypoints=web"
     expose:
       - "8000"
@@ -68,7 +68,7 @@ services:
     image: "traefik:v2.9.5"
     container_name: traefik
     command:
-      - "--log.level=INFO"
+      - "--log.level=DEBUG"
       - "--api.insecure=true"
       - "--providers.docker=true"
       - "--providers.docker.exposedbydefault=false"
