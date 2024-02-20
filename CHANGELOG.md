@@ -1,3 +1,10 @@
+## [1.4.20](https://github.com/napse-invest/napse-developer-toolkit/compare/v1.4.19...v1.4.20) (2024-02-20)
+
+
+### Bug Fixes
+
+* **gunicorn:** workers bumped to 5 ([3c05ac7](https://github.com/napse-invest/napse-developer-toolkit/commit/3c05ac7267f88b09916f2b1397d846fd9e47e742))
+
 ## [1.4.19](https://github.com/napse-invest/napse-developer-toolkit/compare/v1.4.18...v1.4.19) (2024-02-20)
 
 
