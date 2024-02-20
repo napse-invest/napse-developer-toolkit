@@ -23,7 +23,7 @@ DATABASES = {
 # https://docs.djangoproject.com/en/4.2/ref/settings/#default-auto-field
 
 DEFAULT_AUTO_FIELD = "django.db.models.BigAutoField"
-ALLOWED_HOSTS = ["django", env("NAPSE_API_DOMAIN")]
+ALLOWED_HOSTS = ["django", env("NAPSE_API_DOMAIN"), "localhost"]
 print("ALLOWED_HOSTS", ALLOWED_HOSTS)
 
 

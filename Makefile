@@ -19,6 +19,9 @@ build:
 up:
 	docker compose -f backend/docker/development-${IMAGE}.yml up -d --build --remove-orphans
 
+up-prod:
+	docker compose -f backend/docker/production.yml up -d --build --remove-orphans
+
 down:
 	docker compose -f backend/docker/development-${IMAGE}.yml down
 
