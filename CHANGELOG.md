@@ -1,3 +1,10 @@
+## [1.4.19](https://github.com/napse-invest/napse-developer-toolkit/compare/v1.4.18...v1.4.19) (2024-02-20)
+
+
+### Bug Fixes
+
+* **https:** init ([ca1eade](https://github.com/napse-invest/napse-developer-toolkit/commit/ca1eadecc6d63a367fa96fccaa37e02cd80082c7))
+
 ## [1.4.18](https://github.com/napse-invest/napse-developer-toolkit/compare/v1.4.17...v1.4.18) (2024-02-20)
 
 
