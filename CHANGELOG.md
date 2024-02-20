@@ -1,3 +1,10 @@
+## [1.4.18](https://github.com/napse-invest/napse-developer-toolkit/compare/v1.4.17...v1.4.18) (2024-02-20)
+
+
+### Bug Fixes
+
+* **https:** added localhost to allowed hosts ([3cedfd8](https://github.com/napse-invest/napse-developer-toolkit/commit/3cedfd8db634fd3a8f19e66a9180eb2f339e4ca4))
+
 ## [1.4.17](https://github.com/napse-invest/napse-developer-toolkit/compare/v1.4.16...v1.4.17) (2024-01-11)
 
 
