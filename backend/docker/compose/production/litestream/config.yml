@@ -1,7 +1,7 @@
 access-key-id: $AWS_ACCESS_KEY_ID
 secret-access-key: $AWS_SECRET_ACCESS_KEY
 
-exec: /usr/local/bin/gunicorn config.wsgi --bind 0.0.0.0:8000 --chdir=/app --workers=1 --threads=1 --max-requests 50 --max-requests-jitter 5
+exec: /usr/local/bin/gunicorn config.wsgi --bind 0.0.0.0:8000 --chdir=/app --workers=4 --threads=5 --max-requests 1000 --max-requests-jitter 50
 dbs:
   - path: ./db/db.sqlite3
     replicas:
