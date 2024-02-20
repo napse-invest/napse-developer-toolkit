@@ -30,7 +30,10 @@ services:
     labels:
       - "traefik.enable=true"
       - "traefik.http.routers.django.rule=Host(\`\$NAPSE_API_DOMAIN\`)"
-      - "traefik.http.routers.django.entrypoints=web"
+      - "traefik.http.routers.django.entrypoints=websecure"
+      - "traefik.http.routers.django.tls.certresolver=myresolver"
+      - "traefik.http.services.django.loadbalancer.server.port=8000"
+      
     expose:
       - "8000"
     volumes:
@@ -39,6 +42,27 @@ services:
       core: 
         soft: 0
         hard: 0
+
+  traefik:
+    image: "traefik:v2.9.5"
+    container_name: traefik
+    command:
+      - "--log.level=DEBUG"
+      - "--api.insecure=true"
+      - "--providers.docker=true"
+      - "--providers.docker.exposedbydefault=false"
+      - "--entrypoints.web.address=:80"
+      - "--entrypoints.websecure.address=:443"
+      - "--certificatesresolvers.myresolver.acme.httpchallenge=true"
+      - "--certificatesresolvers.myresolver.acme.httpchallenge.entrypoint=web"
+      - "--certificatesresolvers.myresolver.acme.email=napse.invest@gmail.com"
+      - "--certificatesresolvers.myresolver.acme.storage=/letsencrypt/acme.json"
+    ports:
+      - "80:80"
+      - "443:443"
+    volumes:
+      - "/var/run/docker.sock:/var/run/docker.sock:ro"
+      - "./letsencrypt:/letsencrypt"
 
   celeryworker:
     <<: *django
@@ -63,21 +87,6 @@ services:
     command: /start-celerybeat
     labels:
       - "traefik.enable=false"
-
-  traefik:
-    image: "traefik:v2.9.5"
-    container_name: traefik
-    command:
-      - "--log.level=DEBUG"
-      - "--api.insecure=true"
-      - "--providers.docker=true"
-      - "--providers.docker.exposedbydefault=false"
-      - "--entrypoints.web.address=:80"
-    ports:
-      - "80:80"
-      - "8000:8000"
-    volumes:
-      - "/var/run/docker.sock:/var/run/docker.sock:ro"
 
   redis:
     image: redis:6
