@@ -5,7 +5,7 @@ OS := $(shell uname)
 all: up
 
 setup:
-ifeq ($(OS),Darwin)        # Mac OS X
+ifeq ($(OS),Darwin)
 	./setup-osx.sh
 else ifeq ($(OS),Linux)
 	./setup-unix.sh
