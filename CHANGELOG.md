@@ -1,3 +1,10 @@
+## [1.4.22](https://github.com/napse-invest/napse-developer-toolkit/compare/v1.4.21...v1.4.22) (2024-02-21)
+
+
+### Bug Fixes
+
+* **speed:** replaced api key package version, 10x speed increase ([365269e](https://github.com/napse-invest/napse-developer-toolkit/commit/365269edc38f92ee90b280b1bd5c9fb49789ae8e))
+
 ## [1.4.21](https://github.com/napse-invest/napse-developer-toolkit/compare/v1.4.20...v1.4.21) (2024-02-20)
 
 
