@@ -1,5 +1,5 @@
 brew install python@3.11
-python3.11 -m pip install --upgrade pip
+# python3.11 -m pip install --upgrade pip
 pip3 install virtualenv
 python3 -m virtualenv .venv --python=python3.11
 printf "\n===============================================\nVirtual python environment has been created.\n"

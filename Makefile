@@ -5,7 +5,7 @@ OS := $(shell uname)
 all: up
 
 setup:
-ifeq ($(OS),Darwin)        # Mac OS X
+ifeq ($(OS),Darwin)
 	./setup-osx.sh
 else ifeq ($(OS),Linux)
 	./setup-unix.sh
@@ -18,6 +18,23 @@ build:
 
 up:
 	docker compose -f backend/docker/development-${IMAGE}.yml up -d --build --remove-orphans
+
+up-prod:
+	docker compose -f backend/docker/production.yml up -d --build --remove-orphans
+
+up-no-docker:
+	export DB_SETUP=litestream
+	export DB_ENGINE=SQLITE
+	export USE_DOCKER=no
+	export IPYTHONDIR=/app/.ipython
+	export REDIS_URL=redis://redis:6379/0 
+	export DJANGO_SETTINGS_MODULE=config.settings.development
+	export DJANGO_SECRET_KEY=not_so_secret
+	export DJANGO_DEBUG=True 
+	export IS_LOCAL=True
+	python backend/manage.py makemigrations
+	python backend/manage.py migrate
+	python backend/manage.py runserver_plus
 
 down:
 	docker compose -f backend/docker/development-${IMAGE}.yml down

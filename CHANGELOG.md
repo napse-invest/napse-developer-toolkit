@@ -1,3 +1,45 @@
+## [1.4.23](https://github.com/napse-invest/napse-developer-toolkit/compare/v1.4.22...v1.4.23) (2024-02-21)
+
+
+### Bug Fixes
+
+* **tmp:** tmp ([eeda606](https://github.com/napse-invest/napse-developer-toolkit/commit/eeda606dfb5cbf159759015ed0baf1865083db7b))
+
+## [1.4.22](https://github.com/napse-invest/napse-developer-toolkit/compare/v1.4.21...v1.4.22) (2024-02-21)
+
+
+### Bug Fixes
+
+* **speed:** replaced api key package version, 10x speed increase ([365269e](https://github.com/napse-invest/napse-developer-toolkit/commit/365269edc38f92ee90b280b1bd5c9fb49789ae8e))
+
+## [1.4.21](https://github.com/napse-invest/napse-developer-toolkit/compare/v1.4.20...v1.4.21) (2024-02-20)
+
+
+### Bug Fixes
+
+* **gunicorn:** workers bumped to 2 ([3cf55e1](https://github.com/napse-invest/napse-developer-toolkit/commit/3cf55e1c9d580ea03b7a99f76be8110de5901110))
+
+## [1.4.20](https://github.com/napse-invest/napse-developer-toolkit/compare/v1.4.19...v1.4.20) (2024-02-20)
+
+
+### Bug Fixes
+
+* **gunicorn:** workers bumped to 5 ([3c05ac7](https://github.com/napse-invest/napse-developer-toolkit/commit/3c05ac7267f88b09916f2b1397d846fd9e47e742))
+
+## [1.4.19](https://github.com/napse-invest/napse-developer-toolkit/compare/v1.4.18...v1.4.19) (2024-02-20)
+
+
+### Bug Fixes
+
+* **https:** init ([ca1eade](https://github.com/napse-invest/napse-developer-toolkit/commit/ca1eadecc6d63a367fa96fccaa37e02cd80082c7))
+
+## [1.4.18](https://github.com/napse-invest/napse-developer-toolkit/compare/v1.4.17...v1.4.18) (2024-02-20)
+
+
+### Bug Fixes
+
+* **https:** added localhost to allowed hosts ([3cedfd8](https://github.com/napse-invest/napse-developer-toolkit/commit/3cedfd8db634fd3a8f19e66a9180eb2f339e4ca4))
+
 ## [1.4.17](https://github.com/napse-invest/napse-developer-toolkit/compare/v1.4.16...v1.4.17) (2024-01-11)
 
 
