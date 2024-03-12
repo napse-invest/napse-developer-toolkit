@@ -31,10 +31,14 @@ def sync_master_key_s3(sender, **kwargs):
     if "AWS_ACCESS_KEY_ID" not in env or "AWS_SECRET_ACCESS_KEY" not in env or "AWS_S3_BUCKET_URI" not in env:
         print("AWS credentials not found. Skipping sync_master_key_s3")
         return
-
+    bucket_name = env("AWS_S3_BUCKET_URI").split("s3://")[1].split("/")[0]
     if needs_to_sync():
         with suppress(ClientError):
-            pull_file_from_s3(napse_settings.NAPSE_SECRETS_FILE_PATH, "napse-eb-bucket", "napse-secrets.json")
+            pull_file_from_s3(
+                napse_settings.NAPSE_SECRETS_FILE_PATH,
+                bucket_name,
+                "napse-secrets.json",
+            )
 
     master_key_created = False
     counter = 0
@@ -53,4 +57,4 @@ def sync_master_key_s3(sender, **kwargs):
             raise ValueError(error_msg)
 
     if needs_to_sync():
-        sync_file_with_s3(napse_settings.NAPSE_SECRETS_FILE_PATH, "napse-eb-bucket", "napse-secrets.json")
+        sync_file_with_s3(napse_settings.NAPSE_SECRETS_FILE_PATH, bucket_name, "napse-secrets.json")
