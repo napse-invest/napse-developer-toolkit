@@ -1,3 +1,10 @@
+## [1.4.24](https://github.com/napse-invest/napse-developer-toolkit/compare/v1.4.23...v1.4.24) (2024-03-12)
+
+
+### Bug Fixes
+
+* **cors:** added app://. ([d1b3e5d](https://github.com/napse-invest/napse-developer-toolkit/commit/d1b3e5df71c32de3021d8686664923de6809e206))
+
 ## [1.4.23](https://github.com/napse-invest/napse-developer-toolkit/compare/v1.4.22...v1.4.23) (2024-02-21)
 
 
