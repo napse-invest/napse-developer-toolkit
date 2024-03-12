@@ -5,7 +5,7 @@ pytz==2023.3.post1  # https://github.com/stub42/pytz
 Pillow==10.2.0  # https://github.com/python-pillow/Pillow
 argon2-cffi==23.1.0  # https://github.com/hynek/argon2_cffi
 hiredis==2.3.2  # https://github.com/redis/hiredis-py
-redis==5.0.1  # https://github.com/redis/redis-py
+redis==5.0.3  # https://github.com/redis/redis-py
 celery==5.3.6  # pyup: < 6.0  # https://github.com/celery/celery
 flower==2.0.1  # https://github.com/mher/flower
 
@@ -13,7 +13,7 @@ flower==2.0.1  # https://github.com/mher/flower
 # # ------------------------------------------------------------------------------
 django==4.2.7 # https://www.djangoproject.com/
 djangorestframework-simplejwt==5.3.1 # https://github.com/jazzband/djangorestframework-simplejwt
-django-health-check==3.17.0 # https://github.com/revsys/django-health-check
+django-health-check==3.18.1 # https://github.com/revsys/django-health-check
 django-environ==0.11.2 # https://github.com/joke2k/django-environ
 django-celery-beat==2.5.0  # https://github.com/celery/django-celery-beat
 django-extensions==3.2.3  # https://github.com/django-extensions/django-extensions
