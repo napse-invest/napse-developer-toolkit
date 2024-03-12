@@ -24,7 +24,6 @@ DATABASES = {
 
 DEFAULT_AUTO_FIELD = "django.db.models.BigAutoField"
 ALLOWED_HOSTS = ["django", env("NAPSE_API_DOMAIN"), "localhost"]
-print("ALLOWED_HOSTS", ALLOWED_HOSTS)
 
 
 @receiver(connection_created)
