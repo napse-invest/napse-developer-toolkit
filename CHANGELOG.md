@@ -1,3 +1,10 @@
+## [1.4.25](https://github.com/napse-invest/napse-developer-toolkit/compare/v1.4.24...v1.4.25) (2024-03-12)
+
+
+### Bug Fixes
+
+* **cors:** changed bucket name ([62be4bb](https://github.com/napse-invest/napse-developer-toolkit/commit/62be4bb7a8bd1a6e9f88c6553568dc1fe964b4de))
+
 ## [1.4.24](https://github.com/napse-invest/napse-developer-toolkit/compare/v1.4.23...v1.4.24) (2024-03-12)
 
 
