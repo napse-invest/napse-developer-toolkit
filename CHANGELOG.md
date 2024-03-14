@@ -1,3 +1,10 @@
+## [1.4.31](https://github.com/napse-invest/napse-developer-toolkit/compare/v1.4.30...v1.4.31) (2024-03-14)
+
+
+### Bug Fixes
+
+* **logging:** weird settings import ([ef07d9b](https://github.com/napse-invest/napse-developer-toolkit/commit/ef07d9be3d4e133836e7ab7e24e1245fbab08ee4))
+
 ## [1.4.30](https://github.com/napse-invest/napse-developer-toolkit/compare/v1.4.29...v1.4.30) (2024-03-14)
 
 
