@@ -1,3 +1,10 @@
+## [1.4.30](https://github.com/napse-invest/napse-developer-toolkit/compare/v1.4.29...v1.4.30) (2024-03-14)
+
+
+### Bug Fixes
+
+* **djn:** bump version ([f2d08c3](https://github.com/napse-invest/napse-developer-toolkit/commit/f2d08c3238d032599aaf877a3a18cbb16bd2668e))
+
 ## [1.4.29](https://github.com/napse-invest/napse-developer-toolkit/compare/v1.4.28...v1.4.29) (2024-03-13)
 
 
