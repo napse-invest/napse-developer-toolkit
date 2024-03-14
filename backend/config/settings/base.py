@@ -60,6 +60,7 @@ HEALTHCHECK_CELERY_TIMEOUT = 10
 # ALLOWED_HOSTS = ["django"]
 
 NAPSE_SECRETS_FILE_PATH = ROOT_DIR / "secrets.json"
+NAPSE_ENV_FILE_PATH = ROOT_DIR / ".env"
 NAPSE_EXCHANGE_CONFIGS = {
     "BINANCE": {
         "description": "Binance exchange. More info: https://www.binance.com/en",

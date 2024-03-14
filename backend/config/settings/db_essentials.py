@@ -1,7 +1,6 @@
 import json
 from contextlib import suppress
 from datetime import datetime, timedelta
-from pprint import pprint
 from time import sleep
 
 import environ
@@ -45,7 +44,6 @@ def sync_master_key_s3(sender, **kwargs):
     while not master_key_created:
         with open(napse_settings.NAPSE_SECRETS_FILE_PATH, "r") as f:
             data = json.load(f)
-            pprint(data)
         if "master_key" in data:
             master_key_created = True
             break
